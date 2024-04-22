@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 214 27.37% 7.55%;
+    --foreground: 212 16% 82%;
+    --muted: 214 12% 16%;
+    --muted-foreground: 214 12% 66%;
+    --popover: 214 27% 9%;
+    --popover-foreground: 212 16% 92%;
+    --card: 214 23.58% 9.03%;
+    --card-foreground: 212 16% 87%;
+    --border: 214 17% 17%;
+    --input: 214 17% 20%;
+    --primary: 194.72 85% 45%;
+    --primary-foreground: 189 85% 5%;
+    --secondary: 221.89 18.13% 22.46%;
+    --secondary-foreground: 189 30% 85%;
+    --accent: 221.89 18.13% 22.46%;
+    --accent-foreground: 214 27% 87%;
+    --destructive: 6 96% 59%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 215.09 100% 98.03%;
+
+    --radius: 0.4rem;
+  }
+
+  .cyberpunk {
+    --background: 253 41% 19%;
+    --foreground: 157 100% 50%;
+    --muted: 253 12% 23%;
+    --muted-foreground: 253 12% 73%;
+    --popover: 253 41% 16%;
+    --popover-foreground: 157 100% 60%;
+    --card: 253 41% 17%;
+    --card-foreground: 157 100% 55%;
+    --border: 253 31% 24%;
+    --input: 253 31% 27%;
+    --primary: 167 100% 50%;
+    --primary-foreground: 167 100% 10%;
+    --secondary: 167 30% 25%;
+    --secondary-foreground: 167 30% 85%;
+    --accent: 253 41% 34%;
+    --accent-foreground: 254 41% 94%;
+    --destructive: 5 92% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 167 100% 50%;
+  }
+
+  .bluelight {
+    --background: 230 8% 85%;
+    --foreground: 229 26% 28%;
+    --muted: 230 12% 81%;
+    --muted-foreground: 230 12% 21%;
+    --popover: 230 8% 82%;
+    --popover-foreground: 229 26% 18%;
+    --card: 230 8% 83%;
+    --card-foreground: 229 26% 23%;
+    --border: 0 0% 80%;
+    --input: 0 0% 77%;
+    --primary: 223 42% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 223 30% 75%;
+    --secondary-foreground: 223 30% 15%;
+    --accent: 230 8% 70%;
+    --accent-foreground: 230 8% 10%;
+    --destructive: 2 82% 30%;
+    --destructive-foreground: 2 82% 90%;
+    --ring: 223 42% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  .loader {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .loader div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .loader div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .loader div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .loader div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
