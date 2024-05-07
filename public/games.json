@@ -21,7 +21,18 @@
   },
   {
     "title": "Bitlife",
-    "image": "https://picsum.photos/id/870/200/300?grayscale&blur=2",
+    "image": "https://static.wikia.nocookie.net/logopedia/images/9/99/Bitlife.png/revision/latest?cb=20230208011106",
     "url": "https://assets.3kh0.net/bitlife/"
+  },
+  {
+    "title": "Craftmine",
+    "image": "https://www.onlinegames.io/media/posts/687/Craftmine.jpg",
+    "url": "https://assets.3kh0.net/craftmine/"
+  },
+  {
+    "title": "BTTS",
+    "image": "https://bitlifeonline.io/upload/imgs/big-tower-tiny-square.jpg",
+    "url": "https://assets.3kh0.net/btts/"
   }
+  
 ]
