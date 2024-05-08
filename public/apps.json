@@ -23,5 +23,10 @@
     "title": "Netflix",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2AjTdaCLMDqve6XA2KRTSLYAlGz_jFxl38FwxODg-Tg&s",
     "url": "https://netflix.com"
+  },
+  {
+    "title": "Ebay",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU30fqLFW28XvhgVYWC1zlMzxyxRkX8EsH0rTprh7IHA&s",
+    "url": "https://ebay.com"
   }
 ]
