@@ -13,5 +13,15 @@
     "title": "Amazon",
     "image": "https://policyviz.com/wp-content/uploads/2020/12/amazon-logo-square.jpg",
     "url": "https://amazon.com"
+  },
+  {
+    "title": "Tiktok",
+    "image": "https://pbs.twimg.com/profile_images/1526677021325246467/XKZ6RetO_400x400.jpg",
+    "url": "https://tiktok.com"
+  },
+  {
+    "title": "Netflix",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2AjTdaCLMDqve6XA2KRTSLYAlGz_jFxl38FwxODg-Tg&s",
+    "url": "https://netflix.com"
   }
 ]
