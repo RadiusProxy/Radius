@@ -1,5 +1,10 @@
 [
   {
+    "title": "Suggest a game",
+    "image": "https://t4.ftcdn.net/jpg/01/26/10/59/360_F_126105961_6vHCTRX2cPOnQTBvx9OSAwRUapYTEmYA.jpg",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSeI5pSQCeR3nW5yCW0KrNXrB8c_yMIqqD4rjxa6OiiZmEZXMQ/viewform"
+  },
+  {
     "title": "2048",
     "image": "https://gabrielecirulli.github.io/2048/meta/og_image.png",
     "url": "https://assets.3kh0.net/2048"
@@ -25,9 +30,29 @@
     "url": "https://assets.3kh0.net/craftmine/"
   },
   {
-    "title": "BTTS",
-    "image": "https://bitlifeonline.io/upload/imgs/big-tower-tiny-square.jpg",
-    "url": "https://assets.3kh0.net/btts/"
+    "title": "Cookie Clicker",
+    "image": "https://m.media-amazon.com/images/I/71VSpLvjtaL.png",
+    "url": "https://assets.3kh0.net/cookie-clicker/"
+  },
+  {
+    "title": "Drift Boss",
+    "image": "https://cookieclicker.one/upload/imgs/game/drift-boss.jpeg",
+    "url": "https://assets.3kh0.net/drift-boss/"
+  },
+  {
+    "title": "Geometry Dash",
+    "image": "https://i.pinimg.com/originals/0e/7d/84/0e7d8406a8571a3f2e35c648595ab584.png",
+    "url": "https://assets.3kh0.net/geodash/"
+  },
+  {
+    "title": "Flappy Bird",
+    "image": "https://a0.anyrgb.com/pngimg/1624/504/flappy-bird-xbox-360-minecraft-pixel-art-art-museum-gaming-video-game-square-rectangle-yellow.png",
+    "url": "https://assets.3kh0.net/flappy-bird/"
+  },
+  {
+    "title": "Fruit Ninja",
+    "image": "https://www.bigant.com/wp/wp-content/uploads/2015/06/square_400x400_fn.jpg",
+    "url": "https://assets.3kh0.net/fruitninja/"
   }
   
 ]
