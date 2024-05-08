@@ -8,5 +8,10 @@
     "title": "Temu",
     "image": "https://upload.wikimedia.org/wikipedia/en/a/a6/Temu_logo.svg",
     "url": "https://temu.com"
+  },
+  {
+    "title": "Amazon",
+    "image": "https://policyviz.com/wp-content/uploads/2020/12/amazon-logo-square.jpg",
+    "url": "https://amazon.com"
   }
 ]
