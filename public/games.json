@@ -58,6 +58,16 @@
     "title": "Crazy Games",
     "image": "https://images.crazygames.com/favicons/manifest-icon-transparent-2.png?auto=format%2Ccompress&q=45&cs=strip&ch=DPR",
     "url": "https://www.crazygames.com/"
+  },
+  {
+    "title": "Coolmathgames",
+    "image": "https://static.wikia.nocookie.net/youtube/images/b/b5/Coolmath_Games.png/revision/latest?cb=20211127192130",
+    "url": "https://coolmathgames.com/"
+  },
+  {
+    "title": "Minesweeper",
+    "image": "https://play-lh.googleusercontent.com/W9J-umdekIKo8CVAy8HHmBkdaf49UpoQTAs9zvV-Eu8Djbv8j-29ej6EMaOQmKDIzUg",
+    "url": "https://assets.3kh0.net/minesweeper/"
   }
   
 ]
