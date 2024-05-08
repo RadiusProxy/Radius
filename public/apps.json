@@ -28,5 +28,10 @@
     "title": "Ebay",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU30fqLFW28XvhgVYWC1zlMzxyxRkX8EsH0rTprh7IHA&s",
     "url": "https://ebay.com"
+  },
+  {
+    "title": "Spotify",
+    "image": "https://developer.spotify.com/images/guidelines/design/icon3@2x.png",
+    "url": "https://spotify.com"
   }
 ]
