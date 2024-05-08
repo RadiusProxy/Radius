@@ -58,6 +58,16 @@
     "title": "Crazy Games",
     "image": "https://images.crazygames.com/favicons/manifest-icon-transparent-2.png?auto=format%2Ccompress&q=45&cs=strip&ch=DPR",
     "url": "https://www.crazygames.com/"
+  },
+  {
+    "title": "Cookie Clicker",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_W3AeR82KOr7bBZm81gdzh1FBsQuCBwBw5g&usqp=CAU",
+    "url": "https://orteil.dashnet.org/cookieclicker/"
+  },
+  {
+    "title": "little Alchemy",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMcwnAaXwUDc6ZsD6pusHRVF0PPAvvKt9B-Q&usqp=CAU",
+    "url": "https://littlealchemy.com/"
   }
   
 ]
