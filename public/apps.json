@@ -6,13 +6,47 @@
   },
   {
     "title": "Temu",
-    "image": "https://upload.wikimedia.org/wikipedia/en/a/a6/Temu_logo.svg",
+    "image": "https://www.homepagenews.com/wp-content/uploads/2024/01/temu-logo.jpg",
     "url": "https://temu.com"
   },
   {
+    "title": "Amazon",
+    "image": "https://policyviz.com/wp-content/uploads/2020/12/amazon-logo-square.jpg",
+    "url": "https://amazon.com"
+  },
+  {
+    "title": "Tiktok",
+    "image": "https://pbs.twimg.com/profile_images/1526677021325246467/XKZ6RetO_400x400.jpg",
+    "url": "https://tiktok.com"
+  },
+  {
+    "title": "Netflix",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2AjTdaCLMDqve6XA2KRTSLYAlGz_jFxl38FwxODg-Tg&s",
+    "url": "https://netflix.com"
+  },
+  {
+    "title": "Ebay",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU30fqLFW28XvhgVYWC1zlMzxyxRkX8EsH0rTprh7IHA&s",
+    "url": "https://ebay.com"
+  },
+  {
+    "title": "Spotify",
+    "image": "https://developer.spotify.com/images/guidelines/design/icon3@2x.png",
+    "url": "https://spotify.com"
+  },
+  {
+    "title": "Pinterest",
+    "image": "https://static-00.iconduck.com/assets.00/pinterest-icon-512x512-3vn0ggs9.png",
+    "url": "https://https://www.pinterest.com"
+  },
+  {
     "title": "Wattpad",
-    "image": "https://static-00.iconduck.com/assets.00/wattpad-icon-512x512-e05d5ldl.png",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJMeb5uMzp-1r6iNaGlXCJaG7GMKeCRU5fhBgegM1V5w&s",
     "url": "https://www.wattpad.com/home"
+  },
+  {
+    "title": "Facebook",
+    "image": "https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png",
+    "url": "https://facebook.com/home"
   }
-  
 ]
