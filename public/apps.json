@@ -53,5 +53,9 @@
     "title": "Invidious - Youtube",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Invidious-logo.svg/1200px-Invidious-logo.svg.png",
     "url": "https://yewtu.be"
-  }
+  },
+  {
+    "title": "Github",
+    "image": "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
+    "url": "https://github.com"
 ]
