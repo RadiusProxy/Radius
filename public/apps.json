@@ -48,5 +48,10 @@
     "title": "Facebook",
     "image": "https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png",
     "url": "https://facebook.com/home"
+  },
+  {
+    "title": "Invidious - Youtube",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Invidious-logo.svg/1200px-Invidious-logo.svg.png",
+    "url": "https://yewtu.be"
   }
 ]
