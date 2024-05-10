@@ -78,5 +78,10 @@
     "title": "Hulu",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGDHz4vU71XrFJB2C-ePboHqp7U4-OyH93KDWUTyPjCg&s",
     "url": "https://auth.hulu.com/web/login/enter-email"
+  },
+  {
+    "title": "Disney+",
+    "image": "https://seeklogo.com/images/D/disney-logo-9649A88458-seeklogo.com.png",
+    "url": "https://www.disneyplus.com/identity/login/enter-email"
   }
 ]
