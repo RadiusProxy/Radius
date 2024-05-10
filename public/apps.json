@@ -45,6 +45,11 @@
     "url": "https://www.wattpad.com/home"
   },
   {
+    "title": "Webtoon",
+    "image": "https://theme.zdassets.com/theme_assets/9323417/c541093abee59ccf5c780a3d244d3eef8d663fbd.png",
+    "url": "https://www.webtoons.com/en/"
+  },
+  {
     "title": "Facebook",
     "image": "https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png",
     "url": "https://facebook.com/home"
@@ -58,6 +63,11 @@
     "title": "Github - NOT WORKING",
     "image": "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
     "url": "https://github.com"
+  },
+  {
+    "title": "Vercel",
+    "image": "https://images.ctfassets.net/c63hsprlvlya/1zUViz84vavghFDIK1qmlm/8be7ec39bf58472414e212d7547e7f8b/Vercel__Zeit_.jpeg?w=1200",
+    "url": "https://vercel.com/"
   },
   {
     "title": "Snapchat",
