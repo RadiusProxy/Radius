@@ -1,13 +1,13 @@
 [
   {
     "title": "Suggest a game",
-    "image": "https://t4.ftcdn.net/jpg/01/26/10/59/360_F_126105961_6vHCTRX2cPOnQTBvx9OSAwRUapYTEmYA.jpg",
+    "image": "https://logowik.com/content/uploads/images/google-forms8392.jpg",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSeI5pSQCeR3nW5yCW0KrNXrB8c_yMIqqD4rjxa6OiiZmEZXMQ/viewform"
   },
   {
     "title": "2048",
     "image": "https://gabrielecirulli.github.io/2048/meta/og_image.png",
-    "url": "https://assets.3kh0.net/2048"
+    "url": "https://play2048.co"
   },
   {
     "title": "Roblox",
@@ -27,12 +27,12 @@
   {
     "title": "Craftmine",
     "image": "https://www.onlinegames.io/media/posts/687/Craftmine.jpg",
-    "url": "https://assets.3kh0.net/craftmine/"
+    "url": "https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/bobydob/JSEngine@bdd7d45deaeaa50131e1913f2f0598cf147f8c56/build/crmine/crmi.xml&container=ig"
   },
   {
     "title": "Cookie Clicker",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVpIAZIC0tWJWqnPS73byV3nYGQtZfrpnuhJCMDKEmpQ&s",
-    "url": "https://assets.3kh0.net/cookie-clicker/"
+    "url": "https://orteil.dashnet.org/cookieclicker/"
   },
   {
     "title": "Drift Boss",
@@ -144,6 +144,16 @@
     "title": "Black Knight",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbVA-olvzdR-RBPrZkmPhNUg3UxQrF0wBL4cgEgcSEPy-bFpIYt9S8mhuf:https://www3.minijuegosgratis.com/v3/games/thumbnails/4015_7_sq.jpg&s",
     "url": "https://assets.3kh0.net/blackknight/"
+  },
+  {
+    "title": "1v1.LOL",
+    "image": "https://img.utdstc.com/icon/983/22a/98322a3b2be892eed31589906ffd949b68bcccc9a21ba562987965b5ec6bc6de:200",
+    "url": "https://1v1.lol"
+  },
+   {
+    "title": "Deadshot",
+    "image": "https://deadshot.io/promo/thumbnail.png",
+    "url": "https://deadshot.io"
   }
   
 ]

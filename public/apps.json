@@ -55,8 +55,48 @@
     "url": "https://yewtu.be"
   },
   {
-    "title": "Github",
+    "title": "Github - NOT WORKING",
     "image": "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
     "url": "https://github.com"
+  },
+  {
+    "title": "Snapchat",
+    "image": "https://www.freeiconspng.com/thumbs/snapchat-icon/snapchat-logo-1-18.jpg",
+    "url": "https://www.snapchat.com"
+  },
+  {
+    "title": "X - Twitter",
+    "image": "https://i.etsystatic.com/7628211/r/il/bf5665/5167793793/il_570xN.5167793793_f4yw.jpg",
+    "url": "https://twitter.com"
+  },
+  {
+    "title": "Doulingo",
+    "image": "https://www.cnet.com/a/img/resize/24447ff676dae58206bba802cacc3d98b80f08c4/hub/2019/10/22/868877c5-0369-48ac-82bd-2a1bcfd2dcfb/duolingo-app-icon.png?auto=webp&width=768",
+    "url": "https://www.duolingo.com"
+  },
+  {
+    "title": "Hulu",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGDHz4vU71XrFJB2C-ePboHqp7U4-OyH93KDWUTyPjCg&s",
+    "url": "https://auth.hulu.com/web/login/enter-email"
+  },
+  {
+    "title": "Disney+",
+    "image": "https://seeklogo.com/images/D/disney-logo-9649A88458-seeklogo.com.png",
+    "url": "https://www.disneyplus.com/identity/login/enter-email"
+  },
+  {
+    "title": "Peacock",
+    "image": "https://seeklogo.com/images/P/peacock-logo-9B84CDB551-seeklogo.com.png",
+    "url": "https://www.peacocktv.com/start"
+  },
+  {
+    "title": "ESPN",
+    "image": "https://i.pinimg.com/originals/b0/8c/a2/b08ca28a898d71814dce11d169d401be.jpg",
+    "url": "https://www.espn.com"
+  },
+  {
+    "title": "Paramount Plus",
+    "image": "https://assets-prd.ignimgs.com/2022/09/22/service-paramount-plus-1663819407717.jpg",
+    "url": "https://www.paramountplus.com"
   }
 ]
