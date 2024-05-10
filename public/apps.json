@@ -58,10 +58,15 @@
     "title": "Github -NOT WORKING-",
     "image": "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
     "url": "https://github.com"
-  }
+  },
   {
     "title": "Snapchat",
     "image": "https://www.freeiconspng.com/thumbs/snapchat-icon/snapchat-logo-1-18.jpg",
     "url": "https://www.snapchat.com"
+  },
+  {
+    "title": "X - Twitter",
+    "image": "https://i.etsystatic.com/7628211/r/il/bf5665/5167793793/il_570xN.5167793793_f4yw.jpg",
+    "url": "https://twitter.com"
   }
 ]
