@@ -15,6 +15,11 @@
     "url": "https://now.gg/play/roblox-corporation/5349/roblox"
   },
   {
+    "title": "N-Gon",
+    "image": "https://img.itch.zone/aW1nLzI2OTY3MDAucG5n/original/kb8XuC.png",
+    "url": "https://landgreen.github.io/n-gon/"
+  },
+  {
     "title": "Geforce Now",
     "image": "https://pbs.twimg.com/profile_images/1577059981215485952/8z9zeDIT_400x400.jpg",
     "url": "https://play.geforcenow.com"
@@ -22,7 +27,7 @@
   {
     "title": "Bitlife",
     "image": "https://d.newsweek.com/en/full/1317374/bitlife-ribbons-how-get-all-complete-list-android-ios-cheats-guide-tips-become.jpg?w=1600&h=1600&q=88&f=75befc746fb83a0c568c44ca07bc5e64",
-    "url": "https://assets.3kh0.net/bitlife/"
+    "url": "https://xlegends.github.io/bitlife/"
   },
   {
     "title": "Craftmine",
@@ -156,9 +161,49 @@
     "url": "https://1v1.lol"
   },
    {
-    "title": "Deadshot",
-    "image": "https://deadshot.io/promo/thumbnail.png",
-    "url": "https://deadshot.io"
+    "title": "Agar.io",
+    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/74dde874431127.Y3JvcCw4NjIsNjc1LDE2OCww.jpg",
+    "url": "https://agar.io"
+  },
+  {
+    "title": "ev.io",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOtin16xpBCwu3ulrZ7QXFO-q-YeFp6o3uzxXGyDOOAw&s",
+    "url": "https://ev.io"
+  },
+  {
+    "title": "florr.io",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcDQ6osFmnSPBUN-BPXtlPL0qRhXb_SgDct53fAx8-UQ&s",
+    "url": "https://florr.io"
+  },
+  {
+    "title": "hole.io",
+    "image": "https://skribblio.online/upload/imgs/hole-io.png",
+    "url": "https://hole-io.com/"
+  },
+  {
+    "title": "justfall.lol",
+    "image": "https://play-lh.googleusercontent.com/-0rSllZ8as88Jcs3iZ7-JCFyTb3YLB-HjR7bY7P6q_2MAswmDH4h1qNPfFiaZqzkkg",
+    "url": "https://justfall.lol"
+  },
+  {
+    "title": "Shell Shockers",
+    "image": "https://cdn-images.threadless.com/threadless-media/artist_shops/shops/bluewizard/products/1617669/original-1621960642-2ac607f273a319bd81ac2f36de28fac5.png?v=3&d=eyJvcHMiOiBbWyJ0cmltIiwgW2ZhbHNlLCBmYWxzZV0sIHt9XSwgWyJyZXNpemUiLCBbXSwgeyJ3aWR0aCI6IDk5Ni4wLCAiYWxsb3dfdXAiOiBmYWxzZSwgImhlaWdodCI6IDk5Ni4wfV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzEyMDAsIDEyMDBdLCB7ImJhY2tncm91bmQiOiAiZmZmZmZmIn1dLCBbInJlc2l6ZSIsIFs4MDBdLCB7fV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzgwMCwgODAwLCAiI2ZmZmZmZiJdLCB7fV0sIFsiZW5jb2RlIiwgWyJqcGciLCA4NV0sIHt9XV0sICJmb3JjZSI6IGZhbHNlLCAib25seV9tZXRhIjogZmFsc2V9",
+    "url": "https://shellshock.io"
+  },
+  {
+    "title": "thelast.io",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU1TIfo7pUsZM199wEVSluAF-l07HWVUF-RhJX7yalBw&s",
+    "url": "https://www.thelast.io/"
+  },
+  {
+    "title": "moomoo.io",
+    "image": "https://play-lh.googleusercontent.com/DKVeKSR1taa_XJ22BxrtBix8kGoGe0KIGp_b_b_19P5ajHjypnFm8NhFKxpFOcB_7PFQ",
+    "url": "https://moomoo.io"
+  },
+  {
+    "title": "Thisissand",
+    "image": "https://play-lh.googleusercontent.com/zx6bFQGyqqu5q9hJdP1UyoY-Nfg_yxym97slxh1_W2G0KOLIkcQuiL1bpnHvlJpWNGI",
+    "url": "https://thisissand.com/"
   }
   
 ]
