@@ -6,17 +6,17 @@
   },
   {
     "title": "2048",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2048_logo.svg/1200px-2048_logo.svg.png",
+    "image": "/images/2048_image.png",
     "url": "https://play2048.co"
   },
   {
     "title": "Roblox",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4rRHAb4D9382rF-w2he2qk31ByYjS03F_eQgNb765p6f7hbicoMzvQigB:https://assets.stickpng.com/images/6294ec0c4609037792ef36f6.png&s",
+    "image": "/images/RobloxLogo.png",
     "url": "https://now.gg/play/roblox-corporation/5349/roblox"
   },
   {
     "title": "N-Gon",
-    "image": "https://img.itch.zone/aW1nLzI2OTY3MDAucG5n/original/kb8XuC.png",
+    "image": "/images/n-gon.png",
     "url": "https://landgreen.github.io/n-gon/"
   },
   {
