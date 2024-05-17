@@ -26,7 +26,7 @@
   },
   {
     "title": "Netflix",
-    "image": "/images/Netflix.jpg",
+    "image": "/images/Netflix.jfif",
     "url": "https://netflix.com"
   },
   {
@@ -56,7 +56,7 @@
   },
   {
     "title": "Facebook",
-    "image": "/images/Facebook.jpg",
+    "image": "/images/Facebook.png",
     "url": "https://facebook.com/home"
   },
   {
@@ -66,7 +66,7 @@
   },
   {
     "title": "Github - NOT WORKING",
-    "image": "/images/Github.png",
+    "image": "/images/GitHub.png",
     "url": "https://github.com"
   },
   {
