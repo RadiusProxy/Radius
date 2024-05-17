@@ -6,122 +6,122 @@
   },
   {
     "title": "Discord",
-    "image": "/images/discord.png",
+    "image": "/images/Discord.jpeg",
     "url": "https://discord.com/app"
   },
   {
     "title": "Temu",
-    "image": "https://1000logos.net/wp-content/uploads/2023/11/Temu-Logo.jpg",
+    "image": "/images/Temu.png",
     "url": "https://temu.com"
   },
   {
     "title": "Amazon",
-    "image": "https://policyviz.com/wp-content/uploads/2020/12/amazon-logo-square.jpg",
+    "image": "/images/Amazon.jpg",
     "url": "https://amazon.com"
   },
   {
     "title": "Tiktok",
-    "image": "https://www.pagetraffic.com/blog/wp-content/uploads/2022/06/new-latest-tiktok-logo-png.png",
+    "image": "/images/Tiktok.png",
     "url": "https://tiktok.com"
   },
   {
     "title": "Netflix",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2AjTdaCLMDqve6XA2KRTSLYAlGz_jFxl38FwxODg-Tg&s",
+    "image": "/images/Netflix.jpg",
     "url": "https://netflix.com"
   },
   {
     "title": "Ebay",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU30fqLFW28XvhgVYWC1zlMzxyxRkX8EsH0rTprh7IHA&s",
+    "image": "/images/Ebay.png",
     "url": "https://ebay.com"
   },
   {
     "title": "Spotify",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png",
+    "image": "/images/Spotify.png",
     "url": "https://spotify.com"
   },
   {
     "title": "Pinterest",
-    "image": "https://www.internetmatters.org/wp-content/uploads/2022/10/pinterest-ft.png",
+    "image": "/images/Pinterest.png",
     "url": "https://www.pinterest.com"
   },
   {
     "title": "Wattpad",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJMeb5uMzp-1r6iNaGlXCJaG7GMKeCRU5fhBgegM1V5w&s",
+    "image": "/images/Wattpad.png",
     "url": "https://www.wattpad.com/home"
   },
   {
     "title": "Webtoon",
-    "image": "https://theme.zdassets.com/theme_assets/9323417/c541093abee59ccf5c780a3d244d3eef8d663fbd.png",
+    "image": "/images/Webtoon.png",
     "url": "https://www.webtoons.com/en/"
   },
   {
     "title": "Facebook",
-    "image": "https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png",
+    "image": "/images/Facebook.jpg",
     "url": "https://facebook.com/home"
   },
   {
     "title": "Invidious - Youtube",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Invidious-logo.svg/1200px-Invidious-logo.svg.png",
+    "image": "/images/Invidious.png",
     "url": "https://yewtu.be"
   },
   {
     "title": "Github - NOT WORKING",
-    "image": "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
+    "image": "/images/Github.png",
     "url": "https://github.com"
   },
   {
     "title": "Vercel",
-    "image": "https://images.ctfassets.net/c63hsprlvlya/1zUViz84vavghFDIK1qmlm/8be7ec39bf58472414e212d7547e7f8b/Vercel__Zeit_.jpeg?w=1200",
+    "image": "/images/Vercel.jpeg",
     "url": "https://vercel.com/"
   },
   {
     "title": "Snapchat",
-    "image": "https://www.freeiconspng.com/thumbs/snapchat-icon/snapchat-logo-1-18.jpg",
+    "image": "/images/Snapchat.jpg",
     "url": "https://www.snapchat.com"
   },
   {
     "title": "X - Twitter",
-    "image": "https://i.etsystatic.com/7628211/r/il/bf5665/5167793793/il_570xN.5167793793_f4yw.jpg",
+    "image": "/images/Twitter.png",
     "url": "https://twitter.com"
   },
   {
     "title": "Doulingo",
-    "image": "https://www.cnet.com/a/img/resize/24447ff676dae58206bba802cacc3d98b80f08c4/hub/2019/10/22/868877c5-0369-48ac-82bd-2a1bcfd2dcfb/duolingo-app-icon.png?auto=webp&width=768",
+    "image": "/images/Duolingo.png",
     "url": "https://www.duolingo.com"
   },
   {
     "title": "Hulu",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGDHz4vU71XrFJB2C-ePboHqp7U4-OyH93KDWUTyPjCg&s",
+    "image": "/images/Hulu.jfif",
     "url": "https://auth.hulu.com/web/login/enter-email"
   },
   {
     "title": "Disney+",
-    "image": "https://seeklogo.com/images/D/disney-logo-9649A88458-seeklogo.com.png",
+    "image": "/images/Disney.png",
     "url": "https://www.disneyplus.com/identity/login/enter-email"
   },
   {
     "title": "Peacock",
-    "image": "https://seeklogo.com/images/P/peacock-logo-9B84CDB551-seeklogo.com.png",
+    "image": "/images/Peacock.png",
     "url": "https://www.peacocktv.com/start"
   },
   {
     "title": "ESPN",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5vBZCuKTJi9ArhYvWDYkHWvDECxq7TGejDLKYK3oL2s80IgkBuv23hgl2:https://assets.stickpng.com/thumbs/5847f1b0cef1014c0b5e485d.png&s",
+    "image": "/images/ESPN.png",
     "url": "https://www.espn.com"
   },
   {
     "title": "Paramount Plus",
-    "image": "https://assets-prd.ignimgs.com/2022/09/22/service-paramount-plus-1663819407717.jpg",
+    "image": "/images/Paramount.jpg",
     "url": "https://www.paramountplus.com"
   },
   {
     "title": "Steam",
-    "image": "https://1000logos.net/wp-content/uploads/2020/08/Logo-Steam.jpg",
+    "image": "/images/Steam.jpg",
     "url": "https://store.steampowered.com"
   },
   {
     "title": "W3Schools",
-    "image": "https://cdn-1.webcatalog.io/catalog/w3schools/w3schools-social-preview.png?v=1714776411512",
+    "image": "/images/W3Schools.png",
     "url": "https://www.w3schools.com"
   }
 ]
