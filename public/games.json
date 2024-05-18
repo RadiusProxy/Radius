@@ -1,258 +1,263 @@
 [
   {
     "title": "Suggest a game",
-    "image": "https://logowik.com/content/uploads/images/google-forms8392.jpg",
+    "image": "/images/google_form.jpg",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSeI5pSQCeR3nW5yCW0KrNXrB8c_yMIqqD4rjxa6OiiZmEZXMQ/viewform"
   },
   {
     "title": "2048",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2048_logo.svg/1200px-2048_logo.svg.png",
+    "image": "/images/2048_image.png",
     "url": "https://play2048.co"
   },
   {
     "title": "Roblox",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4rRHAb4D9382rF-w2he2qk31ByYjS03F_eQgNb765p6f7hbicoMzvQigB:https://assets.stickpng.com/images/6294ec0c4609037792ef36f6.png&s",
+    "image": "/images/RobloxLogo.png",
     "url": "https://now.gg/play/roblox-corporation/5349/roblox"
   },
   {
     "title": "N-Gon",
-    "image": "https://img.itch.zone/aW1nLzI2OTY3MDAucG5n/original/kb8XuC.png",
+    "image": "/images/n-gon.png",
     "url": "https://landgreen.github.io/n-gon/"
   },
   {
     "title": "Geforce Now",
-    "image": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a4c1e581950627.5d0f0adec8557.png",
+    "image": "/images/Geforce_Now.png",
     "url": "https://play.geforcenow.com"
   },
   {
     "title": "Bitlife",
-    "image": "https://d.newsweek.com/en/full/1317374/bitlife-ribbons-how-get-all-complete-list-android-ios-cheats-guide-tips-become.jpg?w=1600&h=1600&q=88&f=75befc746fb83a0c568c44ca07bc5e64",
+    "image": "/images/BitLife.jpg",
     "url": "https://xlegends.github.io/bitlife/"
   },
   {
     "title": "Craftmine",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtGiZJN3DVJjF7r1FYaZ4BDo3wlOV6xNvHcAOFR7ImO76QaeS0jRCFQGEx0H1oyf7sxqs&usqp=CAU",
+    "image": "/images/Craftmine.jpeg",
     "url": "https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/bobydob/JSEngine@bdd7d45deaeaa50131e1913f2f0598cf147f8c56/build/crmine/crmi.xml&container=ig"
   },
   {
     "title": "Cookie Clicker",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVpIAZIC0tWJWqnPS73byV3nYGQtZfrpnuhJCMDKEmpQ&s",
+    "image": "/images/Cookie_Clicker.png",
     "url": "https://orteil.dashnet.org/cookieclicker/"
   },
   {
     "title": "Drift Boss",
-    "image": "https://m.media-amazon.com/images/I/71Rvyj1gI1L.png",
+    "image": "/images/drift_boss.png",
     "url": "https://driftbossunblocked.github.io/"
   },
   {
     "title": "Drive Mad",
-    "image": "https://play-lh.googleusercontent.com/kv4wazckUtDAxl6pWdWSIX3Avm4bcmpREoPGowlwEZ6mO8sGU4kivQVl5gzD7foraA",
+    "image": "/images/Drive_Mad.png",
     "url": "https://ubg77.github.io/game131022/drive-mad/"
   },
   {
     "title": "Parking Fury",
-    "image": "https://play-lh.googleusercontent.com/DgyqJCW3t0o7prr-6dajdhox4p7maqchfBAArxD5JRwbG-20AxXR7RJbgs6kW8cRjkm0",
+    "image": "/images/Parking_Fury.png",
     "url": "https://webglmath.github.io/parking-fury/"
   },
   {
     "title": "Parking Fury 2",
-    "image": "https://m.media-amazon.com/images/I/81Q2eOxursL.png",
+    "image": "/images/Parking_Fury2.png",
     "url": "https://webglmath.github.io/parking-fury-2/"
   },
   {
     "title": "Parking Fury 3",
-    "image": "https://s3.amazonaws.com/kzs3files/kidzsearchgl-parking-fury-3-ks120414-158421-img.png",
+    "image": "/images/Parking_Fury3.jpg",
     "url": "https://webglmath.github.io/parking-fury-3/"
   },
   {
     "title": "Geometry Dash",
-    "image": "https://upload.wikimedia.org/wikipedia/en/3/35/Geometry_Dash_Logo.PNG",
+    "image": "/images/Geometry_Dash.png",
     "url": "https://assets.3kh0.net/geodash/"
   },
   {
     "title": "Flappy Bird",
-    "image": "https://a0.anyrgb.com/pngimg/1624/504/flappy-bird-xbox-360-minecraft-pixel-art-art-museum-gaming-video-game-square-rectangle-yellow.png",
+    "image": "/images/Flappy_Bird.png",
     "url": "https://ellisonleao.github.io/clumsy-bird/"
   },
   {
     "title": "Fruit Ninja",
-    "image": "https://www.bigant.com/wp/wp-content/uploads/2015/06/square_400x400_fn.jpg",
+    "image": "/images/Fruit_Ninja.png",
     "url": "http://huningxin.github.io/spp.js/examples/fruitNinja/"
   },
   {
     "title": "Crazy Games",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Crazygames_jpg_logo.jpg/800px-Crazygames_jpg_logo.jpg",
+    "image": "/images/Crazy_Games.png",
     "url": "https://www.crazygames.com/"
   },
   {
 
     "title": "Cool Math Games",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3xYV_CE_r3d9dErO_f3TY74IWWMYsYHVV-ff4S87_cw&s",
+    "image": "/images/Coolmath_Games.png",
     "url": "https://coolmathgames.com/"
   },
   {
     "title": "Minesweeper",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Minesweeper_flag.svg/1024px-Minesweeper_flag.svg.png",
+    "image": "/images/Minesweeper.png",
     "url": "https://nickarocho.github.io/minesweeper/"
   },
   {
     "title": "Tetris",
-    "image": "https://m.media-amazon.com/images/I/61M3rDwh4qL.png",
+    "image": "/images/Tetris.png",
     "url": "https://www.lumpty.com/amusements/Games/Tetris/tetris.html"
   },
   {
     "title": "little Alchemy",
-    "image": "https://cdn-1.webcatalog.io/catalog/poki-little-alchemy/poki-little-alchemy-icon-filled-256.png?v=1677999282501",
+    "image": "/images/Little_Alchemy.png",
     "url": "https://littlealchemy.com/"
   },
   {
     "title": "Little Alchemy 2",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdxHEazY-r-K2HdQ1fDpzKe-8sRinV5l59KLTeAw9g_oZdjcbrJraMSy4z:https://lookaside.fbsbx.com/lookaside/crawler/media/%3Fmedia_id%3D1599573713418760&s",
+    "image": "/images/Little_Alchemy2.png",
     "url": "https://littlealchemy2.com/"
   },
   {
     "title": "Chess",
-    "image": "https://play-lh.googleusercontent.com/vuroi9wouqDzcFSh68TZYg5e7DXTISmS0_Pxm3ewFTrDQ_pPiHipMkGKyM8hj3HfikLx=w3840-h2160-rw",
+    "image": "/images/Chess.png",
     "url": "https://www.chess.com/"
   },
   {
     "title": "Bad Ice Cream",
-    "image": "https://cdn2.steamgriddb.com/logo_thumb/0fc8dee1ef46c0467df068405aa59715.png",
+    "image": "/images/Bad_Icecream.png",
     "url": "https://badicecream.io/"
   },
   {
+    "title": "Bad Ice Cream 2",
+    "image": "/images/Bad_Ice_Cream2.png",
+    "url": "https://badicecream.io/bad-ice-cream-2"
+  },
+  {
     "title": "Adrenaline Challenge",
-    "image": "https://m.media-amazon.com/images/I/81IBucKJOdL.png",
+    "image": "/images/Adrenaline.png",
     "url": "https://1kh0.github.io/projects/adrenalinechallenge/index.html"
   },
   {
     "title": "Adventure Drivers",
-    "image": "https://www.html5gamedevs.com/uploads/monthly_2018_10/asset_title_with_cars.jpg.c43655d4901ed1d029d4015b499493d3.jpg",
+    "image": "/images/Adventure_Drivers.jpg",
     "url": "https://ubg77.github.io/game131022/adventure-drivers/"
   },
   {
     "title": "Amidst the Clouds",
-    "image": "https://img.itch.zone/aW1nLzU3NjQxNTkucG5n/original/BJ51xh.png",
+    "image": "/images/Amidst_the_Sky.png",
     "url": "https://assets.3kh0.net/amidst-the-clouds/"
   },
   {
     "title": "Angry Sharks",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLeUrjg8PKL76eqOJCrFsu-95AK7xO1ZrS4jK4G5Xz9oNDp9w:https://www.desura.com/files/images/d6/d6b69ac4b7668f630ed7059cbdf4bf12.jpg&s",
+    "image": "/images/Angry_Shark.jfif",
     "url": "https://assets.3kh0.net/angry-sharks/"
   },
   {
     "title": "Avalanche",
-    "image": "https://lh3.googleusercontent.com/PZ5xAXNhDw0DGi3DEUQDhRKJ3z03oa2bm4u0Z3DG6U6aXGlQjETIcNdLh5X3MUFdB57Wl60jPZdRqhUzxiSiXmjmKg=w640-h400-e365-rj-sc0x00ffffff",
+    "image": "/images/Avalanche.jpeg",
     "url": "https://assets.3kh0.net/avalanche/"
   },
   {
     "title": "Awesome Tanks 2",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu7X7gm0VZkiDlbdcJbMTyv9cSaMs3LTvhcH81bLySjp1MK108A617Mzg:https://red-ball4.com/data/image/awesome-tanks-2.png&s",
+    "image": "/images/Awesome_Tanks.png",
     "url": "https://ubg98.github.io/AwesomeTanks2/"
   },
   {
     "title": "Basket Random",
-    "image": "https://play-lh.googleusercontent.com/6AN9KKe5M9udzoQA1J00dc6po5dNY9JInI_ewDKcPXocPjEHWTqJV0d2CwSWxYRhTh4=w526-h296-rw",
+    "image": "/images/Basket_Random.png",
     "url": "https://tylerpalko.github.io/gamehub/basketrandom/"
   },
   {
     "title": "Basket Bros",
-    "image": "https://store-images.s-microsoft.com/image/apps.49053.14217513328061085.e4d728b5-9e5d-43f8-8166-2bff1b79fd2d.7a10fc4b-e52b-42d8-a41b-b727a1274e2a",
+    "image": "/images/Basket_Bros.png",
     "url": "https://basketbros.io/"
   },
   {
     "title": "Battle for Gondor",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrTGdE_yuqWbEDScdBq0_2YQn5Rn9M8MV5N1b0hleQ4A6IEnZq_3XWMiOIyOFh2CjI1es:https://static.wikia.nocookie.net/flashgaming/images/c/c8/Battle_for_Gondor.jpg/revision/latest%3Fcb%3D20210220063839&usqp=CAU",
+    "image": "/images/Battle_for_Gondor.png",
     "url": "https://assets.3kh0.net/battleforgondor/"
   },
   {
     "title": "Black Hole Square",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT-1FDKEBbIj8CYH_WHyf0ZhMDGZ34suGcX4VVxX7K8birpOxxv9qSHZM:https://ruslan.rocks/assets/bhs.jpeg&s",
+    "image": "/images/Black_Hole_Square.jpeg",
     "url": "https://quinten.github.io/black-hole-square/"
   },
   {
     "title": "Black Knight",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbVA-olvzdR-RBPrZkmPhNUg3UxQrF0wBL4cgEgcSEPy-bFpIYt9S8mhuf:https://www3.minijuegosgratis.com/v3/games/thumbnails/4015_7_sq.jpg&s",
+    "image": "/images/Black_Knight.jfif",
     "url": "https://assets.3kh0.net/blackknight/"
   },
   {
     "title": "1v1.LOL",
-    "image": "https://img.utdstc.com/icon/983/22a/98322a3b2be892eed31589906ffd949b68bcccc9a21ba562987965b5ec6bc6de:200",
+    "image": "/images/1v1lol.png",
     "url": "https://1v1.lol"
   },
    {
     "title": "Agar.io",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/74dde874431127.Y3JvcCw4NjIsNjc1LDE2OCww.jpg",
+    "image": "/images/Agario.jpg",
     "url": "https://agar.io"
   },
   {
     "title": "ev.io",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOtin16xpBCwu3ulrZ7QXFO-q-YeFp6o3uzxXGyDOOAw&s",
+    "image": "/images/Evio.png",
     "url": "https://ev.io"
   },
   {
     "title": "florr.io",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcDQ6osFmnSPBUN-BPXtlPL0qRhXb_SgDct53fAx8-UQ&s",
+    "image": "/images/Florrio.png",
     "url": "https://florr.io"
   },
   {
     "title": "hole.io",
-    "image": "https://lh3.googleusercontent.com/PjwuCGqGxOSFt5BzWUdaZFNr4-5KrxwVT1N8UcDQFUTCJuHOTBQW8RPVtGYHiW-HAKM",
+    "image": "/images/Holeio.png",
     "url": "https://hole-io.com/"
   },
   {
     "title": "justfall.lol",
-    "image": "https://play-lh.googleusercontent.com/-0rSllZ8as88Jcs3iZ7-JCFyTb3YLB-HjR7bY7P6q_2MAswmDH4h1qNPfFiaZqzkkg",
+    "image": "/images/Just_Fall.png",
     "url": "https://justfall.lol"
   },
   {
     "title": "Shell Shockers",
-    "image": "https://cdn-images.threadless.com/threadless-media/artist_shops/shops/bluewizard/products/1617669/original-1621960642-2ac607f273a319bd81ac2f36de28fac5.png?v=3&d=eyJvcHMiOiBbWyJ0cmltIiwgW2ZhbHNlLCBmYWxzZV0sIHt9XSwgWyJyZXNpemUiLCBbXSwgeyJ3aWR0aCI6IDk5Ni4wLCAiYWxsb3dfdXAiOiBmYWxzZSwgImhlaWdodCI6IDk5Ni4wfV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzEyMDAsIDEyMDBdLCB7ImJhY2tncm91bmQiOiAiZmZmZmZmIn1dLCBbInJlc2l6ZSIsIFs4MDBdLCB7fV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzgwMCwgODAwLCAiI2ZmZmZmZiJdLCB7fV0sIFsiZW5jb2RlIiwgWyJqcGciLCA4NV0sIHt9XV0sICJmb3JjZSI6IGZhbHNlLCAib25seV9tZXRhIjogZmFsc2V9",
+    "image": "/images/Shell_Shockers.jfif",
     "url": "https://shellshock.io"
   },
   {
     "title": "thelast.io",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU1TIfo7pUsZM199wEVSluAF-l07HWVUF-RhJX7yalBw&s",
+    "image": "/images/TheLastio.png",
     "url": "https://www.thelast.io/"
   },
   {
     "title": "moomoo.io",
-    "image": "https://play-lh.googleusercontent.com/DKVeKSR1taa_XJ22BxrtBix8kGoGe0KIGp_b_b_19P5ajHjypnFm8NhFKxpFOcB_7PFQ",
+    "image": "/images/MooMooio.png",
     "url": "https://moomoo.io"
   },
   {
     "title": "Thisissand",
-    "image": "https://play-lh.googleusercontent.com/zx6bFQGyqqu5q9hJdP1UyoY-Nfg_yxym97slxh1_W2G0KOLIkcQuiL1bpnHvlJpWNGI",
+    "image": "/images/THISISSAND.png",
     "url": "https://thisissand.com/"
   },
   {
     "title": "Five Nights at Freddy's 1",
-    "image": "https://play-lh.googleusercontent.com/myJ2kwywsCRglKkZuHBq6Aku9PX7HB75v-8KbnTK9JOPU6z0hpD9xtvjiTGqrn-e4eI",
+    "image": "/images/FNAF1.jpg",
     "url": "https://ubg77.github.io/fix/fnaf1/"
   },
   {
     "title": "There is no game",
-    "image": "https://cdn2.steamgriddb.com/icon/643de7cf7ba769c7466ccbc4adfd7fac.ico",
+    "image": "/images/There_is_no_Game.png",
     "url": "https://webglmath.github.io/there-is-no-game/"
   },
   {
     "title": "Stick Merge",
-    "image": "https://is5-ssl.mzstatic.com/image/thumb/Purple125/v4/59/f2/af/59f2af95-db42-90dc-b992-c732408038bc/source/512x512bb.jpg",
+    "image": "/images/Stick_Merge.jpg",
     "url": "https://webglmath.github.io/stickmerge/"
   },
   {
     "title": "Stick Merge: Halloween",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3570iwHf6LVVXlaoqLtUd6D5Gwf6SVchcgJDEO27X5ecVCLWQd9LsHf2_:https://gamepluto.com/games/stick-merge-halloween/thumb_2.jpg&s",
+    "image": "/images/Stick_Merge_Halloween.jfif",
     "url": "https://ubg77.github.io/edit/stick-merge-halloween/"
   },
   {
     "title": "Stickman Fighter Epic Battle",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiPMgrPxDKZJy8DxsskjP3orEw9NodXcAZbxqdjpoR8ukpTw6zO9EYfgHB:https://static.keygames.com/1/112941/92666/1024x1024/stickman-fighter-epic-battles.webp&s",
+    "image": "/images/Stickman_Fighter_Epic_Battle.jfif",
     "url": "https://webglmath.github.io/stickman-fighter-epic-battle/"
   },
   {
     "title": "Stickman Fighter Epic Battle 2",
-    "image": "https://play-lh.googleusercontent.com/XSaFllC6irAxc1BavZN0SQlpcMk6gwZBIKVbiNZvfcH0ZrInRcJoyPTzscey_rM8fA4",
+    "image": "/images/Stickman_Fighter_Epic_Battle2.jfif",
     "url": "https://webglmath.github.io/stickman-fighter-epic-battle-2/"
   }
   
