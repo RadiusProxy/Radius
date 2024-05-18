@@ -65,6 +65,11 @@
     "url": "https://webglmath.github.io/parking-fury-3/"
   },
   {
+    "title": "Extreme Car Parking",
+    "image": "/images/Extreme_Car_Parking.jfif",
+    "url": "https://ubg77.github.io/fix/extreme-car-parking/"
+  },
+  {
     "title": "Geometry Dash",
     "image": "/images/Geometry_Dash.png",
     "url": "https://assets.3kh0.net/geodash/"
@@ -259,6 +264,36 @@
     "title": "Stickman Fighter Epic Battle 2",
     "image": "/images/Stickman_Fighter_Epic_Battle2.jfif",
     "url": "https://webglmath.github.io/stickman-fighter-epic-battle-2/"
+  },
+  {
+    "title": "BoxRob",
+    "image": "/images/BoxRob.png",
+    "url": "https://webglmath.github.io/boxrob/"
+  },
+  {
+    "title": "Doodle Jump",
+    "image": "/images/Doodle_Jump.jfif",
+    "url": "https://webglmath.github.io/doodle-jump/"
+  },
+  {
+    "title": "Idle Dice",
+    "image": "/images/Idle_Dice.png",
+    "url": "https://ubg77.github.io/game131022/idle-dice/"
+  },
+  {
+    "title": "Idle Miner",
+    "image": "/images/Idle_Miner.png",
+    "url": "https://ubg77.github.io/game131022/idle-miner/"
+  },
+  {
+    "title": "Idle Mining Empire",
+    "image": "/images/Idle_Mining_Empire.png",
+    "url": "https://ubg77.github.io/fix/idle-mining-empire/"
+  },
+  {
+    "title": "Idle Startup Tycoon",
+    "image": "/images/Idle_Startup_Tycoon.jfif",
+    "url": "https://ubg77.github.io/game131022/idle-startup-tycoon/"
   }
-  
+
 ]
