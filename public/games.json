@@ -316,13 +316,23 @@
     "url": "https://ubg77.github.io/fix/temple-of-boom/"
   },
   {
+    "title": "Arrow Count Master",
+    "image": "/images/Arrow_Count_Master.jpeg",
+    "url": "https://gswitchgames.github.io/arrow-count-master/"
+  },
+  {
+    "title": "Candy Jump",
+    "image": "/images/Candy_Jump.png",
+    "url": "https://webglmath.github.io/candy-jump/"
+  },
+  {
     "title": "",
-    "image": "",
+    "image": "/images/",
     "url": ""
   },
   {
     "title": "",
-    "image": "",
+    "image": "/images/",
     "url": ""
   }
 
