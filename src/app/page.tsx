@@ -47,7 +47,7 @@ export default function Home() {
             <Search className="h-4 w-4 text-muted-foreground absolute top-1/2 -translate-y-1/2 left-3" />
           </div>
         </div>
-        <p style={{ fontSize: '1rem', fontWeight: 'normal', marginTop: '1rem' }}>{splashText}</p>
+        <p style={{ fontSize: '1rem', fontWeight: 'normal', marginTop: '0.4rem' }}>{splashText}</p>
         {shortcuts.length > 0 && (
           <div className="py-2 flex flex-wrap gap-2 justify-center">
             {shortcuts.map((shortcut: Item) => {
