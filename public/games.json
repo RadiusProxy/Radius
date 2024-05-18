@@ -70,6 +70,16 @@
     "url": "https://ubg77.github.io/fix/extreme-car-parking/"
   },
   {
+    "title": "Merge Cyber Racers",
+    "image": "/images/Merge_Cyber_Racers.png",
+    "url": "https://ubg77.github.io/edit/merge-cyber-racers/"
+  },
+  {
+    "title": "Merge Round Racers",
+    "image": "/images/Merge_Round_Racers.png",
+    "url": "https://ubg77.github.io/edit/merge-round-racers/"
+  },
+  {
     "title": "Geometry Dash",
     "image": "/images/Geometry_Dash.png",
     "url": "https://assets.3kh0.net/geodash/"
@@ -294,6 +304,26 @@
     "title": "Idle Startup Tycoon",
     "image": "/images/Idle_Startup_Tycoon.jfif",
     "url": "https://ubg77.github.io/game131022/idle-startup-tycoon/"
+  },
+  {
+    "title": "",
+    "image": "",
+    "url": ""
+  },
+  {
+    "title": "",
+    "image": "",
+    "url": ""
+  },
+  {
+    "title": "",
+    "image": "",
+    "url": ""
+  },
+  {
+    "title": "",
+    "image": "",
+    "url": ""
   }
 
 ]
