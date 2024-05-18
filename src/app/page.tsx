@@ -13,8 +13,8 @@ export default function Home() {
   const [splashText, setSplashText] = useState<string>('')
 
   useEffect(() => {
-    // Fetch splash text from JSON file
-    fetch('/splash.json')
+
+    fetch('/public/splash.json')
       .then(response => response.json())
       .then(data => {
         const randomIndex = Math.floor(Math.random() * data.length);
@@ -22,7 +22,6 @@ export default function Home() {
       })
       .catch(error => console.error('Error fetching splash text:', error));
 
-    // Fetch shortcuts from local storage
     store.set('shortcuts', [], false)
     const data: Item[] = store('shortcuts')
     setShortcuts(data)
