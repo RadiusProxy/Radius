@@ -10,7 +10,19 @@ import store from 'store2'
 export default function Home() {
   const router = useRouter()
   const [shortcuts, setShortcuts] = useState<Item[]>([])
+  const [splashText, setSplashText] = useState<string>('')
+
   useEffect(() => {
+    // Fetch splash text from JSON file
+    fetch('/splash.json')
+      .then(response => response.json())
+      .then(data => {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        setSplashText(data[randomIndex].sp);
+      })
+      .catch(error => console.error('Error fetching splash text:', error));
+
+    // Fetch shortcuts from local storage
     store.set('shortcuts', [], false)
     const data: Item[] = store('shortcuts')
     setShortcuts(data)
@@ -36,6 +48,7 @@ export default function Home() {
             <Search className="h-4 w-4 text-muted-foreground absolute top-1/2 -translate-y-1/2 left-3" />
           </div>
         </div>
+        <p className="text-xl font-medium">{splashText}</p>
         {shortcuts.length > 0 && (
           <div className="py-2 flex flex-wrap gap-2 justify-center">
             {shortcuts.map((shortcut: Item) => {
