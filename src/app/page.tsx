@@ -18,7 +18,7 @@ export default function Home() {
       .then(response => response.json())
       .then(data => {
         const randomIndex = Math.floor(Math.random() * data.length);
-        setSplashText(data[randomIndex].sp);
+        setSplashText(data[randomIndex].splash);
       })
       .catch(error => console.error('Error fetching splash text:', error));
 
