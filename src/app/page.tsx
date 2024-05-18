@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    fetch('/public/splash.json')
+    fetch('/splash.json')
       .then(response => response.json())
       .then(data => {
         const randomIndex = Math.floor(Math.random() * data.length);
