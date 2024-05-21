@@ -65,6 +65,21 @@
     "url": "https://webglmath.github.io/parking-fury-3/"
   },
   {
+    "title": "Extreme Car Parking",
+    "image": "/images/Extreme_Car_Parking.jfif",
+    "url": "https://ubg77.github.io/fix/extreme-car-parking/"
+  },
+  {
+    "title": "Merge Cyber Racers",
+    "image": "/images/Merge_Cyber_Racers.png",
+    "url": "https://ubg77.github.io/edit/merge-cyber-racers/"
+  },
+  {
+    "title": "Merge Round Racers",
+    "image": "/images/Merge_Round_Racers.png",
+    "url": "https://ubg77.github.io/edit/merge-round-racers/"
+  },
+  {
     "title": "Geometry Dash",
     "image": "/images/Geometry_Dash.png",
     "url": "https://assets.3kh0.net/geodash/"
@@ -259,6 +274,66 @@
     "title": "Stickman Fighter Epic Battle 2",
     "image": "/images/Stickman_Fighter_Epic_Battle2.jfif",
     "url": "https://webglmath.github.io/stickman-fighter-epic-battle-2/"
+  },
+  {
+    "title": "BoxRob",
+    "image": "/images/BoxRob.png",
+    "url": "https://webglmath.github.io/boxrob/"
+  },
+  {
+    "title": "Doodle Jump",
+    "image": "/images/Doodle_Jump.jfif",
+    "url": "https://webglmath.github.io/doodle-jump/"
+  },
+  {
+    "title": "Idle Dice",
+    "image": "/images/Idle_Dice.png",
+    "url": "https://ubg77.github.io/game131022/idle-dice/"
+  },
+  {
+    "title": "Idle Miner",
+    "image": "/images/Idle_Miner.png",
+    "url": "https://ubg77.github.io/game131022/idle-miner/"
+  },
+  {
+    "title": "Idle Mining Empire",
+    "image": "/images/Idle_Mining_Empire.png",
+    "url": "https://ubg77.github.io/fix/idle-mining-empire/"
+  },
+  {
+    "title": "Idle Startup Tycoon",
+    "image": "/images/Idle_Startup_Tycoon.jfif",
+    "url": "https://ubg77.github.io/game131022/idle-startup-tycoon/"
+  },
+  {
+    "title": "Rail Runner",
+    "image": "/images/Rail_Runner.png",
+    "url": "https://gswitchgames.github.io/subway-runner-1/"
+  },
+  {
+    "title": "Temple of Boom",
+    "image": "/images/Temple_of_Boom.png",
+    "url": "https://ubg77.github.io/fix/temple-of-boom/"
+  },
+  {
+    "title": "Arrow Count Master",
+    "image": "/images/Arrow_Count_Master.jpeg",
+    "url": "https://gswitchgames.github.io/arrow-count-master/"
+  },
+  {
+    "title": "Candy Jump",
+    "image": "/images/Candy_Jump.png",
+    "url": "https://webglmath.github.io/candy-jump/"
+  },
+  {
+    "title": "Raft Wars",
+    "image": "/images/Raft_Wars.jfif",
+    "url": "https://webglmath.github.io/raft-wars/"
+  },
+  {
+    "title": "Raft Wars 2",
+    "image": "/images/Raft_Wars2.jfif",
+    "url": "https://webglmath.github.io/raft-wars-2/"
   }
-  
+
 ]
