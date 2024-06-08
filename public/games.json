@@ -126,6 +126,11 @@
     "url": "https://littlealchemy2.com/"
   },
   {
+    "title": "Infinite Craft",
+    "image": "/images/Infinite_Craft.png",
+    "url": "https://infinite-craft.com/"
+  },
+  {
     "title": "Chess",
     "image": "/images/Chess.png",
     "url": "https://www.chess.com/"
@@ -334,6 +339,11 @@
     "title": "Raft Wars 2",
     "image": "/images/Raft_Wars2.jfif",
     "url": "https://webglmath.github.io/raft-wars-2/"
+  },
+  {
+    "title": "BitBurner",
+    "image": "/images/BitBurner.jpg",
+    "url": "https://bitburner-official.github.io/"
   }
 
 ]
