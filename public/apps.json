@@ -65,6 +65,11 @@
     "url": "https://yewtu.be"
   },
   {
+    "title": "Youtube",
+    "image": "/images/Youtube.jpg",
+    "url": "https://www.youtube.com/"
+  },
+  {
     "title": "Github - NOT WORKING",
     "image": "/images/GitHub.png",
     "url": "https://github.com"
@@ -124,4 +129,5 @@
     "image": "/images/W3Schools.png",
     "url": "https://www.w3schools.com"
   }
+  
 ]
