@@ -1,5 +1,5 @@
 # RADIUS!!
 
-Owned by Xtreme Proudparrot2 and Spakowe.  
+Owned by Owski and Proudparrot2.
 Developed by Radius Dev team.  
 All rights reserved Radius Proxy.
