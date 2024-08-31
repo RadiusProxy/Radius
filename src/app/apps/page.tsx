@@ -10,6 +10,12 @@ interface AppData {
 
 export default function Apps() {
   const [Apps, setApps] = useState<AppData[]>([])
+  const usedApps = JSON.parse(localStorage.getItem("_ua") ?? "[]")
+
+  const updateStorage = (app: string) => {
+    usedApps.push(app)
+    localStorage.setItem("_ug", JSON.stringify(usedApps))
+  }
 
   useEffect(() => {
     async function fetchApps() {
@@ -33,7 +39,7 @@ export default function Apps() {
       <h1 className="text-6xl font-semibold py-8 text-center">Apps</h1>
       <div className="flex flex-wrap justify-center px-24">
         {Apps.map((app, index) => (
-          <div className="p-2" key={index}>
+          <div className="p-2" key={index} onClick={() => updateStorage(app.title)}>
             <App title={app.title} image={app.image} url={app.url} />
           </div>
         ))}
