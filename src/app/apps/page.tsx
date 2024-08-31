@@ -14,7 +14,7 @@ export default function Apps() {
 
   const updateStorage = (app: string) => {
     usedApps.push(app)
-    localStorage.setItem("_ua", JSON.stringify(usedApps))
+    localStorage.setItem("_ug", JSON.stringify(usedApps))
   }
 
   useEffect(() => {
