@@ -1,57 +1,59 @@
 'use client'
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { Textarea } from '@/components/ui/textarea'
-import { Save } from 'lucide-react'
-import { useState } from 'react'
+import { setSetting } from '@/lib/settings'
+import { Loader2, Save } from 'lucide-react'
+import { FormEvent, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-const formSchema = z.object({
-  backgroundImage: z.string(),
-  description: z.string()
-})
+interface FormValues {
+  backgroundUrl: string;
+}
 
 export default function Settings() {
   const [submitting, setSubmitting] = useState(false)
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<FormValues>({
     defaultValues: {
-      backgroundImage: ''
+      backgroundUrl: ""
     }
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(event: FormEvent) {
+    event.preventDefault()
+
     setSubmitting(true)
+
+    const formData = new FormData(event.currentTarget as HTMLFormElement)
+    const backgroundUrl = formData.get("backgroundUrl") as string ?? ""
 
     setTimeout(() => {
       setSubmitting(false)
-      toast.success('Settings saved')
-    }, 1000)
-    console.log(values)
+      toast.success(backgroundUrl)
+      setSetting("backgroundUrl", backgroundUrl)
+    }, 2500)
   }
+
   return (
     <div className="space-y-4">
       <h1 className="text-4xl font-semibold">Appearance</h1>
+
       <Separator />
+
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-1/2 space-y-4">
+        <form onSubmit={event => onSubmit(event)} className="w-1/2 space-y-4">
           <FormField
             control={form.control}
-            name="backgroundImage"
+            name="backgroundUrl"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Background Image</FormLabel>
                 <FormControl>
-                  <Input placeholder="Background Image URL" {...field} />
+                  <Input placeholder="Background Image URL..." {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -59,7 +61,7 @@ export default function Settings() {
           />
 
           <Button type="submit" disabled={submitting}>
-            <Save className="mr-2 h-5 w-5" /> Save Changes
+            {!submitting ? <Save className="mr-2 h-5 w-5" /> : <Loader2 className="mr-2 h-5 w-5 loader" />} Save Changes
           </Button>
         </form>
       </Form>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.loader {
+  animation: spin 1.5s infinite linear;
+}
+
 @layer base {
   :root {
     --background: 214 27.37% 7.55%;
