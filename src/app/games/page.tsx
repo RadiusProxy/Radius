@@ -10,6 +10,12 @@ interface GameData {
 
 export default function Games() {
   const [games, setGames] = useState<GameData[]>([])
+  const usedGames = JSON.parse(localStorage.getItem("_ug") ?? "[]")
+
+  const updateStorage = (game: string) => {
+    usedGames.push(game)
+    localStorage.setItem("_ua", JSON.stringify(usedGames))
+  }
 
   useEffect(() => {
     async function fetchGames() {
@@ -33,7 +39,7 @@ export default function Games() {
       <h1 className="text-6xl font-semibold py-8 text-center">Games</h1>
       <div className="flex flex-wrap justify-center px-24">
         {games.map((game, index) => (
-          <div className="p-2" key={index}>
+          <div className="p-2" key={index} onClick={() => updateStorage(game.title)}>
             <Game title={game.title} image={game.image} url={game.url} />
           </div>
         ))}
