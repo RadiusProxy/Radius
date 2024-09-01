@@ -14,7 +14,7 @@ export async function GET(_req: NextRequest, { params }: { params: { uv: string 
     })
   } else {
     try {
-      const res = await fetch(`https://unpkg.com/@titaniumnetwork-dev/ultraviolet@2.0.0/dist/${requestedFile}`)
+      const res = await fetch(`${atob("aHR0cHM6Ly91bnBrZy5jb20vQHRpdGFuaXVtbmV0d29yay1kZXYvdWx0cmF2aW9sZXRAMi4wLjAvZGlzdC8=")}${requestedFile}`)
       const file = await res.text()
       const fileBlob = new Blob([file])
       return new Response(fileBlob, {
