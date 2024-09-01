@@ -14,7 +14,7 @@ export function setSetting(k: string, v: string) {
 
 export function getSetting(k: string) {
   const settings = JSON.parse(localStorage.getItem("settings") ?? JSON.stringify(defaults))
-  return settings[k]
+  return settings[k] ?? ""
 }
 
 export function getAllSettings() {

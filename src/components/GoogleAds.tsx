@@ -1,10 +1,6 @@
 import Script from "next/script"
 
-type Props = {
-  pid: string;
-}
-
-const Adsense: React.FC<Props> = ({ pid }) => {
+const Adsense: React.FC<{ pid: string }> = ({ pid }: { pid: string }) => {
   if (process.env.NODE_ENV !== "production") return
 
   return (
