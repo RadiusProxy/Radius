@@ -19,7 +19,7 @@ export default function Settings() {
   const [submitting, setSubmitting] = useState(false)
   const form = useForm<FormValues>({
     defaultValues: {
-      backgroundUrl: getSetting("backgroundUrl") ?? ""
+      backgroundUrl: getSetting("backgroundUrl")
     }
   })
 
