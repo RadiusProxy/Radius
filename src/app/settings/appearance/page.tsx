@@ -5,7 +5,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { setSetting } from '@/lib/settings'
+import { getSetting, setSetting } from '@/lib/settings'
 import { Loader2, Save } from 'lucide-react'
 import { FormEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -19,7 +19,7 @@ export default function Settings() {
   const [submitting, setSubmitting] = useState(false)
   const form = useForm<FormValues>({
     defaultValues: {
-      backgroundUrl: ""
+      backgroundUrl: getSetting("backgroundUrl") ?? ""
     }
   })
 
