@@ -5,9 +5,14 @@
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSeI5pSQCeR3nW5yCW0KrNXrB8c_yMIqqD4rjxa6OiiZmEZXMQ/viewform"
   },
   {
+    "title": "Baldi's Basics" 
+    "image": ""
+    "url": "https://glcdn.githack.com/Nailington/3kh0-assets/-/raw/main/baldis-basics/index.html"
+  },
+  {
     "title": "2048",
     "image": "/images/2048_image.png",
-    "url": "https://play2048.co"
+    "url": "https://glcdn.githack.com/Nailington/3kh0-assets/-/raw/main/2048/index.html"
   },
   {
     "title": "Roblox",
