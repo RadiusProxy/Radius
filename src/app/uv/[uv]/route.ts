@@ -4,7 +4,7 @@ import { NextRequest } from 'next/server'
 
 export async function GET(_req: NextRequest, { params }: { params: { uv: string } }) {
   const requestedFile = params.uv
-  if (requestedFile === 'uv.config.js' || requestedFile === 'sw.js') {
+  if (requestedFile === 'uv.config.js') {
     const file = fs.readFileSync(process.cwd() + `/src/lib/uv/${requestedFile}`)
     const fileBlob = new Blob([file])
     return new Response(fileBlob, {
