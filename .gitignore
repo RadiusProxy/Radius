@@ -36,12 +36,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# SW proxies - general
-public/aeroHandleSimple.js
-public/sw.js
-
-# aero
-public/aero/
-**/aeroConfigBuild/
-
 # TODO: Add UV public build files here (not the UV config file)
