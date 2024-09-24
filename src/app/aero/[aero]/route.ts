@@ -14,7 +14,7 @@ export async function GET(_req: NextRequest, { params }: { params: { aero: strin
     })
   } else {
     try {
-      const res = await fetch(`https://unpkg.com/browse/aero-proxy@0.0.3/dist/${requestedFile}`)
+      const res = await fetch(`https://unpkg.com/browse/aero-proxy/dist/${requestedFile}`)
       const file = await res.text()
       const fileBlob = new Blob([file])
       return new Response(fileBlob, {
