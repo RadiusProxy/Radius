@@ -18,7 +18,7 @@ importScripts(`${dirToUvConfigAndBundle}uv.bundle.js`);
 importScripts(`${dirToUvConfigAndBundle}uv.config.js`);
 importScripts(__uv$config.sw);
 
-importScripts(`${dirToAeroConfig}/extras/aeroHandleSimple.js`);
+importScripts(`${dirToAeroConfig}/extras/handleWithExtras.js`);
 
 const aeroHandlerWithExtras = patchAeroHandler(handle);
 const uv = new UVServiceWorker();
