@@ -22,15 +22,27 @@ export default function Route({ params }: { params: { route: string[] } }) {
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/uv/sw.js', {
-          scope: '/uv/service'
-        })
-        .then(() => {
-          if (ref.current) {
-            ref.current.src = '/uv/service/' + encodeXor(formatSearch(atob(decodeURIComponent(route))))
-          }
-        })
+      if (localStorage.getItem("defaultProxy") === "aero")
+        navigator.serviceWorker
+          .register('/aero/sw.aero.js', {
+            scope: '/aero/service'
+          })
+          .then(() => {
+            if (ref.current) {
+              ref.current.src = '/aero/service/' + formatSearch(atob(decodeURIComponent(route)))
+            }
+          })
+      else {
+        navigator.serviceWorker
+          .register('/uv/sw.js', {
+            scope: '/uv/service'
+          })
+          .then(() => {
+            if (ref.current) {
+              ref.current.src = '/uv/service/' + encodeXor(formatSearch(atob(decodeURIComponent(route))))
+            }
+          })
+      }
     }
   }, [])
 
@@ -39,6 +51,7 @@ export default function Route({ params }: { params: { route: string[] } }) {
     if (!ref.current || !ref.current.contentWindow) return
     const contentWindow = ref.current.contentWindow as ContentWindow
     if (!('__uv$location' in contentWindow)) return
+    if (!('aeroConfig' in contentWindow)) return
     const shortcuts: any[] = store('shortcuts')
 
     if (shortcuts.some((value) => value.url == contentWindow.__uv$location.href)) {
