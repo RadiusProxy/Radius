@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Images, Link, Palette } from 'lucide-react'
+import { Users, Link, Palette } from 'lucide-react'
 import NextLink from 'next/link'
 
 import { usePathname } from 'next/navigation'
@@ -16,12 +16,16 @@ export default function SettingsLayout({ children }: Readonly<{ children: React.
             <Palette className="h-5 w-5" /> Appearance
           </Button>
         </NextLink>
-        <Button variant={pathname?.includes('/settings/search') ? 'secondary' : 'ghost'} className="w-full items-center justify-start gap-2">
-          <Images className="h-5 w-5" /> Images
-        </Button>
-        <Button variant={pathname?.includes('/settings/account') ? 'secondary' : 'ghost'} className="w-full items-center justify-start gap-2">
-          <Link className="h-5 w-5" /> Social Links
-        </Button>
+        <NextLink href="/settings/credits/">
+          <Button variant={pathname?.includes('/settings/credits') ? 'secondary' : 'ghost'} className="w-full items-center justify-start gap-2">
+            <Users className="h-5 w-5" /> Credits
+          </Button>
+        </NextLink>
+        <NextLink href="/settings/links/">
+          <Button variant={pathname?.includes('/settings/links') ? 'secondary' : 'ghost'} className="w-full items-center justify-start gap-2">
+            <Link className="h-5 w-5" /> Social Links
+          </Button>
+        </NextLink>
       </div>
       <div className="w-3/4 px-12 py-8">{children}</div>
     </div>

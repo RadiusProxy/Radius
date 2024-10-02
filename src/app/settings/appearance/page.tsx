@@ -6,18 +6,16 @@ import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { Textarea } from '@/components/ui/textarea'
-import { Save } from 'lucide-react'
+import { Save, RotateCcw } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
 const formSchema = z.object({
-  backgroundImage: z.string(),
-  description: z.string()
+  backgroundImage: z.string().url('Please provide a valid URL'),
+  description: z.string().optional(),
 })
 
 export default function Settings() {
@@ -25,19 +23,31 @@ export default function Settings() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      backgroundImage: ''
-    }
+      backgroundImage: '',
+    },
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setSubmitting(true)
 
+    document.body.style.backgroundImage = `url(${values.backgroundImage})`
+    document.body.style.backgroundSize = 'cover'
+    document.body.style.backgroundPosition = 'center'
+
     setTimeout(() => {
       setSubmitting(false)
       toast.success('Settings saved')
     }, 1000)
+
     console.log(values)
   }
+
+  function onReset() {
+    form.reset()
+    document.body.style.backgroundImage = ''
+    toast('Settings reset')
+  }
+
   return (
     <div className="space-y-4">
       <h1 className="text-4xl font-semibold">Appearance</h1>
@@ -58,9 +68,15 @@ export default function Settings() {
             )}
           />
 
-          <Button type="submit" disabled={submitting}>
-            <Save className="mr-2 h-5 w-5" /> Save Changes
-          </Button>
+          {}
+          <div className="flex space-x-4">
+            <Button type="submit" disabled={submitting}>
+              <Save className="mr-2 h-5 w-5" /> Save Changes
+            </Button>
+            <Button type="button" onClick={onReset}>
+              <RotateCcw className="mr-2 h-5 w-5" /> Reset
+            </Button>
+          </div>
         </form>
       </Form>
     </div>
