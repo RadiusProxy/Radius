@@ -10,10 +10,11 @@ export default function Credits() {
       <div className="mt-4">
         <p>Radius contributors!</p>
         <ul className="list-disc pl-5 mt-2 space-y-1">
-          <li>Owskio09</li>
+          <li>Owski09</li>
           <li>proudparrot2</li>
           <li>Sparkzil</li>
           <li>Scaratek</li>
+          <li>fwxe</li>
         </ul>
       </div>
     </div>
