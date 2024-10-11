@@ -15,7 +15,7 @@ export default function SocialLinks() {
           <li>YouTube: @RadiusProxy</li>
           <li>
             Discord:{' '}
-            <NextLink href="https://discord.gg/yourdiscordlink" target="_blank" className="text-blue-500 underline">
+            <NextLink href="https://discord.gg/JrAxQz7Qkw" target="_blank" className="text-blue-500 underline">
               Join Now!
             </NextLink>
           </li>
