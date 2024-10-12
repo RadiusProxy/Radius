@@ -11,7 +11,7 @@ export default function SettingsLayout({ children }: Readonly<{ children: React.
   return (
     <div className="flex">
       <div className="flex w-1/4 flex-col gap-2 p-4 pl-8 pt-8">
-        <NextLink href="/settings/apperance/">
+        <NextLink href="/settings/appearance/">
           <Button variant={pathname?.includes('/settings/appearance') ? 'secondary' : 'ghost'} className="w-full items-center justify-start gap-2">
             <Palette className="h-5 w-5" /> Appearance
           </Button>
