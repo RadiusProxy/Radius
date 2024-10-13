@@ -30,7 +30,7 @@ export default function SettingsLayout({
             }
             className="w-full items-center justify-start gap-2"
           >
-            <ArrowRightLeft className="h-5 w-5" /> Wisp Switcher
+            <ArrowRightLeft className="h-5 w-5" /> Wisp
           </Button>
         </NextLink>
         <NextLink href="/settings/credits/">
