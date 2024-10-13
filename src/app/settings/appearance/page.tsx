@@ -1,51 +1,58 @@
-'use client'
+"use client";
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
-import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
-import { Save, RotateCcw } from 'lucide-react'
-import { useState } from 'react'
-import { toast } from 'sonner'
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { Save, RotateCcw } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const formSchema = z.object({
-  backgroundImage: z.string().url('Please provide a valid URL'),
+  backgroundImage: z.string().url("Please provide a valid URL"),
   description: z.string().optional(),
-})
+});
 
 export default function Settings() {
-  const [submitting, setSubmitting] = useState(false)
+  const [submitting, setSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      backgroundImage: '',
+      backgroundImage: "",
     },
-  })
+  });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    setSubmitting(true)
+    setSubmitting(true);
 
-    document.body.style.backgroundImage = `url(${values.backgroundImage})`
-    document.body.style.backgroundSize = 'cover'
-    document.body.style.backgroundPosition = 'center'
+    document.body.style.backgroundImage = `url(${values.backgroundImage})`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
 
     setTimeout(() => {
-      setSubmitting(false)
-      toast.success('Settings saved')
-    }, 1000)
+      setSubmitting(false);
+      toast.success("Settings saved");
+    }, 1000);
 
-    console.log(values)
+    console.log(values);
   }
 
   function onReset() {
-    form.reset()
-    document.body.style.backgroundImage = ''
-    toast('Settings reset')
+    form.reset();
+    document.body.style.backgroundImage = "";
+    toast("Settings reset");
   }
 
   return (
@@ -53,7 +60,10 @@ export default function Settings() {
       <h1 className="text-4xl font-semibold">Appearance</h1>
       <Separator />
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-1/2 space-y-4">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="w-1/2 space-y-4"
+        >
           <FormField
             control={form.control}
             name="backgroundImage"
@@ -80,5 +90,5 @@ export default function Settings() {
         </form>
       </Form>
     </div>
-  )
+  );
 }

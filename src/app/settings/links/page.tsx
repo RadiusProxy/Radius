@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import NextLink from 'next/link'
-import { Separator } from '@/components/ui/separator'
+import NextLink from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 export default function SocialLinks() {
   return (
@@ -14,13 +14,17 @@ export default function SocialLinks() {
           <li>TikTok: @radiusproxy</li>
           <li>YouTube: @RadiusProxy</li>
           <li>
-            Discord:{' '}
-            <NextLink href="https://discord.gg/JrAxQz7Qkw" target="_blank" className="text-blue-500 underline">
+            Discord:{" "}
+            <NextLink
+              href="https://discord.gg/JrAxQz7Qkw"
+              target="_blank"
+              className="text-blue-500 underline"
+            >
               Join Now!
             </NextLink>
           </li>
         </ul>
       </div>
     </div>
-  )
+  );
 }

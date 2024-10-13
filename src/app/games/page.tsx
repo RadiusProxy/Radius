@@ -1,32 +1,32 @@
-'use client'
-import { useState, useEffect } from 'react'
-import Game from '@/components/game'
+"use client";
+import { useState, useEffect } from "react";
+import Game from "@/components/game";
 
 interface GameData {
-  title: string
-  image: string
-  url: string
+  title: string;
+  image: string;
+  url: string;
 }
 
 export default function Games() {
-  const [games, setGames] = useState<GameData[]>([])
+  const [games, setGames] = useState<GameData[]>([]);
 
   useEffect(() => {
     async function fetchGames() {
       try {
-        const response = await fetch('/games.json')
+        const response = await fetch("/games.json");
         if (!response.ok) {
-          throw new Error('Failed to fetch data')
+          throw new Error("Failed to fetch data");
         }
-        const data: GameData[] = await response.json()
-        setGames(data)
+        const data: GameData[] = await response.json();
+        setGames(data);
       } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error("Error fetching data:", error);
       }
     }
 
-    fetchGames()
-  }, [])
+    fetchGames();
+  }, []);
 
   return (
     <div>
@@ -39,5 +39,5 @@ export default function Games() {
         ))}
       </div>
     </div>
-  )
+  );
 }

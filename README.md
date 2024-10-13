@@ -2,7 +2,6 @@
 ## Simple, Super & Squeaky clean.
 ## https://radiusowski.site
 
-
 Owned by Owski and Proudparrot2.
 
 Developed by Radius Dev team.  
@@ -20,4 +19,3 @@ We are getting things handled for self-hosting, for now try making an iframe to 
 DM The Owners!
 Owski9 is owski09 on discord!
 ProudParrot2 is proudparrot2 on discord as well.
-
