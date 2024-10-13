@@ -27,28 +27,6 @@
     --radius: 0.4rem;
   }
 
-  .cyberpunk {
-    --background: 253 41% 19%;
-    --foreground: 157 100% 50%;
-    --muted: 253 12% 23%;
-    --muted-foreground: 253 12% 73%;
-    --popover: 253 41% 16%;
-    --popover-foreground: 157 100% 60%;
-    --card: 253 41% 17%;
-    --card-foreground: 157 100% 55%;
-    --border: 253 31% 24%;
-    --input: 253 31% 27%;
-    --primary: 167 100% 50%;
-    --primary-foreground: 167 100% 10%;
-    --secondary: 167 30% 25%;
-    --secondary-foreground: 167 30% 85%;
-    --accent: 253 41% 34%;
-    --accent-foreground: 254 41% 94%;
-    --destructive: 5 92% 45%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 167 100% 50%;
-  }
-
   .bluelight {
     --background: 230 8% 85%;
     --foreground: 229 26% 28%;
@@ -71,10 +49,32 @@
     --ring: 223 42% 57%;
   }
 
+  .cyberpunk {
+    --background: 253 41% 19%;
+    --foreground: 157 100% 50%;
+    --muted: 253 12% 23%;
+    --muted-foreground: 253 12% 73%;
+    --popover: 253 41% 16%;
+    --popover-foreground: 157 100% 60%;
+    --card: 253 41% 17%;
+    --card-foreground: 157 100% 55%;
+    --border: 253 31% 24%;
+    --input: 253 31% 27%;
+    --primary: 167 100% 50%;
+    --primary-foreground: 167 100% 10%;
+    --secondary: 167 30% 25%;
+    --secondary-foreground: 167 30% 85%;
+    --accent: 253 41% 34%;
+    --accent-foreground: 254 41% 94%;
+    --destructive: 5 92% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 167 100% 50%;
+  }
+
   .midnight {
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
+    --muted: 0 0% 10%;
     --muted-foreground: 0 0% 50%;
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 95%;
@@ -82,13 +82,13 @@
     --card-foreground: 0 0% 90%;
     --border: 0 0% 25%;
     --input: 0 0% 20%;
-    --primary: 210 100% 40%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 50% 30%;
-    --secondary-foreground: 0 0% 90%;
-    --accent: 210 50% 25%;
+    --primary: 167 100% 50%;
+    --primary-foreground: 167 100% 10%;
+    --secondary: 360 0% 8%;
+    --secondary-foreground: 167 30% 85%;
+    --accent: 360 0% 12%;
     --accent-foreground: 0 0% 90%;
-    --destructive: 6 90% 50%;
+    --destructive: 360 100% 65%;
     --destructive-foreground: 0 0% 100%;
     --ring: 0 0% 70%;
     --radius: 0.4rem;
