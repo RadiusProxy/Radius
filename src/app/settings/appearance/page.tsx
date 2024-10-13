@@ -45,8 +45,6 @@ export default function Settings() {
       setSubmitting(false);
       toast.success("Settings saved");
     }, 1000);
-
-    console.log(values);
   }
 
   function onReset() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Users, Link, Palette } from "lucide-react";
+import { Users, Link, Palette, ArrowRightLeft } from "lucide-react";
 import NextLink from "next/link";
 
 import { usePathname } from "next/navigation";
@@ -21,6 +21,16 @@ export default function SettingsLayout({
             className="w-full items-center justify-start gap-2"
           >
             <Palette className="h-5 w-5" /> Appearance
+          </Button>
+        </NextLink>
+        <NextLink href="/settings/wisp/">
+          <Button
+            variant={
+              pathname?.includes("/settings/wisp/") ? "secondary" : "ghost"
+            }
+            className="w-full items-center justify-start gap-2"
+          >
+            <ArrowRightLeft className="h-5 w-5" /> Wisp Switcher
           </Button>
         </NextLink>
         <NextLink href="/settings/credits/">
