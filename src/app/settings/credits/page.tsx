@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { Separator } from '@/components/ui/separator'
+import { Separator } from "@/components/ui/separator";
 
 export default function Credits() {
   return (
@@ -15,8 +15,9 @@ export default function Credits() {
           <li>Sparkzil</li>
           <li>Scaratek</li>
           <li>fwxe</li>
+          <li>Nebelung</li>
         </ul>
       </div>
     </div>
-  )
+  );
 }
