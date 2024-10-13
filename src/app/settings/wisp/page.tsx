@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Save, RotateCcw } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const formSchema = z.object({
@@ -33,6 +33,16 @@ export default function WispSwitcher() {
       wispServer: "",
     },
   });
+
+  useEffect(() => {
+    const wispServer: string = window.chemical.getStore("wisp");
+    const defaultWisp: string =
+      (location.protocol === "https:" ? "wss" : "ws") +
+      "://" +
+      location.host +
+      "/wisp/";
+    form.setValue("wispServer", wispServer !== defaultWisp ? wispServer : "");
+  }, []);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setSubmitting(true);
@@ -53,7 +63,7 @@ export default function WispSwitcher() {
 
   return (
     <div>
-      <h1 className="text-4xl font-semibold">Wisp Switcher</h1>
+      <h1 className="text-4xl font-semibold">Wisp</h1>
       <Separator />
       <div className="mt-4">
         <Form {...form}>
@@ -66,7 +76,7 @@ export default function WispSwitcher() {
               name="wispServer"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Wisp Server</FormLabel>
+                  <FormLabel>Wisp Server Switcher</FormLabel>
                   <FormControl>
                     <Input placeholder="Wisp Server URL" {...field} />
                   </FormControl>
