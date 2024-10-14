@@ -94,6 +94,17 @@ export default function ProxyOptions() {
     window.chemical.setStore("searchEngine", service);
   };
 
+  const [transport, setTransport] = useState("");
+
+  useEffect(() => {
+    setTransport(window.chemical.getStore("transport"));
+  }, []);
+
+  const transportChanged = (service: string) => {
+    setTransport(service);
+    window.chemical.setStore("transport", service);
+  };
+
   return (
     <div>
       <h1 className="text-4xl font-semibold">Proxy</h1>
@@ -115,7 +126,19 @@ export default function ProxyOptions() {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <p>Search Engines</p>
+        <p>Transport</p>
+        <Select value={transport} onValueChange={transportChanged}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="libcurl">Libcurl</SelectItem>
+              <SelectItem value="epoxy">Epoxy</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <p>Search Engine</p>
         <Select value={searchEngine} onValueChange={searchEngineChanged}>
           <SelectTrigger className="w-[180px]">
             <SelectValue />
