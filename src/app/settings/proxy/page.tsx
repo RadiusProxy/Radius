@@ -80,6 +80,20 @@ export default function ProxyOptions() {
     window.chemical.setStore("service", service);
   };
 
+  const [searchEngine, setSearchEngine] = useState("");
+
+  useEffect(() => {
+    setSearchEngine(
+      window.chemical.getStore("searchEngine") ||
+        "https://www.google.com/search?q=%s"
+    );
+  }, []);
+
+  const searchEngineChanged = (service: string) => {
+    setSearchEngine(service);
+    window.chemical.setStore("searchEngine", service);
+  };
+
   return (
     <div>
       <h1 className="text-4xl font-semibold">Proxy</h1>
@@ -98,6 +112,40 @@ export default function ProxyOptions() {
                 Scramjet (old broken version)
               </SelectItem>
               <SelectItem value="meteor">Meteor</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <p>Search Engines</p>
+        <Select value={searchEngine} onValueChange={searchEngineChanged}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="https://www.google.com/search?q=%s">
+                Google
+              </SelectItem>
+              <SelectItem value="https://duckduckgo.com/?q=%s&ia=web">
+                DuckDuckGo
+              </SelectItem>
+              <SelectItem value="https://www.bing.com/search?q=%s">
+                Bing
+              </SelectItem>
+              <SelectItem value="https://search.yahoo.com/search?p=%s">
+                Yahoo
+              </SelectItem>
+              <SelectItem value="https://search.brave.com/search?q=%s">
+                Brave
+              </SelectItem>
+              <SelectItem value="https://www.qwant.com/?q=%s&t=web">
+                Qwant
+              </SelectItem>
+              <SelectItem value="https://searx.si/search?q=%s">
+                SearXNG
+              </SelectItem>
+              <SelectItem value="https://www.ecosia.org/search?method=index&q=%s">
+                Ecosia
+              </SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
