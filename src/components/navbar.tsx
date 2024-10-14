@@ -15,7 +15,7 @@ export default function Navbar() {
   if (pathname && pathname.includes('/go/')) return null
 
   return (
-    <div className="w-screen fixed h-14 border-b flex items-center px-4">
+    <div className="w-screen fixed h-14 border-b flex items-center px-4 bg-background z-10">
       <div className="flex items-center gap-3">
         <Button onClick={() => setOpen(true)} size="icon" variant="ghost">
                 <Lucide.Menu className="h-7 w-7" />
