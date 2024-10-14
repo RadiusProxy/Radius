@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { ModeToggle } from "@/components/ThemeSwitch";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -87,6 +88,7 @@ export default function Settings() {
           </div>
         </form>
       </Form>
+      <ModeToggle />
     </div>
   );
 }
