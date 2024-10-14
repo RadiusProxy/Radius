@@ -19,13 +19,21 @@ import { Separator } from "@/components/ui/separator";
 import { Save, RotateCcw } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const formSchema = z.object({
   wispServer: z.string().url("Please provide a valid URL"),
   description: z.string().optional(),
 });
 
-export default function WispSwitcher() {
+export default function ProxyOptions() {
   const [submitting, setSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -61,11 +69,36 @@ export default function WispSwitcher() {
     toast("Settings reset");
   }
 
+  const [proxy, setProxy] = useState("");
+
+  useEffect(() => {
+    setProxy(window.chemical.getStore("service"));
+  }, []);
+
+  const proxyChanged = (service: string) => {
+    setProxy(service);
+    window.chemical.setStore("service", service);
+  };
+
   return (
     <div>
-      <h1 className="text-4xl font-semibold">Wisp</h1>
+      <h1 className="text-4xl font-semibold">Proxy</h1>
       <Separator />
       <div className="mt-4">
+        <p>Proxy Switcher</p>
+        <Select value={proxy} onValueChange={proxyChanged}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="uv">Ultraviolet</SelectItem>
+              <SelectItem value="rammerhead">Rammerhead</SelectItem>
+              <SelectItem value="scramjet">Scramjet (old broken version)</SelectItem>
+              <SelectItem value="meteor">Meteor</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}

@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/icon.png" />
-        <script data-wisp-store src="/chemical.js"></script>
+        <script data-wisp-store data-transport-store src="/chemical.js"></script>
       </head>
       <body className={inter.className}>
         <Themes>
