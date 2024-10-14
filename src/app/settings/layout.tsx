@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Users, Link, Palette, ArrowRightLeft } from "lucide-react";
+import { Users, Link, Palette, LockIcon } from "lucide-react";
 import NextLink from "next/link";
 
 import { usePathname } from "next/navigation";
@@ -13,6 +13,16 @@ export default function SettingsLayout({
   return (
     <div className="flex">
       <div className="flex w-1/4 flex-col gap-2 p-4 pl-8 pt-8">
+        <NextLink href="/settings/proxy/">
+          <Button
+            variant={
+              pathname?.includes("/settings/proxy/") ? "secondary" : "ghost"
+            }
+            className="w-full items-center justify-start gap-2"
+          >
+            <LockIcon className="h-5 w-5" /> Proxy
+          </Button>
+        </NextLink>
         <NextLink href="/settings/appearance/">
           <Button
             variant={
@@ -21,16 +31,6 @@ export default function SettingsLayout({
             className="w-full items-center justify-start gap-2"
           >
             <Palette className="h-5 w-5" /> Appearance
-          </Button>
-        </NextLink>
-        <NextLink href="/settings/wisp/">
-          <Button
-            variant={
-              pathname?.includes("/settings/wisp/") ? "secondary" : "ghost"
-            }
-            className="w-full items-center justify-start gap-2"
-          >
-            <ArrowRightLeft className="h-5 w-5" /> Wisp
           </Button>
         </NextLink>
         <NextLink href="/settings/credits/">

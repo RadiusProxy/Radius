@@ -37,8 +37,11 @@ export default function Route({ params }: { params: { route: string[] } }) {
         ref.current.src = await window.chemical.encode(
           atob(decodeURIComponent(route)),
           {
+            service: window.chemical.getStore("service"),
             autoHttps: true,
-            searchEngine: "https://www.google.com/search?q=%s",
+            searchEngine:
+              window.chemical.getStore("searchEngine") ||
+              "https://www.google.com/search?q=%s",
           }
         );
       }

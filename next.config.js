@@ -5,7 +5,7 @@ const nextConfig = {
     return [
       {
         source: '/settings',
-        destination: '/settings/appearance',
+        destination: '/settings/proxy',
         permanent: false
       }
     ]
