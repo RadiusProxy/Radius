@@ -6,7 +6,7 @@ const [app, listen] = new ChemicalServer({
   uv: true,
   rammerhead: false,
 });
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();

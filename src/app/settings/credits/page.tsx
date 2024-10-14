@@ -16,6 +16,7 @@ export default function Credits() {
           <li>Scaratek</li>
           <li>fwxe</li>
           <li>Nebelung</li>
+          <li>anshnk</li>
         </ul>
       </div>
     </div>
