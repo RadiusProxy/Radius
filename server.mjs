@@ -4,7 +4,11 @@ import next from "next";
 const [app, listen] = new ChemicalServer({
   default: "uv",
   uv: true,
-  rammerhead: false,
+  rammerhead: true,
+  experimental: {
+    scramjet: true,
+    meteor: true,
+  },
 });
 const port = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
