@@ -20,7 +20,6 @@ export default function Navbar() {
         <Button onClick={() => setOpen(true)} size="icon" variant="ghost">
                 <Lucide.Menu className="h-7 w-7" />
         </Button>
-        <ModeToggle />
         {/* Wrap the logo and text in a Link */}
         <Link href="/" className="flex items-center gap-2">
           <Lucide.Radius className="h-8 w-8 rotate-180" />
