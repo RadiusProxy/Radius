@@ -73,9 +73,9 @@
   .midnight {
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
-    --muted: 0 0% 10%;
+    --muted: 0 0% 0%;
     --muted-foreground: 0 0% 50%;
-    --popover: 0 0% 10%;
+    --popover: 0 0% 0%;
     --popover-foreground: 0 0% 95%;
     --card: 0 0% 5%;
     --card-foreground: 0 0% 90%;
@@ -83,9 +83,9 @@
     --input: 0 0% 20%;
     --primary: 167 100% 50%;
     --primary-foreground: 167 100% 10%;
-    --secondary: 360 0% 8%;
-    --secondary-foreground: 167 30% 85%;
-    --accent: 360 0% 12%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 167 0% 85%;
+    --accent: 0 0% 12%;
     --accent-foreground: 0 0% 90%;
     --destructive: 360 100% 65%;
     --destructive-foreground: 0 0% 100%;
