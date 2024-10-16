@@ -42,8 +42,8 @@ importers:
         specifier: ^2.0.4
         version: 2.0.4(bufferutil@4.0.8)
       chemicaljs:
-        specifier: ^2.1.0
-        version: 2.1.0(bufferutil@4.0.8)(esbuild@0.23.1)(typescript@5.6.3)
+        specifier: ^2.1.1
+        version: 2.1.1(bufferutil@4.0.8)(esbuild@0.23.1)(typescript@5.6.3)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -1117,8 +1117,8 @@ packages:
   caniuse-lite@1.0.30001668:
     resolution: {integrity: sha512-nWLrdxqCdblixUO+27JtGJJE/txpJlyUy5YN1u53wLZkP0emYCo5zgS6QYft7VUYR42LGgi/S5hdLZTrnyIddw==}
 
-  chemicaljs@2.1.0:
-    resolution: {integrity: sha512-K+27qhrbxo79L5t66N9hUpJolEiqd8zv1z24oM7cPEkb7YGqmEjiMC6nqUPh0HfLXcmJFIBOWJom88ZNxqs81w==}
+  chemicaljs@2.1.1:
+    resolution: {integrity: sha512-qgyKHnyvWcYe07rjhTLvTueaMSzXoXjjl1PKTwakvOVUElD/z3QhkgcqDP3t6ScMQoTZH1eBgaOLHRt2jjeAcg==}
     engines: {node: '>=20.11.0'}
 
   chokidar@3.6.0:
@@ -3598,7 +3598,7 @@ snapshots:
 
   caniuse-lite@1.0.30001668: {}
 
-  chemicaljs@2.1.0(bufferutil@4.0.8)(esbuild@0.23.1)(typescript@5.6.3):
+  chemicaljs@2.1.1(bufferutil@4.0.8)(esbuild@0.23.1)(typescript@5.6.3):
     dependencies:
       '@mercuryworkshop/bare-mux': 2.1.2
       '@mercuryworkshop/epoxy-transport': 2.1.17
