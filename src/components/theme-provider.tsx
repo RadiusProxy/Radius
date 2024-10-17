@@ -5,12 +5,14 @@ type Theme =
 	| 'cyberpunk'
 	| 'bluelight'
 	| 'midnight'
+	| 'catppuccin'
 	| 'system';
 const themes: Theme[] = [
 	'radius',
 	'cyberpunk',
 	'bluelight',
 	'midnight',
+	'catppuccin',
 	'system',
 ];
 type ThemeProviderProps = {
