@@ -2,8 +2,7 @@
 ## Simple, Super & Squeaky clean.
 ## https://radiusowski.site
 
-Owned by Owski and Proudparrot2.
-
+Owned by Owski
 Developed by Radius Dev team.  
 All rights reserved by Radius Proxy.
 
