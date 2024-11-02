@@ -24,6 +24,7 @@ declare global {
 
 export default function Route({ params }: { params: { route: string[] } }) {
   const ref = useRef<HTMLIFrameElement>(null);
+  const contentWindow = ref.current?.contentWindow as ContentWindow;
   const [open, setOpen] = useState(false);
   const route = params.route.join("/");
 
@@ -52,8 +53,7 @@ export default function Route({ params }: { params: { route: string[] } }) {
 
   function triggerShortcut() {
     store.set("shortcuts", [], false);
-    if (!ref.current || !ref.current.contentWindow) return;
-    const contentWindow = ref.current.contentWindow as ContentWindow;
+    const contentWindow = ref.current?.contentWindow as ContentWindow;
     if (!("__uv$location" in contentWindow)) return;
     const shortcuts: any[] = store("shortcuts");
 
@@ -86,9 +86,7 @@ export default function Route({ params }: { params: { route: string[] } }) {
   }
 
   function handleLoad() {
-    if (!ref.current || !ref.current.contentWindow) return;
-    const contentWindow = ref.current.contentWindow as ContentWindow;
-
+    const contentWindow = ref.current?.contentWindow as ContentWindow;
     setTabName(contentWindow.document.title);
     setTabIcon(
       (
@@ -104,8 +102,11 @@ export default function Route({ params }: { params: { route: string[] } }) {
       shortcuts.some((value) => value.url == contentWindow.__uv$location.href)
     ) {
       setShortcutted(true);
+    } else {
+      setShortcutted(false);
     }
   }
+
   return (
     <div>
       <div className="w-screen fixed top-0 h-14 border-b flex items-center justify-between px-4 pr-8">
@@ -128,7 +129,7 @@ export default function Route({ params }: { params: { route: string[] } }) {
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button onClick={() => contentWindow.history.back()} variant="ghost" size="icon">
                   <Lucide.ArrowLeft />
                 </Button>
               </TooltipTrigger>
@@ -137,7 +138,16 @@ export default function Route({ params }: { params: { route: string[] } }) {
 
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button onClick={() => contentWindow.history.forward()} variant="ghost" size="icon">
+                  <Lucide.ArrowRight />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Forward</TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button onClick={() => contentWindow.location.reload()} variant="ghost" size="icon">
                   <Lucide.RotateCw />
                 </Button>
               </TooltipTrigger>
