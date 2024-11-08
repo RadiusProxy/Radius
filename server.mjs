@@ -1,15 +1,7 @@
 import { ChemicalServer } from "chemicaljs";
 import next from "next";
 
-const [app, listen] = new ChemicalServer({
-  default: "uv",
-  uv: true,
-  rammerhead: true,
-  experimental: {
-    scramjet: true,
-    meteor: true,
-  },
-});
+const [app, listen] = new ChemicalServer();
 const port = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
