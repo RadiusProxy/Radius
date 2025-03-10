@@ -44,6 +44,30 @@ export function ModeToggle() {
         <DropdownMenuItem onClick={() => setTheme("system")}>
           System
         </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("cosmic")}>
+          Cosmic
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("cherry-blossom")}>
+          Cherry Blossom
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("void")}>
+          Void
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("ocean")}>
+          Ocean
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("pastel")}>
+          Pastel
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("frost")}>
+          Frost
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("desert-sands")}>
+          Desert Sands
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("lavender")}>
+          Lavender
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
