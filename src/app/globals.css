@@ -92,28 +92,159 @@
     --ring: 0 0% 70%;
     --radius: 0.4rem;
   }
-
-  .catppuccin {
-    --background: 240 21% 15%;
-    --foreground: 226 64% 88%;
-    --muted: 240 21% 12%;
-    --muted-foreground: 228 17% 64%;
-    --popover: 240 21% 12%;
-    --popover-foreground: 227 35% 80%;
-    --card: 240 21% 12%;
-    --card-foreground: 228 24% 72%;
-    --border: 234 13% 31%;
-    --input: 234 13% 31%;
-    --primary: 115 54% 76%;
-    --primary-foreground: 240 21% 15%;
-    --secondary: 240 21% 12%;
-    --secondary-foreground: 228 17% 64%;
-    --accent: 237 16% 23%;
-    --accent-foreground: 227 35% 80%;
-    --destructive: 343 81% 75%;
-    --destructive-foreground: 226 64% 88%;
-    --ring: 228 24% 72%;
+  .ctp-mocha {
+    --background: 240 21% 15%; /*base*/
+    --foreground: 226 64% 88%; /*text*/
+    --muted: 240 21% 12%; /*mantle*/
+    --muted-foreground: 228 17% 64%; /*overlay 2*/
+    --popover: 240 21% 12%; /*mantle*/
+    --popover-foreground: 227 35% 80%; /*subtext 1*/
+    --card: 240 21% 12%; /*mantle*/
+    --card-foreground: 228 24% 72%; /*subtext 0*/
+    --border: 234 13% 31%; /*surface 1*/
+    --input: 234 13% 31%; /*surface 1*/
+    --primary: 115 54% 76%; /*green*/
+    --primary-foreground: 240 21% 15%; /*base*/
+    --secondary: 240 21% 12%; /*mantle*/
+    --secondary-foreground: 228 24% 72%; /*subtext 0*/
+    --accent: 237 16% 23%; /*surface 0*/
+    --accent-foreground: 227 35% 80%; /*subtext 1*/
+    --destructive: 343 81% 75%; /*red*/
+    --destructive-foreground: 226 64% 88%;/*text*/
+    --ring: 228 24% 72%; /*subtext 0*/
   }
+  .ctp-latte {
+    --background: 220 23% 95%; /* base */
+    --foreground: 234 16% 35%;/* text */
+    --muted: 220 22% 92%; /* mantle */
+    --muted-foreground: 232 10% 53%; /* overlay2 */
+    --popover: 220 22% 92%; /* mantle */
+    --popover-foreground: 233 13% 41%; /* subtext1 */
+    --card: 220 22% 92%; /* mantle */
+    --card-foreground: 233 10% 47%; /* subtext0 */
+    --border: 225 14% 77%; /* surface1 */
+    --input: 225 14% 77%; /* surface1 */
+    --primary: 220 91% 54%; /* blue */
+    --primary-foreground: 220 23% 95%; /* base */
+    --secondary: 220 22% 92%; /* mantle */
+    --secondary-foreground: 233 10% 47%; /* subtext0 */
+    --accent: 223 16% 83%; /* surface0 */
+    --accent-foreground: 233 13% 41%; /* subtext1 */
+    --destructive: 347 87% 44%; /* red */
+    --destructive-foreground: 234 16% 35%; /* text */
+    --ring: 233 10% 47%; /* subtext0 */
+}
+ 
+.ctp-frappe {
+  --background: 229 19% 23%; /* base */
+  --foreground: 227 70% 87%; /* text */
+  --muted: 231 19% 20%; /* mantle */
+  --muted-foreground: 228 22% 66%; /* overlay2 */
+  --popover: 231 19% 20%; /* mantle */
+  --popover-foreground: 227 44% 80%; /* subtext1 */
+  --card: 231 19% 20%; /* mantle */
+  --card-foreground: 228 29% 73%; /* subtext0 */
+  --border: 227 15% 37%; /* surface1 */
+  --input: 227 15% 37%; /* surface1 */
+  --primary: 222 74% 74%; /* blue */
+  --primary-foreground: 229 19% 23%; /* base */
+  --secondary: 231 19% 20%; /* mantle */
+  --secondary-foreground: 228 29% 73%; /* subtext0 */
+  --accent: 230 16% 30%; /* surface0 */
+  --accent-foreground: 227 44% 80%; /* subtext1 */
+  --destructive: 359 68% 71%; /* red */
+  --destructive-foreground: 227 70% 87%; /* text */
+  --ring: 228 29% 73%; /* subtext0 */
+} 
+  .ctp-macchiato {
+    --background: 232 23% 18%; /* base */
+    --foreground: 227 68% 88%; /* text */
+    --muted: 233 23% 15%; /* mantle */
+    --muted-foreground: 228 20% 65%; /* overlay2 */
+    --popover: 233 23% 15%; /* mantle */
+    --popover-foreground: 228 39% 80%; /* subtext1 */
+    --card: 233 23% 15%; /* mantle */
+    --card-foreground: 227 27% 72%; /* subtext0 */
+    --border: 231 16% 34%; /* surface1 */
+    --input: 231 16% 34%; /* surface1 */
+    --primary: 220 83% 75%; /* blue */
+    --primary-foreground: 232 23% 18%; /* base */
+    --secondary: 233 23% 15%; /* mantle */
+    --secondary-foreground: 227 27% 72%; /* subtext0 */
+    --accent: 230 19% 26%; /* surface0 */
+    --accent-foreground: 228 39% 80%; /* subtext1 */
+    --destructive: 351 74% 73%; /* red */
+    --destructive-foreground: 227 68% 88%; /* text */
+    --ring: 227 27% 72%; /* subtext0 */
+  }
+  
+  .rp-main {
+    --background: 249 22% 12%;
+    --foreground: 245 50% 91%;
+    --muted: 249 12% 47%;
+    --muted-foreground: 248 15% 61%;
+    --popover: 247 23% 15%;
+    --popover-foreground: 245 50% 91%;
+    --card: 248 25% 18%;
+    --card-foreground: 245 50% 91%;
+    --border: 249 15% 28%;
+    --input: 249 15% 28%;
+    --primary: 267 57% 78%;
+    --primary-foreground: 249 22% 12%;
+    --secondary: 245 22% 20%;
+    --secondary-foreground: 245 50% 91%;
+    --accent: 249 15% 28%;
+    --accent-foreground: 245 50% 91%;
+    --destructive: 343 76% 68%;
+    --destructive-foreground: 245 50% 91%;
+    --ring: 248 15% 28%;
+  }
+  
+  .rp-moon {
+    --background: 246 24% 17%;
+    --foreground: 245 50% 91%;
+    --muted: 249 12% 47%;
+    --muted-foreground: 248 15% 61%;
+    --popover: 248 24% 20%;
+    --popover-foreground: 245 50% 91%;
+    --card: 248 21% 26%;
+    --card-foreground: 245 50% 91%;
+    --border: 247 16% 30%;
+    --input: 247 16% 30%;
+    --primary: 267 57% 78%;
+    --primary-foreground: 246 24% 17%;
+    --secondary: 248 21% 26%;
+    --secondary-foreground: 245 50% 91%;
+    --accent: 247 16% 30%;
+    --accent-foreground: 245 50% 91%;
+    --destructive: 343 76% 68%;
+    --destructive-foreground: 245 50% 91%;
+    --ring: 247 16% 30%;
+  }
+  
+  .rp-dawn {
+    --background: 32 57% 95%;
+    --foreground: 248 19% 40%;
+    --muted: 257 9% 61%;
+    --muted-foreground: 248 12% 52%;
+    --popover: 35 100% 98%;
+    --popover-foreground: 248 19% 40%;
+    --card: 33 43% 91%;
+    --card-foreground: 248 19% 40%;
+    --border: 10 9% 86%;
+    --input: 10 9% 86%;
+    --primary: 268 21% 57%;
+    --primary-foreground: 32 57% 95%;
+    --secondary: 33 43% 91%;
+    --secondary-foreground: 248 19% 40%;
+    --accent: 10 9% 86%;
+    --accent-foreground: 248 19% 40%;
+    --destructive: 343 35% 55%;
+    --destructive-foreground: 248 19% 40%;
+    --ring: 10 9% 86%;
+  }
+
+  
 }
 
 @layer base {
