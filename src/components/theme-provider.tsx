@@ -5,14 +5,26 @@ type Theme =
 	| 'cyberpunk'
 	| 'bluelight'
 	| 'midnight'
-	| 'catppuccin'
+	| 'ctp-mocha'
+	| 'ctp-frappe'
+	| 'ctp-latte'
+	| 'ctp-macchiato'
+	| 'rp-main'
+	| 'rp-moon'
+	| 'rp-dawn'
 	| 'system';
 const themes: Theme[] = [
 	'radius',
 	'cyberpunk',
 	'bluelight',
 	'midnight',
-	'catppuccin',
+	'ctp-mocha',
+	'ctp-frappe',
+	'ctp-latte',
+	'ctp-macchiato',
+	'rp-main',
+	'rp-moon',
+	'rp-dawn',
 	'system',
 ];
 type ThemeProviderProps = {

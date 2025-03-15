@@ -38,8 +38,26 @@ export function ModeToggle() {
         <DropdownMenuItem onClick={() => setTheme("midnight")}>
           Midnight
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("catppuccin")}>
-          Catppuccin
+        <DropdownMenuItem onClick={() => setTheme("ctp-mocha")}>
+          Catppuccin Mohca
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("ctp-frappe")}>
+          Catppuccin Frappe
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("ctp-latte")}>
+          Catppuccin Latte
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("ctp-macchiato")}>
+          Catppuccin Macchiato
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("rp-main")}>
+          Rose Pine
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("rp-moon")}>
+          Rose Pine Moon
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("rp-dawn")}>
+          Rose Pine Dawn
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
           System
