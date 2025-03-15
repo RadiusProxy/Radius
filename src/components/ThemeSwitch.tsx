@@ -39,7 +39,7 @@ export function ModeToggle() {
           Midnight
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("ctp-mocha")}>
-          Catppuccin Mohca
+          Catppuccin Mocha
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("ctp-frappe")}>
           Catppuccin Frappe
