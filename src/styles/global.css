@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+
+.font-override {
+    font-family: var(--font-family), Inter, sans-serif;
+}

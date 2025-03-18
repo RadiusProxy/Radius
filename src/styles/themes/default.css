@@ -21,4 +21,5 @@
     --destructive-foreground: hsl(0 0% 100%);
     --ring: hsl(215.09 100% 98.03%);
     --radius: hsl(0.4rem);
+    --font-family: Inter;
 }
