@@ -69,6 +69,27 @@
     --destructive-foreground: 0 0% 100%;
     --ring: 167 100% 50%;
   }
+  .catppuccin {
+    --background: 240 21% 15%;
+    --foreground: 226 64% 88%;
+    --muted: 240 21% 12%;
+    --muted-foreground: 228 17% 64%;
+    --popover: 240 21% 12%;
+    --popover-foreground: 227 35% 80%;
+    --card: 240 21% 12%;
+    --card-foreground: 228 24% 72%;
+    --border: 234 13% 31%;
+    --input: 234 13% 31%;
+    --primary: 115 54% 76%;
+    --primary-foreground: 240 21% 15%;
+    --secondary: 240 21% 12%;
+    --secondary-foreground: 228 17% 64%;
+    --accent: 237 16% 23%;
+    --accent-foreground: 227 35% 80%;
+    --destructive: 343 81% 75%;
+    --destructive-foreground: 226 64% 88%;
+    --ring: 228 24% 72%;
+  }
 
   .midnight {
     --background: 0 0% 0%;
