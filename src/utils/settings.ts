@@ -26,15 +26,15 @@ class Settings {
         return get().next().value! as Settings;
     }
 
-    theme(theme: string) {
-        this.#storageManager.setVal('theme', theme);
+    theme(theme?: string) {
+        this.#storageManager.setVal('theme', theme || this.#storageManager.getVal('theme'));
         theme === 'default' 
             ? document.documentElement.className = '' 
-            : document.documentElement.className = theme;
+            : document.documentElement.className = theme || this.#storageManager.getVal('theme');
     }
 
     async *#init() {
-        yield this.theme(this.#storageManager.getVal('theme'));
+        yield this.theme(this.#storageManager.getVal('theme') || 'default');
     }
 
     constructor() {

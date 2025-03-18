@@ -3,6 +3,7 @@ import "@styles/themes/default.css";
 import "@styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import SettingsLoader from "@components/SettingsLoader.astro";
+import Header from "@components/Header.astro";
 ---
 <!doctype html>
 <html lang="en">
@@ -16,6 +17,7 @@ import SettingsLoader from "@components/SettingsLoader.astro";
         <ClientRouter fallback="animate" />
 	</head>
     <body class="h-full w-full bg-(--background)">
+        <Header />
         <div class="h-full w-full fixed bg-(--background)">
             <slot />
         </div>

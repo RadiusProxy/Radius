@@ -3,6 +3,7 @@ import type { Plugin } from 'vite';
 import wisp from "wisp-server-node";
 import node from '@astrojs/node';
 import tailwindcss from '@tailwindcss/vite';
+import icon from "astro-icon";
 
 const viteWispServer = (): Plugin => {
     return {
@@ -23,6 +24,7 @@ export default defineConfig({
             viteWispServer()
         ]
     },
+    integrations: [icon()],
     output: 'server',
     adapter: node({
         mode: 'middleware'
