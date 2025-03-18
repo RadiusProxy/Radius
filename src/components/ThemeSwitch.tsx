@@ -38,7 +38,6 @@ export function ModeToggle() {
         <DropdownMenuItem onClick={() => setTheme("midnight")}>
           Midnight
         </DropdownMenuItem>
-        
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
