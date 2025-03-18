@@ -1,0 +1,21 @@
+.cyberpunk {
+    --background: hsl(253 41% 19%) !important;
+    --foreground: hsl(157 100% 50%) !important;
+    --muted: hsl(253 12% 23%) !important;
+    --muted-foreground: hsl(253 12% 73%) !important;
+    --popover: hsl(253 41% 16%) !important;
+    --popover-foreground: hsl(157 100% 60%) !important;
+    --card: hsl(253 41% 17%) !important;
+    --card-foreground: hsl(157 100% 55%) !important;
+    --border: hsl(253 31% 24%) !important;
+    --input: hsl(253 31% 27%) !important;
+    --primary: hsl(167 100% 50%) !important;
+    --primary-foreground: hsl(167 100% 10%) !important;
+    --secondary: hsl(167 30% 25%) !important;
+    --secondary-foreground: hsl(167 30% 85%) !important;
+    --accent: hsl(253 41% 34%) !important;
+    --accent-foreground: hsl(254 41% 94%) !important;
+    --destructive: hsl(5 92% 45%) !important;
+    --destructive-foreground: hsl(0 0% 100%) !important;
+    --ring: hsl(167 100% 50%) !important;
+  }
