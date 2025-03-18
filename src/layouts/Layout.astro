@@ -1,3 +1,6 @@
+---
+import "@styles/global.css";
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,10 +8,12 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Radius</title>
 	</head>
-	<body>
-		<slot />
+    <body class="h-full">
+        <div class="h-full w-full fixed">
+            <slot />
+        </div>
 	</body>
 </html>
 
