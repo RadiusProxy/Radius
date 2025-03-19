@@ -10,7 +10,6 @@ const viteWispServer = (): Plugin => {
         name: 'vite-wisp-server',
         configureServer(server) {
             server.httpServer?.on('upgrade', (req, socket, head) => {
-                console.log('3');
                 req.url.startsWith('/wisp') ? wisp.routeRequest(req, socket, head) : undefined 
             })
         }
