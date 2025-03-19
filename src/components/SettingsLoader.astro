@@ -1,8 +1,14 @@
 <script>
+    declare global {
+        interface Window {
+            settings: Settings
+        }
+    }
+    
     import { Settings } from "@utils/settings.ts";
-    const settings = new Settings();
-    window.settings = settings;
+    window.settings = await Settings.getInstance(); 
+    
     document.addEventListener('astro:after-swap', async () => {
-        settings.theme()
+        window.settings.theme()
     });
 </script>
