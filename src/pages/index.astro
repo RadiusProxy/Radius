@@ -1,17 +1,29 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { Icon } from 'astro-icon/components';
+import { Icon } from 'astro-icon/components'
+
+import splash from "@assets/splash.json";
+
+const genSplash = (): String => {
+    const idx = Math.floor(Math.random() * splash.length);
+    return splash[idx].splash;
+}
+
+const randomSplash = genSplash();
 ---
 
 <Layout>
     <div class="h-full flex items-center justify-center">
-        <div class="flex items-center gap-2">
-            <Icon name="lucide:radius" class="h-16 w-16 rotate-180 text-(--foreground)" />
-            <h1 class="text-6xl font-semibold">Radius</h1>
-        </div>
-        <div>
-            <!-- text input here from shadcn (soon) -->
-            <p>more coming soon (trust)</p>
+        <div class="flex flex-col items-center gap-6">
+            <div class="flex items-center gap-2">
+                <Icon name="lucide:radius" class="h-16 w-16 rotate-180 text-(--foreground)" />
+                <h1 class="text-6xl font-semibold">Radius</h1>
+            </div>
+            <div class="flex flex-row items-center gap-2 w-[26rem] border border-(--input) rounded-lg h-12 p-2">
+                <Icon name="lucide:search" />
+                <input type="text" name="Search" class="text-sm focus-visible:outline-none w-full h-full placeholder:text-(--muted-foreground)" id="search" placeholder="Search the web">
+            </div>
+            <p class="text-base"> { randomSplash } </p>
         </div>
     </div>
 </Layout>

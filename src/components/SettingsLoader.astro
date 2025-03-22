@@ -1,7 +1,7 @@
 <script>
     import { Settings } from "@utils/settings.ts";
     const settings = new Settings();
-    
+
     document.addEventListener('astro:after-swap', async () => {
         settings.theme();
     });
