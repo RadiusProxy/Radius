@@ -1,9 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
+const path = Astro.url.pathname;
 ---
 <div class="h-14 fixed bg-(--background) border-b border-b-(--border) px-4 w-full z-10 flex items-center">
     <div class="flex items-center gap-3">
-        <button class="cursor-pointer inline-flex items-center justify-center whitespcae-nowrap rounded-lg text-sm font-medium ring-(--offset-background) h-10 w-10">
+        <button id="menu" class="cursor-pointer inline-flex items-center justify-center whitespcae-nowrap rounded-lg text-sm font-medium ring-(--offset-background) h-10 w-10 hover:bg-(--accent)">
             <Icon name="lucide:menu" class="text-(--foreground) h-7 w-7" />
         </button>
         <a class="flex items-center gap-2" href="/">
@@ -12,3 +13,55 @@ import { Icon } from "astro-icon/components";
         </a>
     </div>
 </div>
+<div class="fixed w-full h-full z-10 flex flex-row hidden pointer-events-auto" id="navigation">
+    <div class="flex flex-col gap-6 w-72 h-full bg-(--background) border-r border-r-(--border) p-6">
+        <div class="w-full flex flex-row justify-between">
+            <Icon name="lucide:radius" class="w-10 h-10 rotate-180 text-(--foreground)" />
+            <button id="exitNav">
+                <Icon name="lucide:x" class="text-(--muted-foreground)" />
+            </button>
+        </div>
+        <div class="flex flex-col gap-3"> 
+            <div class="text-(--secondary-foreground) w-full border-b border-b-(--border) pb-3 flex flex-col gap-3">
+                <a href="/" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path === '/' ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                    <Icon name="lucide:house" class="text-lg w-6 h-6" /> Home
+                </a>
+                <a href="/games" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/games') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                    <Icon name="lucide:gamepad" class="text-lg w-6 h-6" /> Games
+                </a>
+                <a href="/apps" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/apps') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                    <Icon name="lucide:layout-grid" class="text-lg w-6 h-6" /> Apps
+                </a>
+            </div>
+            <div class="text-(--secondary-foreground) w-full flex flex-col">
+                <a href="/settings" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/settings') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                    <Icon name="lucide:settings-2" class="text-lg w-6 h-6" /> Settings
+                </a>
+            </div>
+        </div>
+    </div>
+    <span id="body-hide" class="flex-grow h-full opacity-85 bg-(--background) brightness-20"></span>
+</div>
+<script>    
+    const handler = () => {
+        const open = false;
+        const menuButton = document.getElementById("menu") as HTMLButtonElement;
+        const navigation = document.getElementById("navigation") as HTMLDivElement;
+        const bodyHider = document.getElementById("body-hide") as HTMLSpanElement;
+        const exitNav = document.getElementById("exitNav") as HTMLButtonElement;
+
+        menuButton.addEventListener("click", () => { 
+            navigation.classList.remove("hidden");
+        });
+
+        exitNav.addEventListener("click", () => {
+            navigation.classList.add("hidden");
+        });
+
+        bodyHider.addEventListener("click", () => {
+            navigation.classList.add("hidden");
+        });
+    }
+
+    document.addEventListener("astro:page-load", handler);
+</script>
