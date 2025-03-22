@@ -1,0 +1,21 @@
+.bluelight {
+    --background: hsl(230 8% 85%) !important;
+    --foreground: hsl(229 26% 28%) !important;
+    --muted: hsl(230 12% 81%) !important;
+    --muted-foreground: hsl(230 12% 21%) !important;
+    --popover: hsl(230 8% 82%) !important;
+    --popover-foreground: hsl(229 26% 18%) !important;
+    --card: hsl(230 8% 83%) !important;
+    --card-foreground: hsl(229 26% 23%) !important;
+    --border: hsl(0 0% 80%) !important;
+    --input: hsl(0 0% 77%) !important;
+    --primary: hsl(223 42% 57%) !important;
+    --primary-foreground: hsl(0 0% 100%) !important;
+    --secondary: hsl(223 30% 75%) !important;
+    --secondary-foreground: hsl(223 30% 15%) !important;
+    --accent: hsl(230 8% 70%) !important;
+    --accent-foreground: hsl(230 8% 10%) !important;
+    --destructive: hsl(2 82% 30%) !important;
+    --destructive-foreground: hsl(2 82% 90%) !important;
+    --ring: hsl(223 42% 57%) !important;
+  }
