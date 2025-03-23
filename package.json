@@ -38,8 +38,11 @@
   "devDependencies": {
     "@fontsource/inter": "^5.2.5",
     "@iconify-json/lucide": "^1.2.30",
+    "@mercuryworkshop/bare-mux": "^2.1.7",
     "@mercuryworkshop/epoxy-transport": "^2.1.27",
     "@mercuryworkshop/libcurl-transport": "^1.4.0",
+    "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-1.0.2-dev.tgz",
+    "@playform/compress": "^0.1.7",
     "@titaniumnetwork-dev/ultraviolet": "^3.2.10",
     "@types/node": "^22.13.10",
     "tsx": "^4.19.3",
