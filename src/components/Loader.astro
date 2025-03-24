@@ -1,8 +1,12 @@
 <script>
     import { Settings } from "@utils/settings.ts";
+    import { SW } from "@utils/proxy.ts";
     const settings = new Settings();
+    const sw = new SW();
+
 
     document.addEventListener('astro:after-swap', async () => {
+        //const settings = await Settings.getInstance();
         settings.theme();
     });
 </script>

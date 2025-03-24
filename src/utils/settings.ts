@@ -1,5 +1,6 @@
 import { StoreManager } from "./storage";
-
+import { BareMuxConnection } from "@mercuryworkshop/bare-mux";
+import { SW } from "@utils/proxy.ts";
 /**
     * The settings class
     * Initializes it's own StorageManager, and handles everything within the class itself
@@ -22,7 +23,6 @@ class Settings {
     #storageManager: StoreManager<"radius||settings">;
     static #instance = new Set(); 
     
-
     /**
         * Method to get the current or other Settings instance(s)
         *
@@ -70,7 +70,7 @@ class Settings {
             ? document.documentElement.className = '' 
             : document.documentElement.className = theme || this.#storageManager.getVal('theme');
     }
-
+ 
     async *#init() {
         yield this.theme(this.#storageManager.getVal('theme') || 'default');
     }

@@ -3,13 +3,13 @@ import "@styles/themes/default.css";
 import "@styles/global.css";
 import "@fontsource/inter";
 import { ClientRouter } from "astro:transitions";
-import SettingsLoader from "@components/SettingsLoader.astro";
+import Loader from "@components/Loader.astro";
 import Header from "@components/Header.astro";
 ---
 <!doctype html>
 <html lang="en">
     <head>
-        <SettingsLoader transition:persist />
+        <Loader transition:persist />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
