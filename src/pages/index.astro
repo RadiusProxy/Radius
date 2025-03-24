@@ -25,31 +25,64 @@ const randomSplash = genSplash();
             </div>
             <p class="text-sm text-center sm:text-base whitespace-nowrap"> { randomSplash } </p>
         </div>
-        <iframe id="iframe" class="fixed h-[calc(100%-3.5rem)] mt-14 w-full hidden" src="https://example.com" />
+        <iframe id="iframe" class="fixed h-[calc(100%-3.5rem)] mt-14 w-full hidden" />
     </div>
 </Layout>
 <script>
     import { SW } from "@utils/proxy.ts";
     import { Settings } from "@utils/settings.ts";
+    import { BareClient } from "@mercuryworkshop/bare-mux";
 
     const init = async () => {
         const input = document.getElementById("input") as HTMLInputElement;
         const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+        const iframeWin = iframe.contentWindow;
+        const bhl = document.getElementById("bhl") as HTMLDivElement;
+        const phl = document.getElementById("phl") as HTMLDivElement;
+        const phlImage = document.getElementById("phlImage") as HTMLImageElement;
+        const phlTitle = document.getElementById("phlTitle") as HTMLDivElement;
+        const client = new BareClient();
         input.addEventListener("keypress", async (event: any) => {
             if (event.key === "Enter") {
                 const sw = SW.getInstance().next().value!;
                 const settings = await Settings.getInstance();
                 await sw.setTransport();
                 iframe.classList.remove("hidden");
-                iframe.src = sw.encodeURL(input.value, 'uv');
+                iframe.src = sw.encodeURL(input.value, 'scram'); 
             }
         });
+
+        const getURL = async (): Promise<string> => {
+            if (iframeWin!.__uv) {
+                return iframeWin!.__uv.location.href
+            }
+            else {
+                return iframeWin!.location.href
+                    .replace(iframeWin!.location.origin, '')
+                    .replace(iframeWin!.$scramjet.config.prefix, '')
+            }
+        }
+
+        iframe.addEventListener("load", async () => {
+            //const url = new URL();
+            phlTitle.innerHTML = iframeWin!.document.title;
+            const pageURL = await getURL();
+            const data = await client.fetch(`https://www.google.com/s2/favicons?domain=${pageURL}&sz=64`);
+            const dataRes = await data.blob();
+            const object = URL.createObjectURL(dataRes);
+            phlImage.src = object;
+            bhl.classList.add("hidden");
+            phl.classList.remove("hidden");
+            //URL.revokeObjectURL(object);
+        }); 
     }
 
     document.addEventListener("astro:page-load", async () => {
         try {
             await init();
         }
-        catch (_) {}
+        catch (err) {
+            console.log(err);
+        }
     })
 </script>

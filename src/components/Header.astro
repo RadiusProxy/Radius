@@ -7,10 +7,14 @@ const path = Astro.url.pathname;
         <button id="menu" class="cursor-pointer inline-flex items-center justify-center whitespcae-nowrap rounded-lg text-sm font-medium ring-(--offset-background) h-10 w-10 hover:bg-(--accent)">
             <Icon name="lucide:menu" class="text-(--foreground) h-7 w-7" />
         </button>
-        <a class="flex items-center gap-2" href="/">
+        <a id="bhl" class="flex items-center gap-2" href="/">
             <Icon name="lucide:radius" class="w-8 h-8 rotate-180 text-(--foreground)" />
             <h1 class="text-xl font-bold text-(--foreground)"> Radius </h1>
         </a>
+        <div id="phl" class="flex items-center gap-2 hidden">
+            <img id="phlImage" src="https://google.com/favicon.ico" class="w-8 h-8 text-(--foreground) rounded-2xl" />
+            <h1 id="phlTitle" class="hidden md:block text-xl font-bold text-(--foreground) whitespace-nowrap"> Radius </h1>
+        </div>
     </div>
     <div>
     </div>
