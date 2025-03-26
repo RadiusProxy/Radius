@@ -1,5 +1,6 @@
 @import "./bluelight.css";
 @import "./cyberpunk.css";
+@import "./midnight.css";
 :root {
     --background: hsl(214 27.37% 7.55%);
     --foreground: hsl(212 16% 82%);
