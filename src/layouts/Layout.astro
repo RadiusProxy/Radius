@@ -1,7 +1,6 @@
 ---
 import "@styles/themes/default.css";
 import "@styles/global.css";
-import "@fontsource/inter";
 import { ClientRouter } from "astro:transitions";
 import Loader from "@components/Loader.astro";
 import Header from "@components/Header.astro";
@@ -17,7 +16,7 @@ import Header from "@components/Header.astro";
         <title>Radius</title>
         <ClientRouter fallback="animate" />
 	</head>
-    <body class="h-full w-full bg-(--background) font-override">
+    <body class="h-full w-full bg-(--background) font-inter">
         <Header />
         <div class="h-full w-full fixed bg-(--background) text-(--foreground)">
             <slot />

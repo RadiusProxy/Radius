@@ -13,7 +13,7 @@ const randomSplash = genSplash();
 ---
 
 <Layout>
-    <div class="h-full flex items-center justify-center">
+    <div class="h-full flex items-center justify-center font-inter">
         <div class="flex flex-col items-center gap-6">
             <div class="flex items-center gap-2">
                 <Icon name="lucide:radius" class="h-16 w-16 rotate-180 text-(--foreground)" />
@@ -25,7 +25,7 @@ const randomSplash = genSplash();
             </div>
             <p class="text-sm text-center sm:text-base whitespace-nowrap"> { randomSplash } </p>
         </div>
-        <iframe id="iframe" class="fixed h-[calc(100%-3.5rem)] mt-14 w-full hidden" />
+        <iframe id="iframe" class="fixed h-[calc(100%-3.5rem)] mt-14 w-full hidden bg-(--background)" />
     </div>
 </Layout>
 <script>
@@ -41,6 +41,14 @@ const randomSplash = genSplash();
         const phl = document.getElementById("phl") as HTMLDivElement;
         const phlImage = document.getElementById("phlImage") as HTMLImageElement;
         const phlTitle = document.getElementById("phlTitle") as HTMLDivElement;
+        const proxyLeft = document.getElementById("pal") as HTMLButtonElement;
+        const proxyRight = document.getElementById("par") as HTMLButtonElement;
+        const proxyReload = document.getElementById("prl") as HTMLButtonElement;
+        const proxyShortcut = {
+            button: document.getElementById("psc") as HTMLButtonElement,
+            noShortcut: document.getElementById("noShortcut") as HTMLElement,
+            shortcut: document.getElementById("shortcut") as HTMLElement
+        }
         const client = new BareClient();
         input.addEventListener("keypress", async (event: any) => {
             if (event.key === "Enter") {
@@ -63,8 +71,22 @@ const randomSplash = genSplash();
             }
         }
 
+        const buttons = () => {
+            proxyLeft.addEventListener("click", () => {
+                iframeWin!.history.back();
+            });
+            proxyRight.addEventListener("click", () => {
+                iframeWin!.history.forward();
+            });
+            proxyReload.addEventListener("click", () => {
+                iframeWin!.location.reload();
+            });
+            proxyShortcut.button.addEventListener("click", () => {
+                console.log("yet to be implemented");
+            });
+        }
+
         iframe.addEventListener("load", async () => {
-            //const url = new URL();
             phlTitle.innerHTML = iframeWin!.document.title;
             const pageURL = await getURL();
             const data = await client.fetch(`https://www.google.com/s2/favicons?domain=${pageURL}&sz=64`);
@@ -73,7 +95,7 @@ const randomSplash = genSplash();
             phlImage.src = object;
             bhl.classList.add("hidden");
             phl.classList.remove("hidden");
-            //URL.revokeObjectURL(object);
+            buttons();
         }); 
     }
 
