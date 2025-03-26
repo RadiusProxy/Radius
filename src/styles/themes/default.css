@@ -1,6 +1,3 @@
-@import "./bluelight.css";
-@import "./cyberpunk.css";
-@import "./midnight.css";
 :root {
     --background: hsl(214 27.37% 7.55%);
     --foreground: hsl(212 16% 82%);
@@ -22,5 +19,4 @@
     --destructive-foreground: hsl(0 0% 100%);
     --ring: hsl(215.09 100% 98.03%);
     --radius: hsl(0.4rem);
-    --font-family: Inter;
 }

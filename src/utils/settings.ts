@@ -67,7 +67,7 @@ class Settings {
     theme(theme?: string) {
         this.#storageManager.setVal('theme', theme || this.#storageManager.getVal('theme'));
         theme === 'default' 
-            ? document.documentElement.className = '' 
+            ? document.documentElement.className = 'default' 
             : document.documentElement.className = theme || this.#storageManager.getVal('theme');
     }
  
