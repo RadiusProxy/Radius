@@ -1,0 +1,22 @@
+.midnight {
+    --background: hsl(0 0% 0%) !important;
+    --foreground: hsl(0 0% 100%) !important;
+    --muted: hsl(0 0% 0%) !important;
+    --muted-foreground: hsl(0 0% 50%) !important;
+    --popover: hsl(0 0% 0%) !important;
+    --popover-foreground: hsl(0 0% 95%) !important;
+    --card: hsl(0 0% 5%) !important;
+    --card-foreground: hsl(0 0% 90%) !important;
+    --border: hsl(0 0% 25%) !important;
+    --input: hsl(0 0% 20%) !important;
+    --primary: hsl(158 97% 53%) !important;
+    --primary-foreground: hsl(0 0% 0%) !important;
+    --secondary: hsl(0 0% 8%) !important;
+    --secondary-foreground: hsl(167 0% 85%) !important;
+    --accent: hsl(0 0% 12%) !important;
+    --accent-foreground: hsl(0 0% 90%) !important;
+    --destructive: hsl(360 100% 65%) !important;
+    --destructive-foreground: hsl(0 0% 100%) !important;
+    --ring: hsl(0 0% 70%) !important;
+    --radius: hsl(0.4rem) !important;
+}
