@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/Layout.astro";
+import SettingsNav from "@components/SettingsNav.astro";
+import type { SettingsProps as Props } from "@utils/types.ts";
+
+//I love prop drilling
+const { active } = Astro.props;
+---
+<Layout>
+    <div class="h-full w-full flex font-inter">
+        <div class="w-1/4 bg-(--background) flex mt-14">
+            <SettingsNav active={active} />
+        </div>
+        <slot />
+    </div>
+</Layout>
