@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/* Themes belong here */
-@import "./themes/default.css"; /* DO NOT MOVE THIS FROM HERE OTHERWISE, THEMES WILL FAIL TO WORK */
-@import "./themes/bluelight.css";
-@import "./themes/cyberpunk.css";
-@import "./themes/midnight.css";
-/* End theme imports */
-
 @import "tailwindcss";
 
 @theme {

@@ -1,7 +1,41 @@
 ---
 import SettingsLayout from "@layouts/SettingsLayout.astro";
+import Dropdown from "@components/ui/Dropdown.astro";
+import { SearchEngines, type DropdownOptions } from "@utils/types";
+const SearchEngineOptions: DropdownOptions[] = [];
+Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
+    { name: k, value: SearchEngines[k] }
+));
 ---
 <SettingsLayout active="proxy">
-    <div class="h-full mt-14 flex-grow">
+    <div class="h-full mt-14 flex-grow px-12 py-8 flex flex-col">
+        <h1 class="text-4xl font-semibold"> Proxy </h1>
+        <div class="border-b border-(--border) w-full mb-4"></div>
+        <div class="w-full flex-grow">
+            <div>
+                <p> Proxy Switcher </p>
+                <Dropdown id="pSwitcher" options={
+                    [
+                        { name: 'gyatt', value: 'skibidi', default: true },
+                        { name: 'ohio', value: 'shit' }
+                    ]
+                } />
+            </div>
+            <div class="mt-2">
+                <p> Proxy Switcher </p>
+                <Dropdown id="pSwitcher" options={
+                    [
+                        { name: 'gyatt', value: 'skibidi', default: true },
+                        { name: 'ohio', value: 'shit' }
+                    ]
+                } />
+            </div>
+            <div class="mt-2">
+                <p> Search Engine </p>
+                <Dropdown id="sSwitcher" options={SearchEngineOptions} />
+            </div>
+            <div class="mt-2">
+            </div>
+        </div>
     </div>
 </SettingsLayout>
