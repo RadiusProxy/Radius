@@ -1,0 +1,74 @@
+---
+import SettingsLayout from "@layouts/SettingsLayout.astro";
+import Dropdown from "@components/ui/Dropdown.astro";
+import Input from "@components/ui/Input.astro";
+import { SearchEngines, type DropdownOptions } from "@utils/types";
+const SearchEngineOptions: DropdownOptions[] = [];
+Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
+    { name: k, value: SearchEngines[k] }
+));
+---
+<SettingsLayout active="proxy">
+    <div class="h-full mt-14 flex-grow px-12 py-8 flex flex-col">
+        <h1 class="text-4xl font-semibold"> Proxy </h1>
+        <div class="border-b border-(--border) w-full mb-4"></div>
+        <div class="w-full flex-grow">
+            <div>
+                <p> Proxy Switcher </p>
+                <Dropdown id="pSwitcher" options={
+                    [
+                        { name: 'Ultraviolet', value: 'uv', default: true },
+                        { name: 'Scramjet', value: 'sj' }
+                    ]
+                } />
+            </div>
+            <div class="mt-2">
+                <p> Transport </p>
+                <Dropdown id="tSwitcher" options={
+                    [
+                        { name: 'Libcurl', value: 'libcurl', default: true },
+                        { name: 'Epoxy', value: 'epoxy' }
+                    ]
+                } />
+            </div>
+            <div class="mt-2">
+                <p> Search Engine </p>
+                <Dropdown id="sSwitcher" options={SearchEngineOptions} />
+            </div>
+            <div class="mt-2">
+                <p> Wisp Server </p>
+                <Input />
+            </div>
+        </div>
+    </div>
+</SettingsLayout>
+<script>
+    import { Settings } from "@utils/settings.ts";
+    import { SW } from "@utils/proxy.ts";
+    import { StoreManager } from "@utils/storage";
+    type Options = {
+        settings: Settings,
+        sw: SW,
+        storageManager: StoreManager<"radius||settings">
+    }
+
+    const transport = async (opts: Options) => {
+        console.log('t');
+        const transportEl = document.getElementById("dropdownBox-tSwitcher") as HTMLSelectElement;
+        transportEl.value = opts.storageManager.getVal("transport") || "libcurl"; 
+        transportEl.addEventListener("change", async () => {
+            opts.sw.setTransport(transportEl.value as "epoxy" | "libcurl");
+        });
+    }
+
+    const proxy = async (opts: Options) => {}
+
+    document.addEventListener("astro:page-load", async () => {
+        try {
+            const settings = await Settings.getInstance();
+            const sw = SW.getInstance().next().value!; 
+            const storageManager = new StoreManager<"radius||settings">("radius||settings");
+            await transport({settings, sw, storageManager});
+        } catch (err) { console.log(err) }
+    });
+</script>

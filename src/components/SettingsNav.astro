@@ -5,7 +5,7 @@ import type { SettingsProps as Props } from "@utils/types.ts";
 const { active } = Astro.props; 
 ---
 <div class="h-full w-full flex flex-col font-inter p-4 pl-8 pt-8 gap-2">
-    <a href="/settings/proxy/" class=`gap-2 px-4 py-2 rounded-lg h-10 w-full text-sm font-medium transition-colors items-center justify-start inline-flex ${active === "proxy" ? 'bg-(--secondary) hover:bg-(--secondary)/[0.8]' : 'bg-(--background) hover:bg-(--accent)'}`>
+    <a href="/settings/" class=`gap-2 px-4 py-2 rounded-lg h-10 w-full text-sm font-medium transition-colors items-center justify-start inline-flex ${active === "proxy" ? 'bg-(--secondary) hover:bg-(--secondary)/[0.8]' : 'bg-(--background) hover:bg-(--accent)'}`>
         <Icon name="lucide:lock" class="h-5 w-5" /> Proxy
     </a>
     <a href="/settings/appearance/" class=`gap-2 px-4 py-2 rounded-lg h-10 w-full text-sm font-medium transition-colors items-center justify-start inline-flex ${active === "appearance" ? 'bg-(--secondary) hover:bg-(--secondary)/[0.8]' : 'bg-(--background) hover:bg-(--accent)'}`>

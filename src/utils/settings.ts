@@ -70,6 +70,8 @@ class Settings {
             ? document.documentElement.className = 'default' 
             : document.documentElement.className = theme || this.#storageManager.getVal('theme');
     }
+
+    proxy(prox: 'uv' | 'sj') {}
  
     async *#init() {
         yield this.theme(this.#storageManager.getVal('theme') || 'default');

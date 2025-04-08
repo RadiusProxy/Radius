@@ -48,12 +48,14 @@ class SW {
         return template.replace("%s", encodeURIComponent(input));
     }
 
-    encodeURL(string: string, proxy: 'uv' | 'scram'): string {
+    encodeURL(string: string, proxy: 'uv' | 'sj'): string {
         const input = this.#search(string, "https://google.com/search?q=%s");
         return proxy === 'uv' ? `${__uv$config.prefix}${__uv$config.encodeUrl!(input)}` : this.#scramjetController!.encodeUrl(input)
     }
 
-    async setTransport(transport?: 'epoxy' | 'libcurl') {
+    async setTransport(transport?: 'epoxy' | 'libcurl', get?: boolean) {
+        console.log('Setting transport');
+        if (get) return this.#storageManager.getVal('transport');
         this.#storageManager.setVal("transport", transport || this.#storageManager.getVal("transport") || 'epoxy');
         switch(transport) {
             case 'epoxy': {
