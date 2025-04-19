@@ -2,7 +2,7 @@
 import Sidebar from "@/components/sidebar";
 import { Button } from "@/components/ui/button";
 import { encodeXor } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, use } from "react";
 import store from "store2";
 import * as Lucide from "lucide-react";
 import {
@@ -22,7 +22,8 @@ declare global {
   }
 }
 
-export default function Route({ params }: { params: { route: string[] } }) {
+export default function Route(props: { params: Promise<{ route: string[] }> }) {
+  const params = use(props.params);
   const ref = useRef<HTMLIFrameElement>(null);
   const contentWindow = ref.current?.contentWindow as ContentWindow;
   const [open, setOpen] = useState(false);

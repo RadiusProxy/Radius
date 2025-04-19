@@ -12,7 +12,7 @@ const [app, listen] = new ChemicalServer({
 });
 const port = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
-const nextApp = next({ dev });
+const nextApp = next({ dev, turbopack: true });
 const handle = nextApp.getRequestHandler();
 
 nextApp.prepare().then(() => {
