@@ -120,9 +120,8 @@ export default function ProxyOptions() {
               <SelectItem value="uv">Ultraviolet</SelectItem>
               <SelectItem value="rammerhead">Rammerhead</SelectItem>
               <SelectItem value="scramjet">
-                Scramjet (old broken version)
+                Scramjet (Beta)
               </SelectItem>
-              <SelectItem value="meteor">Meteor</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
