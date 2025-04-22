@@ -71,7 +71,9 @@ class Settings {
             : document.documentElement.className = theme || this.#storageManager.getVal('theme');
     }
 
-    proxy(prox: 'uv' | 'sj') {}
+    proxy(prox: 'uv' | 'sj') {
+        this.#storageManager.setVal('proxy', prox);
+    }
  
     async *#init() {
         yield this.theme(this.#storageManager.getVal('theme') || 'default');

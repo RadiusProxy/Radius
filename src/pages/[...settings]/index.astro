@@ -53,7 +53,6 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
     }
 
     const transport = async (opts: Options) => {
-        console.log('t');
         const transportEl = document.getElementById("dropdownBox-tSwitcher") as HTMLSelectElement;
         transportEl.value = opts.storageManager.getVal("transport") || "libcurl"; 
         transportEl.addEventListener("change", async () => {
@@ -61,7 +60,13 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
         });
     }
 
-    const proxy = async (opts: Options) => {}
+    const proxy = async (opts: Options) => {
+        const proxyEl = document.getElementById("dropdownBox-pSwitcher") as HTMLSelectElement;
+        proxyEl.value = opts.storageManager.getVal("proxy") || "uv";
+        proxyEl.addEventListener("change", async () => {
+            opts.settings.proxy(proxyEl.value as "uv" | "sj");
+        });
+    }
 
     document.addEventListener("astro:page-load", async () => {
         try {
@@ -69,6 +74,7 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
             const sw = SW.getInstance().next().value!; 
             const storageManager = new StoreManager<"radius||settings">("radius||settings");
             await transport({settings, sw, storageManager});
+            await proxy({settings, sw, storageManager});
         } catch (err) { console.log(err) }
     });
 </script>
