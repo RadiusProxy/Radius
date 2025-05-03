@@ -74,6 +74,10 @@ class Settings {
     proxy(prox: 'uv' | 'sj') {
         this.#storageManager.setVal('proxy', prox);
     }
+
+    searchEngine(engine: string) {
+        this.#storageManager.setVal('searchEngine', engine);
+    }
  
     async *#init() {
         yield this.theme(this.#storageManager.getVal('theme') || 'default');

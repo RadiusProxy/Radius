@@ -50,7 +50,7 @@ class SW {
 
     encodeURL(string: string): string {
         const proxy = this.#storageManager.getVal("proxy") as 'uv' | 'sj';
-        const input = this.#search(string, "https://google.com/search?q=%s");
+        const input = this.#search(string, this.#storageManager.getVal('searchEngine'));
         return proxy === 'uv' ? `${__uv$config.prefix}${__uv$config.encodeUrl!(input)}` : this.#scramjetController!.encodeUrl(input)
     }
 
