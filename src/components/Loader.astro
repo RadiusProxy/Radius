@@ -3,8 +3,13 @@
     import { SW } from "@utils/proxy.ts";
     const settings = new Settings();
     const sw = new SW();
+    
+    const init = async () => {
+        settings.searchEngine();
+        await sw.wispServer();
+    }
 
-
+    init();
     document.addEventListener('astro:after-swap', async () => {
         //const settings = await Settings.getInstance();
         settings.theme();

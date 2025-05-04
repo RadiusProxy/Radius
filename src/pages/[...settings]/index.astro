@@ -2,6 +2,7 @@
 import SettingsLayout from "@layouts/SettingsLayout.astro";
 import Dropdown from "@components/ui/Dropdown.astro";
 import Input from "@components/ui/Input.astro";
+import Button from "@components/ui/Button.astro";
 import { SearchEngines, type DropdownOptions } from "@utils/types";
 const SearchEngineOptions: DropdownOptions[] = [];
 Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
@@ -35,9 +36,18 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
                 <p> Search Engine </p>
                 <Dropdown id="sSwitcher" options={SearchEngineOptions} />
             </div>
-            <div class="mt-2">
-                <p> Wisp Server </p>
-                <Input />
+            <div class="mt-2 w-80">
+                <div>
+                    <p> Wisp Server </p>
+                    <Input id="wispServerSwitcher" placeholder="Wisp server URL (EX: wss://radiusproxy.app/wisp/" />
+                </div>
+                <div class="mt-2 mb-2 hidden" id="wispServerInfo">
+                    <p class="text-blue-500" id="wispServerInfo-inner"> Checking URL... </p>
+                </div>
+                <div class="mt-2 flex flex-row gap-4">
+                    <Button id="wispServerSave" text="Save Changes" icon="lucide:save" />
+                    <Button id="wispServerReset" text="Reset" icon="lucide:rotate-ccw" />
+                </div>
             </div>
         </div>
     </div>
@@ -76,9 +86,56 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
 
     const searchEngine = async (opts: Options) => {
         const seEl = document.getElementById("dropdownBox-sSwitcher") as HTMLSelectElement;
-        seEl.value = opts.storageManager.getVal("searchEngine") || "ddg";
+        seEl.value = opts.storageManager.getVal("searchEngine") || SearchEngines.DuckDuckGo;
         seEl.addEventListener("change", async () => {
             opts.settings.searchEngine(seEl.value);
+        });
+    }
+
+    const wispServer = async (opts: Options) => {
+        const wispServerSwitcher = document.getElementById("wispServerSwitcher") as HTMLInputElement;
+        const wispServerInfo = document.getElementById("wispServerInfo") as HTMLElement;
+        const wispServerInfoInner = document.getElementById("wispServerInfo-inner") as HTMLParagraphElement;
+        const wispServerSave = document.getElementById("wispServerSave") as HTMLButtonElement;
+        const wispServerReset = document.getElementById("wispServerReset") as HTMLButtonElement;
+
+        wispServerSwitcher.value = opts.storageManager.getVal("wispServer");
+        
+        const reset = (hide: boolean = true) => {
+            if (hide) wispServerInfo.classList.add("hidden");
+            wispServerInfoInner.innerText = "Checking URL..."
+            wispServerInfoInner.classList.remove("text-red-500");
+            wispServerInfoInner.classList.remove("text-green-500");
+        };
+
+        wispServerSave.addEventListener("click", async () => {
+            const server = wispServerSwitcher.value;
+            wispServerInfo.classList.remove("hidden"); 
+
+            if (!server.match(/^wss?:\/\/.*/)) {
+                reset(false);
+                wispServerInfoInner.innerText = "Invalid URL! \nURL's MUST start with wss:// or ws://";
+                wispServerInfoInner.classList.add("text-red-500");
+            }
+            else {
+                //TODO: we need to actually check if the wisp server exists. But for now, this will work
+                reset(false);
+                wispServerInfoInner.innerText = "Wisp Server Set!";
+                wispServerInfoInner.classList.add("text-green-500");
+                await opts.sw.wispServer(wispServerSwitcher.value, true);
+            }
+
+            // We reset this after 4 seconds (any errors OR success)
+            setTimeout(reset, 4000);
+        });
+
+        wispServerReset.addEventListener("click", async () => {
+            wispServerInfo.classList.remove("hidden");
+            wispServerInfoInner.innerText = "Wisp Server Reset!";
+            wispServerInfoInner.classList.add("text-green-500");
+            await opts.sw.wispServer(`${(location.protocol === "https:" ? "wss://" : "ws://")}${location.host}/wisp/`, true);
+            wispServerSwitcher.value = opts.storageManager.getVal("wispServer");
+            setTimeout(reset, 4000);
         });
     }
 
@@ -90,6 +147,7 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
             await transport({settings, sw, storageManager});
             await proxy({settings, sw, storageManager});
             await searchEngine({settings, sw, storageManager});
+            await wispServer({settings, sw, storageManager});
         } catch (err) { console.log(err) }
     });
 </script>

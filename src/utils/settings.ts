@@ -1,6 +1,7 @@
 import { StoreManager } from "./storage";
 import { BareMuxConnection } from "@mercuryworkshop/bare-mux";
 import { SW } from "@utils/proxy.ts";
+import { SearchEngines } from "./types";
 /**
     * The settings class
     * Initializes it's own StorageManager, and handles everything within the class itself
@@ -75,8 +76,8 @@ class Settings {
         this.#storageManager.setVal('proxy', prox);
     }
 
-    searchEngine(engine: string) {
-        this.#storageManager.setVal('searchEngine', engine);
+    searchEngine(engine?: string) {
+        this.#storageManager.setVal('searchEngine', engine || SearchEngines.DuckDuckGo);
     }
  
     async *#init() {

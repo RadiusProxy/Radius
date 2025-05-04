@@ -60,15 +60,20 @@ class SW {
         this.#storageManager.setVal("transport", transport || this.#storageManager.getVal("transport") || 'epoxy');
         switch(transport) {
             case 'epoxy': {
-                await this.#baremuxConn!.setTransport("/epoxy/index.mjs", [ { wisp: 'ws://localhost:4321/wisp/' }]);
+                await this.#baremuxConn!.setTransport("/epoxy/index.mjs", [ { wisp: this.#storageManager.getVal('wispServer') }]);
             }
             case 'libcurl': {
-                await this.#baremuxConn!.setTransport("/libcurl/index.mjs", [ { wisp: 'ws://localhost:4321/wisp/' }]);
+                await this.#baremuxConn!.setTransport("/libcurl/index.mjs", [ { wisp: this.#storageManager.getVal('wispServer') }]);
             }
             default: {
-                await this.#baremuxConn!.setTransport("/epoxy/index.mjs", [ { wisp: 'ws://localhost:4321/wisp/' }]);
+                await this.#baremuxConn!.setTransport("/epoxy/index.mjs", [ { wisp: this.#storageManager.getVal('wispServer') }]);
             }
         }
+    }
+
+    async wispServer(wispServer?: string, set?: true) {
+        this.#storageManager.setVal("wispServer", wispServer ||  this.#storageManager.getVal('wispServer') || (location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
+        if (set) await this.setTransport();
     }
 
     constructor() {
