@@ -9,45 +9,41 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
     { name: k, value: SearchEngines[k] }
 ));
 ---
-<SettingsLayout active="proxy">
-    <div class="h-full mt-14 flex-grow px-12 py-8 flex flex-col">
-        <h1 class="text-4xl font-semibold"> Proxy </h1>
-        <div class="border-b border-(--border) w-full mb-4"></div>
-        <div class="w-full flex-grow">
+<SettingsLayout active="proxy" title="Proxy"> 
+    <div class="w-full flex-grow">
+        <div>
+            <p> Proxy Switcher </p>
+            <Dropdown id="pSwitcher" options={
+                [
+                    { name: 'Ultraviolet', value: 'uv', default: true },
+                    { name: 'Scramjet', value: 'sj' }
+                ]
+            } />
+        </div>
+        <div class="mt-2">
+            <p> Transport </p>
+            <Dropdown id="tSwitcher" options={
+                [
+                    { name: 'Libcurl', value: 'libcurl', default: true },
+                    { name: 'Epoxy', value: 'epoxy' }
+                ]
+            } />
+        </div>
+        <div class="mt-2">
+            <p> Search Engine </p>
+            <Dropdown id="sSwitcher" options={SearchEngineOptions} />
+        </div>
+        <div class="mt-2 w-80">
             <div>
-                <p> Proxy Switcher </p>
-                <Dropdown id="pSwitcher" options={
-                    [
-                        { name: 'Ultraviolet', value: 'uv', default: true },
-                        { name: 'Scramjet', value: 'sj' }
-                    ]
-                } />
+                <p> Wisp Server </p>
+                <Input id="wispServerSwitcher" placeholder="Wisp server URL (EX: wss://radiusproxy.app/wisp/" />
             </div>
-            <div class="mt-2">
-                <p> Transport </p>
-                <Dropdown id="tSwitcher" options={
-                    [
-                        { name: 'Libcurl', value: 'libcurl', default: true },
-                        { name: 'Epoxy', value: 'epoxy' }
-                    ]
-                } />
+            <div class="mt-2 mb-2 hidden" id="wispServerInfo">
+                <p class="text-blue-500" id="wispServerInfo-inner"> Checking URL... </p>
             </div>
-            <div class="mt-2">
-                <p> Search Engine </p>
-                <Dropdown id="sSwitcher" options={SearchEngineOptions} />
-            </div>
-            <div class="mt-2 w-80">
-                <div>
-                    <p> Wisp Server </p>
-                    <Input id="wispServerSwitcher" placeholder="Wisp server URL (EX: wss://radiusproxy.app/wisp/" />
-                </div>
-                <div class="mt-2 mb-2 hidden" id="wispServerInfo">
-                    <p class="text-blue-500" id="wispServerInfo-inner"> Checking URL... </p>
-                </div>
-                <div class="mt-2 flex flex-row gap-4">
-                    <Button id="wispServerSave" text="Save Changes" icon="lucide:save" />
-                    <Button id="wispServerReset" text="Reset" icon="lucide:rotate-ccw" />
-                </div>
+            <div class="mt-2 flex flex-row gap-4">
+                <Button id="wispServerSave" text="Save Changes" icon="lucide:save" />
+                <Button id="wispServerReset" text="Reset" icon="lucide:rotate-ccw" />
             </div>
         </div>
     </div>
@@ -56,11 +52,7 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
     import { Settings } from "@utils/settings.ts";
     import { SW } from "@utils/proxy.ts";
     import { StoreManager } from "@utils/storage";
-    import { SearchEngines, type DropdownOptions } from "@utils/types";
-    const SearchEngineOptions: DropdownOptions[] = [];
-    Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
-        { name: k, value: SearchEngines[k] }
-    ));
+    import { SearchEngines } from "@utils/types";
 
     type Options = {
         settings: Settings,
@@ -148,6 +140,8 @@ Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
             await proxy({settings, sw, storageManager});
             await searchEngine({settings, sw, storageManager});
             await wispServer({settings, sw, storageManager});
-        } catch (err) { console.log(err) }
+        } catch (err) {
+            //console.log(err);
+        }
     });
 </script>
