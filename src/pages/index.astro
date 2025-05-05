@@ -1,17 +1,17 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import { Icon } from 'astro-icon/components'
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 
 import splash from "@assets/splash.json";
 
 const genSplash = (): String => {
     const idx = Math.floor(Math.random() * splash.length);
     return splash[idx].splash;
-}
+};
 
 const randomSplash = genSplash();
 
-const link = Astro.url.searchParams.get('redir');
+const link = Astro.url.searchParams.get("redir");
 ---
 
 <Layout>

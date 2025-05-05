@@ -1,7 +1,7 @@
 importScripts(
-    "/vu/uv.bundle.js", 
+    "/vu/uv.bundle.js",
     "/vu/uv.config.js",
-    "/marcs/scramjet.shared.js", 
+    "/marcs/scramjet.shared.js",
     "/marcs/scramjet.worker.js"
 );
 importScripts(__uv$config.sw || "/vu/uv.sw.js");
@@ -15,11 +15,9 @@ self.addEventListener("fetch", function (event) {
             await sj.loadConfig();
             if (event.request.url.startsWith(location.origin + __uv$config.prefix)) {
                 return await uv.fetch(event);
-            } 
-            else if (sj.route(event)) {
+            } else if (sj.route(event)) {
                 return await sj.fetch(event);
-            }
-            else {
+            } else {
                 return await fetch(event.request);
             }
         })()

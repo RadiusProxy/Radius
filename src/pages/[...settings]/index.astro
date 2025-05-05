@@ -5,9 +5,9 @@ import Input from "@components/ui/Input.astro";
 import Button from "@components/ui/Button.astro";
 import { SearchEngines, type DropdownOptions } from "@utils/types";
 const SearchEngineOptions: DropdownOptions[] = [];
-Object.keys(SearchEngines).forEach((k) => SearchEngineOptions.push(
-    { name: k, value: SearchEngines[k] }
-));
+Object.keys(SearchEngines).forEach((k) =>
+    SearchEngineOptions.push({ name: k, value: SearchEngines[k] })
+);
 ---
 <SettingsLayout active="proxy" title="Proxy"> 
     <div class="w-full flex-grow">

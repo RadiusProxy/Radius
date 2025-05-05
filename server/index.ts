@@ -1,20 +1,19 @@
-import Fastify, { FastifyReply, FastifyRequest } from 'fastify';
-import fastifyMiddie from '@fastify/middie';
-import fastifyStatic from '@fastify/static';
-import { fileURLToPath } from 'node:url';
+import Fastify, { FastifyReply, FastifyRequest } from "fastify";
+import fastifyMiddie from "@fastify/middie";
+import fastifyStatic from "@fastify/static";
+import { fileURLToPath } from "node:url";
 
 //@ts-ignore this is created at runtime. No types associated w/it
 import { handler as astroHandler } from "../dist/server/entry.mjs";
 
-
 const app = Fastify({
     logger: true,
     ignoreDuplicateSlashes: true,
-    ignoreTrailingSlash: true,
+    ignoreTrailingSlash: true
 });
 
 await app.register(fastifyStatic, {
-    root: fileURLToPath(new URL('../dist/client', import.meta.url))
+    root: fileURLToPath(new URL("../dist/client", import.meta.url))
 });
 
 await app.register(fastifyMiddie);

@@ -1,41 +1,40 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-	"vcs": {
-		"enabled": false,
-		"clientKind": "git",
-		"useIgnoreFile": false
-	},
-	"files": {
-		"ignore": ["**/dist/**", ".github/**"],
+    "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+    "vcs": {
+        "enabled": false,
+        "clientKind": "git",
+        "useIgnoreFile": false
+    },
+    "files": {
+        "ignore": ["**/dist/**", ".github/**"],
         "include": ["**/**", "server/**"]
-	},
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "space",
-        "indendWidth": 4,
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4,
         "lineWidth": 100,
         "ignore": ["pnpm-lock.yaml", "package.json"]
-	},
-	"organizeImports": {
-		"enabled": true
-	},
-	"linter": {
-		"enabled": false
-	},
-	"javascript": {
-		"formatter": {
-            "trailingCommas": "none"
-			"quoteStyle": "double",
+    },
+    "organizeImports": {
+        "enabled": true
+    },
+    "linter": {
+        "enabled": false
+    },
+    "javascript": {
+        "formatter": {
+            "trailingCommas": "none",
+            "quoteStyle": "double",
             "semicolons": "always"
-		}
-	},
+        }
+    },
     "json": {
         "parser": {
             "allowComments": true,
             "allowTrailingCommas": true
         },
         "formatter": {
-            "indentSyle": "space",
             "trailingCommas": "none"
         }
     }

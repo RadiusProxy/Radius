@@ -14,4 +14,4 @@ class StoreManager<Prefix extends string> {
     }
 }
 
-export { StoreManager }
+export { StoreManager };

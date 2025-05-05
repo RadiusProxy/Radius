@@ -1,8 +1,8 @@
-import { defineConfig } from 'astro/config';
-import type { Plugin } from 'vite';
+import { defineConfig } from "astro/config";
+import type { Plugin } from "vite";
 import wisp from "wisp-server-node";
-import node from '@astrojs/node';
-import tailwindcss from '@tailwindcss/vite';
+import node from "@astrojs/node";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import playformCompress from "@playform/compress";
@@ -15,13 +15,13 @@ import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 
 const viteWispServer = (): Plugin => {
     return {
-        name: 'vite-wisp-server',
+        name: "vite-wisp-server",
         configureServer(server) {
-            server.httpServer?.on('upgrade', (req, socket, head) => {
-                req.url.startsWith('/wisp') ? wisp.routeRequest(req, socket, head) : undefined 
-            })
+            server.httpServer?.on("upgrade", (req, socket, head) => {
+                req.url.startsWith("/wisp") ? wisp.routeRequest(req, socket, head) : undefined;
+            });
         }
-    }
+    };
 };
 
 export default defineConfig({
@@ -35,10 +35,26 @@ export default defineConfig({
             viteStaticCopy({
                 targets: [
                     { src: `${uvPath}/**/*`.replace(/\\/g, "/"), dest: "vu", overwrite: false },
-                    { src: `${scramjetPath}/**/*`.replace(/\\/g, "/"), dest: "marcs", overwrite: false },
-                    { src: `${baremuxPath}/**/*`.replace(/\\/g, "/"), dest: "erab", overwrite: false },
-                    { src: `${epoxyPath}/**/*`.replace(/\\/g, "/"), dest: "epoxy", overwrite: false },
-                    { src: `${libcurlPath}/**/*`.replace(/\\/g, "/"), dest: "libcurl", overwrite: false }
+                    {
+                        src: `${scramjetPath}/**/*`.replace(/\\/g, "/"),
+                        dest: "marcs",
+                        overwrite: false
+                    },
+                    {
+                        src: `${baremuxPath}/**/*`.replace(/\\/g, "/"),
+                        dest: "erab",
+                        overwrite: false
+                    },
+                    {
+                        src: `${epoxyPath}/**/*`.replace(/\\/g, "/"),
+                        dest: "epoxy",
+                        overwrite: false
+                    },
+                    {
+                        src: `${libcurlPath}/**/*`.replace(/\\/g, "/"),
+                        dest: "libcurl",
+                        overwrite: false
+                    }
                 ]
             })
         ]
@@ -53,8 +69,8 @@ export default defineConfig({
             SVG: true
         })
     ],
-    output: 'server',
+    output: "server",
     adapter: node({
-        mode: 'middleware'
+        mode: "middleware"
     })
 });
