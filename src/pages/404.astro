@@ -1,0 +1,29 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import type { ImageMetadata } from "astro";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/images/general/*.{jpeg,jpg,png,gif,webp}"
+);
+---
+
+<Layout>
+    <div class="flex flex-col md:flex-row gap-4 items-center justify-center h-full w-full">
+        <Image src={images["/src/assets/images/general/kitty.gif"]()} width={300} height={300} class="rounded-md" alt="Kitty 404" />
+        <div class="rounded-lg border border-(--border) bg-(--card) text-(--card-foreground) shadow-sm flex h-96 w-96 flex-col items-center justify-center">
+            <div class="text-2xl font-semibold mb-2 flex flex-col items-center justify-center">
+                <Icon name="lucide:shield-x" class="w-14 h-14" />
+                <h2 class="mt-2 text-3xl font-semibold"> 404 Error </h2>
+            </div>
+            <div class="p-6 pt-0 mt-4 text-center text-(--base)">
+                <p> Click below to go to the homepage </p>
+                <p> 404 Page not found </p>
+            </div>
+            <div class="p-6 pt-0 mt-4">
+                <a href="/" class="bg-(--primary) h-10 rounded-lg text-sm font-medium px-4 py-2 text-(--card)"> Go Home </a>
+            </div>
+        </div>
+    </div>
+</Layout>
