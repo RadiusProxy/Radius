@@ -1,0 +1,8 @@
+---
+interface Props {
+    placeholder: string;
+    id: string;
+}
+const { placeholder, id } = Astro.props;
+---
+<input class="h-10 w-full rounded-md border border-(--border) px-3 py-2 text-sm" placeholder={placeholder} id={id} ></input>

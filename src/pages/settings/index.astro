@@ -1,0 +1,147 @@
+---
+import SettingsLayout from "@layouts/SettingsLayout.astro";
+import Dropdown from "@components/ui/Dropdown.astro";
+import Input from "@components/ui/Input.astro";
+import Button from "@components/ui/Button.astro";
+import { SearchEngines, type DropdownOptions } from "@utils/types";
+const SearchEngineOptions: DropdownOptions[] = [];
+Object.keys(SearchEngines).forEach((k) =>
+    SearchEngineOptions.push({ name: k, value: SearchEngines[k] })
+);
+---
+<SettingsLayout active="proxy" title="Proxy"> 
+    <div class="w-full flex-grow">
+        <div>
+            <p> Proxy Switcher </p>
+            <Dropdown id="pSwitcher" options={
+                [
+                    { name: 'Ultraviolet', value: 'uv', default: true },
+                    { name: 'Scramjet', value: 'sj' }
+                ]
+            } />
+        </div>
+        <div class="mt-2">
+            <p> Transport </p>
+            <Dropdown id="tSwitcher" options={
+                [
+                    { name: 'Libcurl', value: 'libcurl', default: true },
+                    { name: 'Epoxy', value: 'epoxy' }
+                ]
+            } />
+        </div>
+        <div class="mt-2">
+            <p> Search Engine </p>
+            <Dropdown id="sSwitcher" options={SearchEngineOptions} />
+        </div>
+        <div class="mt-2 w-80">
+            <div>
+                <p> Wisp Server </p>
+                <Input id="wispServerSwitcher" placeholder="Wisp server URL (EX: wss://radiusproxy.app/wisp/" />
+            </div>
+            <div class="mt-2 mb-2 hidden" id="wispServerInfo">
+                <p class="text-blue-500" id="wispServerInfo-inner"> Checking URL... </p>
+            </div>
+            <div class="mt-2 flex flex-row gap-4">
+                <Button id="wispServerSave" text="Save Changes" icon="lucide:save" />
+                <Button id="wispServerReset" text="Reset" icon="lucide:rotate-ccw" />
+            </div>
+        </div>
+    </div>
+</SettingsLayout>
+<script>
+    import { Settings } from "@utils/settings.ts";
+    import { SW } from "@utils/proxy.ts";
+    import { StoreManager } from "@utils/storage";
+    import { SearchEngines } from "@utils/types";
+
+    type Options = {
+        settings: Settings,
+        sw: SW,
+        storageManager: StoreManager<"radius||settings">
+    }
+
+    const transport = async (opts: Options) => {
+        const transportEl = document.getElementById("dropdownBox-tSwitcher") as HTMLSelectElement;
+        transportEl.value = opts.storageManager.getVal("transport") || "libcurl"; 
+        transportEl.addEventListener("change", async () => {
+            opts.sw.setTransport(transportEl.value as "epoxy" | "libcurl");
+        });
+    }
+
+    const proxy = async (opts: Options) => {
+        const proxyEl = document.getElementById("dropdownBox-pSwitcher") as HTMLSelectElement;
+        proxyEl.value = opts.storageManager.getVal("proxy") || "uv";
+        proxyEl.addEventListener("change", async () => {
+            opts.settings.proxy(proxyEl.value as "uv" | "sj");
+        });
+    }
+
+    const searchEngine = async (opts: Options) => {
+        const seEl = document.getElementById("dropdownBox-sSwitcher") as HTMLSelectElement;
+        seEl.value = opts.storageManager.getVal("searchEngine") || SearchEngines.DuckDuckGo;
+        seEl.addEventListener("change", async () => {
+            opts.settings.searchEngine(seEl.value);
+        });
+    }
+
+    const wispServer = async (opts: Options) => {
+        const wispServerSwitcher = document.getElementById("wispServerSwitcher") as HTMLInputElement;
+        const wispServerInfo = document.getElementById("wispServerInfo") as HTMLElement;
+        const wispServerInfoInner = document.getElementById("wispServerInfo-inner") as HTMLParagraphElement;
+        const wispServerSave = document.getElementById("wispServerSave") as HTMLButtonElement;
+        const wispServerReset = document.getElementById("wispServerReset") as HTMLButtonElement;
+
+        wispServerSwitcher.value = opts.storageManager.getVal("wispServer");
+        
+        const reset = (hide: boolean = true) => {
+            if (hide) wispServerInfo.classList.add("hidden");
+            wispServerInfoInner.innerText = "Checking URL..."
+            wispServerInfoInner.classList.remove("text-red-500");
+            wispServerInfoInner.classList.remove("text-green-500");
+        };
+
+        wispServerSave.addEventListener("click", async () => {
+            const server = wispServerSwitcher.value;
+            wispServerInfo.classList.remove("hidden"); 
+
+            if (!server.match(/^wss?:\/\/.*/)) {
+                reset(false);
+                wispServerInfoInner.innerText = "Invalid URL! \nURL's MUST start with wss:// or ws://";
+                wispServerInfoInner.classList.add("text-red-500");
+            }
+            else {
+                //TODO: we need to actually check if the wisp server exists. But for now, this will work
+                reset(false);
+                wispServerInfoInner.innerText = "Wisp Server Set!";
+                wispServerInfoInner.classList.add("text-green-500");
+                await opts.sw.wispServer(wispServerSwitcher.value, true);
+            }
+
+            // We reset this after 4 seconds (any errors OR success)
+            setTimeout(reset, 4000);
+        });
+
+        wispServerReset.addEventListener("click", async () => {
+            wispServerInfo.classList.remove("hidden");
+            wispServerInfoInner.innerText = "Wisp Server Reset!";
+            wispServerInfoInner.classList.add("text-green-500");
+            await opts.sw.wispServer(`${(location.protocol === "https:" ? "wss://" : "ws://")}${location.host}/wisp/`, true);
+            wispServerSwitcher.value = opts.storageManager.getVal("wispServer");
+            setTimeout(reset, 4000);
+        });
+    }
+
+    document.addEventListener("astro:page-load", async () => {
+        try {
+            const settings = await Settings.getInstance();
+            const sw = SW.getInstance().next().value!; 
+            const storageManager = new StoreManager<"radius||settings">("radius||settings");
+            await transport({settings, sw, storageManager});
+            await proxy({settings, sw, storageManager});
+            await searchEngine({settings, sw, storageManager});
+            await wispServer({settings, sw, storageManager});
+        } catch (err) {
+            //console.log(err);
+        }
+    });
+</script>

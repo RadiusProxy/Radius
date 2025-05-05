@@ -1,0 +1,37 @@
+---
+import { readdir } from "node:fs";
+import { join as pathJoin } from "node:path";
+//import "@styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import Loader from "@components/Loader.astro";
+import Header from "@components/Header.astro";
+
+import "@styles/global.css";
+import "@styles/default.css";
+readdir(pathJoin("src", "styles", "themes"), { encoding: "utf-8" }, (err, files) => {
+    files.forEach(async (name) => {
+        await import(`../styles/themes/${name.replace(".css", "")}.css`);
+    });
+});
+---
+<!doctype html>
+<html lang="en">
+    <head>
+        <Loader transition:persist />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+        <title>Radius</title>
+        <ClientRouter fallback="animate" />
+	</head>
+    <body class="h-full w-full bg-(--background) font-inter">
+        <Header />
+        <div class="h-full w-full fixed bg-(--background) text-(--foreground)">
+            <slot />
+        </div>
+	</body>
+</html>
+
+<style>
+</style>

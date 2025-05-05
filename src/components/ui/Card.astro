@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}"
+);
+
+interface Props {
+    link?: string;
+    imageSrc: string;
+    text: string;
+    id: string;
+}
+
+const { imageSrc, text, id, link } = Astro.props;
+---
+{link ?
+    <a class="p-2" href={link}>
+        <div id={id} class="rounded-md relative group cursor-pointer h-36 hover:scale-105 duration-100 transition-all">
+            <Image loading="lazy" src={images[imageSrc]()} class="h-36 w-36 aspect-square object-cover rounded-md" alt={text} />
+            <div class="absolute inset-0 h-full w-full opacity-0 group-hover:opacity-100 bg-gradient-to-t from-(--accent) to-transparent rounded-b-md duration-100 flex items-end p-2 px-4 font-semibold">
+                <p> { text } </p>
+            </div>
+        </div>
+    </a>
+    :
+    <div class="p-2">
+        <div id={id} class="rounded-md relative group cursor-pointer h-36 hover:scale-105 duration-100 transition-all">
+            <Image loading="lazy" src={images[imageSrc]()} class="h-36 w-36 aspect-square object-cover rounded-md" alt={text} />
+            <div class="absolute inset-0 h-full w-full opacity-0 group-hover:opacity-100 bg-gradient-to-t from-(--accent) to-transparent rounded-b-md duration-100 flex items-end p-2 px-4 font-semibold">
+                <p> { text } </p>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,14 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    id: string;
+    text: string;
+    icon?: string;
+}
+const { id, text, icon } = Astro.props;
+---
+<button id={id} class="bg-(--primary) hover:bg-(--primary)/90 cursor-pointer text-(--primary-foreground) inline-flex items-center jusitfy-center whitespace-nowrap rounded-lg text-sm font-medium transition-colors h-10 px-4 py-2">
+    {icon ? <Icon name={icon} class="text-(--primary-foreground) h-5 w-5 mr-2" /> : null}  
+    {text}
+</button>

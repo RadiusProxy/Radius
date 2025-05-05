@@ -1,0 +1,52 @@
+---
+import { readdir } from "node:fs/promises";
+import { join as pathJoin } from "node:path";
+
+import SettingsLayout from "@layouts/SettingsLayout.astro";
+import Dropdown from "@components/ui/Dropdown.astro";
+import Input from "@components/ui/Input.astro";
+import Button from "@components/ui/Button.astro";
+import { type DropdownOptions } from "@utils/types";
+
+const Themes: DropdownOptions[] = [{ name: "Default", value: "default" }];
+const files = await readdir(pathJoin("src", "styles", "themes"), {
+    encoding: "utf-8"
+});
+files.forEach((name) => {
+    Themes.push({
+        name: name.toLowerCase().charAt(0).toUpperCase() + name.slice(1).replace(".css", ""),
+        value: name.toLowerCase().replace(".css", "")
+    });
+});
+---
+<SettingsLayout active="appearance" title="Appearance">
+    <div class="w-full flex-grow">
+        <div>
+            <p> Themes </p>
+            <Dropdown id="themeSwitcher" options={Themes} />
+        </div>
+    </div>
+</SettingsLayout>
+
+<script>
+    import { Settings } from "@utils/settings";
+    import { StoreManager } from "@utils/storage";
+
+    const themes = async (settings: Settings, storage: StoreManager<"radius||settings">) => {
+        const dropdown = document.getElementById("dropdownBox-themeSwitcher") as HTMLSelectElement;
+        dropdown.value = storage.getVal('theme');
+        dropdown.addEventListener("change", async () => {
+            settings.theme(dropdown.value);
+        });
+    };
+
+    document.addEventListener("astro:page-load", async () => {
+        try {
+            const settings = await Settings.getInstance();
+            const storageManager = new StoreManager<"radius||settings">("radius||settings");
+            await themes(settings, storageManager);
+        } catch (err) {
+            console.log(err);
+        };
+    });
+</script>

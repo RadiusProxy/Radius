@@ -1,0 +1,106 @@
+---
+import { Icon } from "astro-icon/components";
+const path = Astro.url.pathname;
+---
+<div class="h-14 fixed bg-(--background) border-b border-b-(--border) px-4 w-full z-10 flex items-center font-inter">
+    <div class="flex items-center gap-3 w-full">
+        <button id="menu" class="cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-(--offset-background) h-10 w-10 hover:bg-(--accent)">
+            <Icon name="lucide:menu" class="text-(--foreground) h-7 w-7" />
+        </button>
+        <a id="bhl" class="flex items-center gap-2 w-full" href="/">
+            <Icon name="lucide:radius" class="w-8 h-8 rotate-180 text-(--foreground)" />
+            <h1 class="text-xl font-bold text-(--foreground)"> Radius </h1>
+        </a>
+        <div id="phl" class="flex items-center w-full justify-between hidden">
+            <div class="flex items-center gap-2 w-1/2">
+                <img id="phlImage" src="" class="w-8 h-8 text-(--foreground) rounded-2xl" />
+                <h1 id="phlTitle" class="hidden md:block text-xl font-bold text-(--foreground) whitespace-nowrap overflow-hidden text-ellipsis w-full"> Radius </h1>
+            </div>
+            <div class="flex items-center gap-2 flex-grow justify-end text-(--foreground) md:mr-4">
+                <button id="pal" class="font-medium rounded-lg h-10 w-10 hover:bg-(--accent) inline-flex items-center justify-center transition-colors cursor-pointer">
+                    <Icon name="lucide:arrow-left" class="h-6 w-6" />
+                </button>
+                <button id="par" class="font-medium h-10 w-10 rounded-lg hover:bg-(--accent) inline-flex items-center justify-center transition-colors cursor-pointer">
+                    <Icon name="lucide:arrow-right" class="h-6 w-6"  />
+                </button>
+                <button id="prl" class="font-medium h-10 w-10 rounded-lg hover:bg-(--accent) inline-flex items-center justify-center transition-colors cursor-pointer">
+                    <Icon name="lucide:rotate-cw" class="h-6 w-6"  />
+                </button>
+                {/** <button id="psc" class="font-medium h-10 w-10 rounded-lg hover:bg-(--accent) inline-flex items-center justify-center transition-colors cursor-pointer">
+                    <Icon name="material-symbols:star-outline-rounded" class="h-8 w-8" id="noShortcut" />
+                    <Icon name="material-symbols:star-rounded" class="h-8 w-8 hidden" id="shortcut" />
+                </button> */}
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>
+<div class="fixed w-full h-full z-10 flex flex-row pointer-events-auto invisible transition duration-500 font-inter" id="navigation">
+    <div id="innerNav" class="flex flex-col gap-6 w-72 h-full bg-(--background) border-r border-r-(--border) p-6 transition duration-250 shadow-lg">
+        <div class="w-full flex flex-row justify-between transition duration-250">
+            <Icon name="lucide:radius" class="w-10 h-10 rotate-180 text-(--foreground)" />
+            <button id="exitNav">
+                <Icon name="lucide:x" class="text-(--muted-foreground)" />
+            </button>
+        </div>
+        <div class="flex flex-col gap-3 transition duration-250"> 
+            <div class="text-(--secondary-foreground) w-full border-b border-b-(--border) pb-3 flex flex-col gap-3">
+                <a href="/" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path === '/' ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                    <Icon name="lucide:house" class="text-lg w-6 h-6" /> Home
+                </a>
+                {/** This needs to be added later
+                    <a href="/games" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/games') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                    <Icon name="lucide:gamepad" class="text-lg w-6 h-6" /> Games
+                    </a>
+                */}
+                <a href="/apps" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/apps') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                    <Icon name="lucide:layout-grid" class="text-lg w-6 h-6" /> Apps
+                </a>
+            </div>
+            <div class="text-(--secondary-foreground) w-full flex flex-col">
+                <a href="/settings" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/settings') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                    <Icon name="lucide:settings-2" class="text-lg w-6 h-6" /> Settings
+                </a>
+            </div>
+        </div>
+    </div>
+    <span id="body-hide" class="flex-grow h-full bg-(--background) brightness-20 transition duration-250"></span>
+</div>
+<style>
+    #innerNav {
+        transform: translateX(-100%);
+    }
+    #body-hide {
+        opacity: 0%;
+    }
+</style>
+<script>    
+    const handler = () => {
+        const menuButton = document.getElementById("menu") as HTMLButtonElement;
+        const navigation = document.getElementById("navigation") as HTMLDivElement;
+        const bodyHider = document.getElementById("body-hide") as HTMLSpanElement;
+        const exitNav = document.getElementById("exitNav") as HTMLButtonElement;
+        const innerNav = document.getElementById("innerNav") as HTMLDivElement;
+
+        menuButton.addEventListener("click", () => { 
+            navigation.classList.remove("invisible");
+            bodyHider.style.opacity = "85%";
+            innerNav.style.transform = "translateX(0%)";
+        });
+
+        exitNav.addEventListener("click", () => {
+            bodyHider.style.opacity = "0%";
+            navigation.classList.add("invisible");
+            innerNav.style.transform = "translateX(-100%)";
+        });
+
+        bodyHider.addEventListener("click", () => {
+            bodyHider.style.opacity = "0%";
+            navigation.classList.add("invisible");
+            innerNav.style.transform = "translateX(-100%)";
+        });
+    }
+
+    document.addEventListener("astro:page-load", handler);
+</script>

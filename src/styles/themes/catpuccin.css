@@ -1,0 +1,21 @@
+.catpuccin {
+    --background: hsl(240 21% 15%);
+    --foreground: hsl(226 64% 88%);
+    --muted: hsl(240 21% 12%);
+    --muted-foreground: hsl(228 17% 64%);
+    --popover: hsl(240 21% 12%);
+    --popover-foreground: hsl(227 35% 80%);
+    --card: hsl(240 21% 12%);
+    --card-foreground: hsl(228 24% 72%);
+    --border: hsl(234 13% 31%);
+    --input: hsl(234 13% 31%);
+    --primary: hsl(115 54% 76%);
+    --primary-foreground: hsl(240 21% 15%);
+    --secondary: hsl(240 21% 12%);
+    --secondary-foreground: hsl(228 17% 64%);
+    --accent: hsl(237 16% 23%);
+    --accent-foreground: hsl(227 35% 80%);
+    --destructive: hsl(343 81% 75%);
+    --destructive-foreground: hsl(226 64% 88%);
+    --ring: hsl(228 24% 72%);
+}
