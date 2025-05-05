@@ -10,6 +10,8 @@ const genSplash = (): String => {
 }
 
 const randomSplash = genSplash();
+
+const link = Astro.url.searchParams.get('redir');
 ---
 
 <Layout>
@@ -31,12 +33,13 @@ const randomSplash = genSplash();
             </div> */}
         </div>
         <iframe id="iframe" class="fixed h-[calc(100%-3.5rem)] mt-14 w-full hidden bg-(--background)" />
+        <link-element data-link={link} />
     </div>
 </Layout>
 <script>
     import { SW } from "@utils/proxy.ts";
     import { Settings } from "@utils/settings.ts";
-    import { BareClient } from "@mercuryworkshop/bare-mux";
+    import { BareClient } from "@mercuryworkshop/bare-mux"; 
 
     const init = async () => {
         const input = document.getElementById("input") as HTMLInputElement;
@@ -86,9 +89,9 @@ const randomSplash = genSplash();
             proxyReload.addEventListener("click", () => {
                 iframeWin!.location.reload();
             });
-            proxyShortcut.button.addEventListener("click", () => {
+            /** proxyShortcut.button.addEventListener("click", () => {
                 console.log("yet to be implemented");
-            });
+            }); */
         }
 
         iframe.addEventListener("load", async () => {
@@ -104,12 +107,25 @@ const randomSplash = genSplash();
         }); 
     }
 
-    document.addEventListener("astro:page-load", async () => {
-        try {
-            await init();
+    class CustomComponent extends HTMLElement {
+        connectedCallback() {
+            const link = this.dataset.link;
+            const input = document.getElementById("input") as HTMLInputElement;
+            if (link) {
+                return (async () => {
+                    await init();
+                    try {
+                        input.value = atob(link);
+                    } catch (_) {
+                        input.value = link;
+                    }
+                    input.dispatchEvent(new KeyboardEvent("keypress", { key: "Enter", code: "Enter" }));
+                    history.pushState({}, "", "/");
+                })();
+            }
+            (async () => { await init(); })();
         }
-        catch (err) {
-            //console.log(err);
-        }
-    })
+    }
+
+    customElements.define('link-element', CustomComponent);
 </script>

@@ -1,0 +1,27 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/ui/Card.astro";
+---
+<Layout>
+<div class="h-full w-full mt-14 font-inter items-center flex flex-col">
+    <h1 class="text-6xl font-semibold py-4 w-full text-center border-b-2 border-(--accent) h-26"> Apps </h1>
+    <div class="flex flex-wrap justify-center mt-12 gap-2 px-24">
+        <Card text="Suggest a new App!" imageSrc="/src/assets/images/apps/google_form.jpg" id="appsGoogleForm" link=`/?redir=${btoa('https://forms.gle/ksbQCXNyncJr9MMu5')}` />
+        <Card text="Amazon" imageSrc="/src/assets/images/apps/Amazon.jpg" id="appsAmazon" link=`/?redir=${btoa('https://amazon.com')}` />
+        <Card text="Discord" imageSrc="/src/assets/images/apps/Discord.jpeg" id="appsDiscord" link=`/?redir=${btoa('https://discord.com/login')}` />
+        <Card text="Duolingo" imageSrc="/src/assets/images/apps/Duolingo.png" id="appsDuolingo" link=`/?redir=${btoa('https://duolingo.com')}` />
+        <Card text="Ebay" imageSrc="/src/assets/images/apps/Ebay.png" id="appsEbay" link=`/?redir=${btoa('https://ebay.com')}` />
+        <Card text="GitHub" imageSrc="/src/assets/images/apps/GitHub.png" id="appsGithub" link=`/?redir=${btoa('https://github.com')}` />
+        <Card text="Invidious" imageSrc="/src/assets/images/apps/Invidious.png" id="appsInvidious" link=`/?redir=${btoa('https://yewtu.be')}` />
+        <Card text="Pinterest" imageSrc="/src/assets/images/apps/Pinterest.png" id="appsPinterest" link=`/?redir=${btoa('https://pinterest.com')}` />
+        <Card text="Spotify" imageSrc="/src/assets/images/apps/Spotify.png" id="appSpotify" link=`/?redir=${btoa('https://spotify.com')}` />
+        <Card text="Temu" imageSrc="/src/assets/images/apps/Temu.png" id="appsTemu" link=`/?redir=${btoa('https://temu.com')}` />
+        <Card text="TikTok" imageSrc="/src/assets/images/apps/Tiktok.png" id="appsTiktok" link=`/?redir=${btoa('https://tiktok.com')}` />
+        <Card text="X/Twitter" imageSrc="/src/assets/images/apps/Twitter.png" id="appsX" link=`/?redir=${btoa('https://x.com')}` />
+        <Card text="Vercel" imageSrc="/src/assets/images/apps/Vercel.jpeg" id="appsVercel" link=`/?redir=${btoa('https://vercel.com')}` />
+        <Card text="Wattpad" imageSrc="/src/assets/images/apps/Wattpad.png" id="appsWattpad" link=`/?redir=${btoa('https://wattpad.com/home')}` />
+        <Card text="Webtoon" imageSrc="/src/assets/images/apps/Webtoon.png" id="appsWebtoon" link=`/?redir=${btoa('https://www.webtoons.com/en/')}` />
+        <Card text="YouTube" imageSrc="/src/assets/images/apps/Youtube.jpg" id="appsYoutube" link=`/?redir=${btoa('https://youtube.com')}` />
+    </div>
+</div>
+</Layout>
