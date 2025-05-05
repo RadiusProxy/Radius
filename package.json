@@ -1,7 +1,7 @@
 {
-  "name": "new",
+  "name": "Radius",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev:server": "tsx --watch server",
     "dev:client": "astro dev",
