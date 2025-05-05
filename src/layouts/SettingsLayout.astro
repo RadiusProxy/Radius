@@ -9,7 +9,7 @@ const { active, title } = Astro.props;
 <Layout>
     <div class="h-full w-full flex font-inter">
         <div class="w-1/4 bg-(--background) flex mt-14">
-            <SettingsNav active={active} />
+            <SettingsNav active={active} title={title} />
         </div>
         <div class="h-full mt-14 flex-grow px-12 py-8 flex flex-col">
             <h1 class="text-4xl font-semibold"> {title} </h1>

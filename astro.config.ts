@@ -27,8 +27,11 @@ const viteWispServer = (): Plugin => {
 export default defineConfig({
     vite: {
         plugins: [
+            //@ts-ignore
             tailwindcss(),
+            //@ts-ignore
             viteWispServer(),
+            //@ts-ignore
             viteStaticCopy({
                 targets: [
                     { src: `${uvPath}/**/*`.replace(/\\/g, "/"), dest: "vu", overwrite: false },

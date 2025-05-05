@@ -72,8 +72,8 @@ class Settings {
             : document.documentElement.className = theme || this.#storageManager.getVal('theme');
     }
 
-    proxy(prox: 'uv' | 'sj') {
-        this.#storageManager.setVal('proxy', prox);
+    proxy(prox?: 'uv' | 'sj') {
+        this.#storageManager.setVal('proxy', prox || 'uv');
     }
 
     searchEngine(engine?: string) {

@@ -49,9 +49,11 @@ const path = Astro.url.pathname;
                 <a href="/" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path === '/' ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
                     <Icon name="lucide:house" class="text-lg w-6 h-6" /> Home
                 </a>
-                <a href="/games" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/games') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
+                {/** This needs to be added later
+                    <a href="/games" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/games') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
                     <Icon name="lucide:gamepad" class="text-lg w-6 h-6" /> Games
-                </a>
+                    </a>
+                */}
                 <a href="/apps" class=`flex flex-row gap-2 items-center rounded-lg h-10 w-full whitespace-nowrap px-4 py-2 font-medium text-sm ${path.includes('/apps') ? 'bg-(--secondary)': 'bg-(--background)'} transition-all duration-200 hover:bg-(--secondary) hover:scale-105 focus:ring-(--ring) focus:ring-2`>
                     <Icon name="lucide:layout-grid" class="text-lg w-6 h-6" /> Apps
                 </a>
