@@ -1,4 +1,10 @@
-import Fastify, { FastifyReply, FastifyRequest, FastifyServerFactory, FastifyServerFactoryHandler, RawServerDefault } from "fastify";
+import Fastify, {
+    FastifyReply,
+    FastifyRequest,
+    FastifyServerFactory,
+    FastifyServerFactoryHandler,
+    RawServerDefault
+} from "fastify";
 import fastifyMiddie from "@fastify/middie";
 import fastifyStatic from "@fastify/static";
 import { fileURLToPath } from "node:url";
@@ -9,17 +15,19 @@ import { handler as astroHandler } from "../dist/server/entry.mjs";
 import { createServer } from "node:http";
 import { Socket } from "node:net";
 
-const serverFactory: FastifyServerFactory = ( handler: FastifyServerFactoryHandler): RawServerDefault => {
+const serverFactory: FastifyServerFactory = (
+    handler: FastifyServerFactoryHandler
+): RawServerDefault => {
     return createServer()
-    .on('request', (req, res) => {
-        handler(req, res);
-    })
-    .on('upgrade', (req, socket, head) => {
-        if (req.url?.endsWith('/wisp/')) {
-            wisp.routeRequest(req, socket as Socket, head);
-        }
-    })
-}
+        .on("request", (req, res) => {
+            handler(req, res);
+        })
+        .on("upgrade", (req, socket, head) => {
+            if (req.url?.endsWith("/wisp/")) {
+                wisp.routeRequest(req, socket as Socket, head);
+            }
+        });
+};
 
 const app = Fastify({
     logger: false,

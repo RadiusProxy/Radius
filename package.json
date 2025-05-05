@@ -11,7 +11,8 @@
     "build": "npm run build:server & npm run build:client",
     "start": "node server/index.js",
     "bstart": "npm run build && npm run start",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "biome format --write ."
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
