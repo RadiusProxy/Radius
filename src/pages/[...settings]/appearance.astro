@@ -9,7 +9,7 @@ import Button from "@components/ui/Button.astro";
 import { type DropdownOptions } from "@utils/types";
 
 const Themes: DropdownOptions[] = [{ name: "Default", value: "default" }];
-const files = await readdir(pathJoin(import.meta.dirname, "..", "..", "styles", "themes"), {
+const files = await readdir(pathJoin("src", "styles", "themes"), {
     encoding: "utf-8"
 });
 files.forEach((name) => {
