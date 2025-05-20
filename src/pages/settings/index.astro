@@ -35,6 +35,15 @@ Object.keys(SearchEngines).forEach((k) =>
         </div>
         <div class="mt-2 w-80">
             <div>
+                <p> About Blank </p>
+                <Input id="aboutBlankCloaker" placeholder="Redirect url (EX: https://google.com)" />
+            </div>
+            <div class="mt-2">
+                <Button id="aboutBlankLaunch" text="Cloak!" icon="lucide:square-arrow-out-up-right" />
+            </div>
+        </div>
+        <div class="mt-2 w-80">
+            <div>
                 <p> Wisp Server </p>
                 <Input id="wispServerSwitcher" placeholder="Wisp server URL (EX: wss://radiusproxy.app/wisp/" />
             </div>
@@ -81,6 +90,15 @@ Object.keys(SearchEngines).forEach((k) =>
         seEl.value = opts.storageManager.getVal("searchEngine") || SearchEngines.DuckDuckGo;
         seEl.addEventListener("change", async () => {
             opts.settings.searchEngine(seEl.value);
+        });
+    }
+
+    const abCloak =  async (opts: Options) => {
+        const cloakInput = document.getElementById("aboutBlankCloaker") as HTMLInputElement;
+        const cloakButton = document.getElementById("aboutBlankLaunch") as HTMLButtonElement;
+        cloakButton.addEventListener("click", async () => {
+            const url = opts.sw.search(cloakInput.value, opts.storageManager.getVal("searchEngine") || "https://google.com");
+            opts.settings.aboutBlank(url);
         });
     }
 
@@ -139,6 +157,7 @@ Object.keys(SearchEngines).forEach((k) =>
             await transport({settings, sw, storageManager});
             await proxy({settings, sw, storageManager});
             await searchEngine({settings, sw, storageManager});
+            await abCloak({settings, sw, storageManager});
             await wispServer({settings, sw, storageManager});
         } catch (err) {
             //console.log(err);

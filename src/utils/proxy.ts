@@ -37,7 +37,7 @@ class SW {
         }
     }
 
-    #search(input: string, template: string) {
+    search(input: string, template: string) {
         try {
             return new URL(input).toString();
         } catch (_) {}
@@ -52,7 +52,7 @@ class SW {
 
     encodeURL(string: string): string {
         const proxy = this.#storageManager.getVal("proxy") as "uv" | "sj";
-        const input = this.#search(string, this.#storageManager.getVal("searchEngine"));
+        const input = this.search(string, this.#storageManager.getVal("searchEngine"));
         return proxy === "uv"
             ? `${__uv$config.prefix}${__uv$config.encodeUrl!(input)}`
             : this.#scramjetController!.encodeUrl(input);
