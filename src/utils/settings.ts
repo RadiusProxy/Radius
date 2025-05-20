@@ -80,6 +80,16 @@ class Settings {
         this.#storageManager.setVal("searchEngine", engine || SearchEngines.DuckDuckGo);
     }
 
+    aboutBlank() {
+        window.location.replace("https://google.com");
+        const win = window.open();
+        const iframe = win!.document.createElement("iframe") as HTMLIFrameElement;
+        win!.document.body.setAttribute('style', 'margin: 0; height: 100vh; width: 100%;');
+        iframe.setAttribute('style', 'border: none; width: 100%; height: 100%; margin: 0;');
+        iframe.src = window.location.href;
+        win!.document.body.appendChild(iframe);
+    }
+
     async *#init() {
         yield this.theme(this.#storageManager.getVal("theme") || "default");
     }
