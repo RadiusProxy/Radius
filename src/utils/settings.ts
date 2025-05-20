@@ -80,8 +80,8 @@ class Settings {
         this.#storageManager.setVal("searchEngine", engine || SearchEngines.DuckDuckGo);
     }
 
-    aboutBlank() {
-        window.location.replace("https://google.com");
+    aboutBlank(location: string) {
+        window.location.replace(location);
         const win = window.open();
         const iframe = win!.document.createElement("iframe") as HTMLIFrameElement;
         win!.document.body.setAttribute('style', 'margin: 0; height: 100vh; width: 100%;');
