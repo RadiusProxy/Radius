@@ -85,14 +85,21 @@ files.forEach((name) => {
                 storage.setVal("cloakURL", cloakURL);
                 const faviconData = await client.fetch(`https://www.google.com/s2/favicons?domain=${cloakURL}&sz=64`);
                 const faviconRes = await faviconData.blob();
-                const favicon = URL.createObjectURL(faviconRes);
+                const reader = new FileReader();
+                const favicon = await new Promise((resolve) => {
+                    reader.onloadend = () => resolve(reader.result);
+                    reader.readAsDataURL(faviconRes);
+                });
                 storage.setVal("cloakFavicon", favicon);
+
                 const titleData = await client.fetch(cloakURL);
                 const titleRes = await titleData.text();
                 const title = titleRes.match(/<title[^>]*>([^<]+)<\/title>/i);
                 storage.setVal("cloakTitle", title ? title[1] : "");
+
                 cloakInfoInner.innerText = "Cloaking URL Set!";
                 cloakInfoInner.classList.add("text-green-500");
+
                 document.title = title ? title[1] : "";
                 const faviconElement = document.getElementById("favicon") as HTMLLinkElement;
                 faviconElement.href = favicon;
