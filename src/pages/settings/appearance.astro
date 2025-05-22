@@ -20,10 +20,23 @@ files.forEach((name) => {
 });
 ---
 <SettingsLayout active="appearance" title="Appearance">
-    <div class="w-full flex-grow">
+    <div class="mt-2">
         <div>
             <p> Themes </p>
             <Dropdown id="themeSwitcher" options={Themes} />
+        </div>
+    </div>
+    <div class="mt-2 w-80">
+        <div>
+            <p> Tab Cloaking </p>
+            <Input id="cloakSwitcher" placeholder="Website to cloak as (EX: https://google.com)" />
+        </div>
+        <div class="mt-2 mb-2 hidden" id="cloakInfo">
+            <p class="text-blue-500" id="cloakInfo-inner"> Checking URL... </p>
+        </div>
+        <div class="mt-2 flex flex-row gap-4">
+            <Button id="cloakSave" text="Save Changes" icon="lucide:save" />
+            <Button id="cloakReset" text="Reset" icon="lucide:rotate-ccw" />
         </div>
     </div>
 </SettingsLayout>
@@ -31,6 +44,8 @@ files.forEach((name) => {
 <script>
     import { Settings } from "@utils/settings";
     import { StoreManager } from "@utils/storage";
+    import { SW } from "@utils/proxy";
+    import { BareClient } from "@mercuryworkshop/bare-mux";
 
     const themes = async (settings: Settings, storage: StoreManager<"radius||settings">) => {
         const dropdown = document.getElementById("dropdownBox-themeSwitcher") as HTMLSelectElement;
@@ -40,11 +55,73 @@ files.forEach((name) => {
         });
     };
 
+    const cloak = async (settings: Settings, storage: StoreManager<"radius||settings">) => {
+        const cloakSwitcher = document.getElementById("cloakSwitcher") as HTMLInputElement;
+        const cloakInfo = document.getElementById("cloakInfo") as HTMLElement;
+        const cloakInfoInner = document.getElementById("cloakInfo-inner") as HTMLParagraphElement;
+        const cloakSave = document.getElementById("cloakSave") as HTMLButtonElement;
+        const cloakReset = document.getElementById("cloakReset") as HTMLButtonElement;
+        cloakSwitcher.value = storage?.getVal("cloakURL");
+        
+        const reset = (hide: boolean = true) => {
+            if (hide) cloakInfo.classList.add("hidden");
+            cloakInfoInner.innerText = "Checking URL..."
+            cloakInfoInner.classList.remove("text-red-500");
+            cloakInfoInner.classList.remove("text-green-500");
+        };
+
+        cloakSave.addEventListener("click", async () => {
+            const cloakURL = cloakSwitcher.value;
+            const client = new BareClient();
+            cloakInfo.classList.remove("hidden");
+
+            if (!cloakURL.match(/^https?:\/\/[^\/]+\.[^\/]+/)) {
+                reset(false);
+                cloakInfoInner.innerText = "Invalid URL!";
+                cloakInfoInner.classList.add("text-red-500");
+            }
+            else {
+                reset(false);
+                storage.setVal("cloakURL", cloakURL);
+                const faviconData = await client.fetch(`https://www.google.com/s2/favicons?domain=${cloakURL}&sz=64`);
+                const faviconRes = await faviconData.blob();
+                const favicon = URL.createObjectURL(faviconRes);
+                storage.setVal("cloakFavicon", favicon);
+                const titleData = await client.fetch(cloakURL);
+                const titleRes = await titleData.text();
+                const title = titleRes.match(/<title[^>]*>([^<]+)<\/title>/i);
+                storage.setVal("cloakTitle", title ? title[1] : "");
+                cloakInfoInner.innerText = "Cloaking URL Set!";
+                cloakInfoInner.classList.add("text-green-500");
+                document.title = title ? title[1] : "";
+                const faviconElement = document.getElementById("favicon") as HTMLLinkElement;
+                faviconElement.href = favicon;
+            }
+
+            setTimeout(reset, 4000);
+        });
+
+        cloakReset.addEventListener("click", async () => {
+            cloakInfo.classList.remove("hidden");
+            cloakInfoInner.innerText = "Cloaking URL Reset!";
+            cloakInfoInner.classList.add("text-green-500");
+            storage.setVal("cloakURL", "");
+            storage.setVal("cloakFavicon", "");
+            storage.setVal("cloakTitle", "");
+            cloakSwitcher.value = "";
+            document.title = "Radius";
+            const faviconElement = document.getElementById("favicon") as HTMLLinkElement;
+            faviconElement.href = "/favicon.png";
+            setTimeout(reset, 4000);
+        });
+    }
+
     document.addEventListener("astro:page-load", async () => {
         try {
             const settings = await Settings.getInstance();
             const storageManager = new StoreManager<"radius||settings">("radius||settings");
             await themes(settings, storageManager);
+            await cloak(settings, storageManager);
         } catch (err) {
             console.log(err);
         };
