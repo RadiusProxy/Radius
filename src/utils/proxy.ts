@@ -27,7 +27,7 @@ const createScript = (src: string, defer?: boolean) => {
 class SW {
     #baremuxConn?: BareMuxConnection;
     #scramjetController?: ScramjetController;
-    #serviceWorker?: ServiceWorkerRegistration;
+    #serviceWorker_?: ServiceWorkerRegistration; // Renamed to avoid conflict, but marked as unused
     #storageManager: StoreManager<"radius||settings">;
     static #instance = new Set();
 
@@ -131,16 +131,16 @@ class SW {
                 }
             });
             if ("serviceWorker" in navigator) {
-                await this.#scramjetController.init();
-                navigator.serviceWorker.ready.then(async (reg) => {
-                    console.log("SW ready to go!");
-                    this.#serviceWorker = reg;
+                navigator.serviceWorker.register("/sw.js", {
+                    scope: __uv$config.prefix
+                }).then((reg) => {
+                    this.#serviceWorker_ = reg;
+                    console.log("SW Registered");
+                }).catch((err) => {
+                    console.error("Failed to register SW: ", err);
                 });
-                navigator.serviceWorker.register("/sw.js", { scope: "/" });
             } else {
-                throw new Error(
-                    "Your browser is not supported! This website uses Service Workers heavily."
-                );
+                console.error("Your browser doesn\'t support SWs");
             }
         });
     }

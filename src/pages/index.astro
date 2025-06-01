@@ -52,16 +52,15 @@ const link = Astro.url.searchParams.get("redir");
         const proxyLeft = document.getElementById("pal") as HTMLButtonElement;
         const proxyRight = document.getElementById("par") as HTMLButtonElement;
         const proxyReload = document.getElementById("prl") as HTMLButtonElement;
-        const proxyShortcut = {
+        /*const proxyShortcut = {
             button: document.getElementById("psc") as HTMLButtonElement,
             noShortcut: document.getElementById("noShortcut") as HTMLElement,
             shortcut: document.getElementById("shortcut") as HTMLElement
-        }
+        }*/
         const client = new BareClient();
         input.addEventListener("keypress", async (event: any) => {
             if (event.key === "Enter") {
                 const sw = SW.getInstance().next().value!;
-                const settings = await Settings.getInstance();
                 await sw.setTransport();
                 iframe.classList.remove("hidden");
                 iframe.src = sw.encodeURL(input.value); 
@@ -111,19 +110,14 @@ const link = Astro.url.searchParams.get("redir");
         connectedCallback() {
             const link = this.dataset.link;
             const input = document.getElementById("input") as HTMLInputElement;
-            if (link) {
-                return (async () => {
-                    await init();
-                    try {
-                        input.value = atob(link);
-                    } catch (_) {
-                        input.value = link;
-                    }
-                    input.dispatchEvent(new KeyboardEvent("keypress", { key: "Enter", code: "Enter" }));
-                    history.pushState({}, "", "/");
-                })();
+            if (link) { 
+                input.value = link;
+                input.dispatchEvent(new KeyboardEvent('keypress', {'key': 'Enter'}));
             }
-            (async () => { await init(); })();
+            (async () => { 
+                //const settings = await Settings.getInstance();
+                await init(); 
+            })();
         }
     }
 

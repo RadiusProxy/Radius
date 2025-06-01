@@ -1,6 +1,6 @@
 import { StoreManager } from "./storage";
-import { BareMuxConnection } from "@mercuryworkshop/bare-mux";
-import { SW } from "@utils/proxy.ts";
+// import { BareMuxConnection } from "@mercuryworkshop/bare-mux";
+// import { SW } from "@utils/proxy.ts";
 import { SearchEngines } from "./types";
 /**
  * The settings class
