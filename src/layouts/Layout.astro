@@ -40,11 +40,8 @@ readdir(pathJoin("src", "styles", "themes"), { encoding: "utf-8" }, (err, files)
         const cloakTitle = storageManager.getVal("cloakTitle");
         const cloakFavicon = storageManager.getVal("cloakFavicon");
         
-        if (cloakTitle) {
+        if (cloakTitle && cloakFavicon) {
             document.title = cloakTitle;
-        }
-        
-        if (cloakFavicon) {
             const faviconElement = document.getElementById("favicon") as HTMLLinkElement;
             faviconElement.href = cloakFavicon;
         }

@@ -44,7 +44,6 @@ files.forEach((name) => {
 <script>
     import { Settings } from "@utils/settings";
     import { StoreManager } from "@utils/storage";
-    import { SW } from "@utils/proxy";
     import { BareClient } from "@mercuryworkshop/bare-mux";
 
     const themes = async (settings: Settings, storage: StoreManager<"radius||settings">) => {
@@ -55,7 +54,7 @@ files.forEach((name) => {
         });
     };
 
-    const cloak = async (settings: Settings, storage: StoreManager<"radius||settings">) => {
+    const cloak = async (storage: StoreManager<"radius||settings">) => {
         const cloakSwitcher = document.getElementById("cloakSwitcher") as HTMLInputElement;
         const cloakInfo = document.getElementById("cloakInfo") as HTMLElement;
         const cloakInfoInner = document.getElementById("cloakInfo-inner") as HTMLParagraphElement;
@@ -87,9 +86,9 @@ files.forEach((name) => {
                 const faviconRes = await faviconData.blob();
                 const reader = new FileReader();
                 const favicon = await new Promise((resolve) => {
-                    reader.onloadend = () => resolve(reader.result);
+                    reader.onloadend = () => resolve(reader.result as string);
                     reader.readAsDataURL(faviconRes);
-                });
+                }) as string;
                 storage.setVal("cloakFavicon", favicon);
 
                 const titleData = await client.fetch(cloakURL);
@@ -128,7 +127,7 @@ files.forEach((name) => {
             const settings = await Settings.getInstance();
             const storageManager = new StoreManager<"radius||settings">("radius||settings");
             await themes(settings, storageManager);
-            await cloak(settings, storageManager);
+            await cloak(storageManager);
         } catch (err) {
             console.log(err);
         };
