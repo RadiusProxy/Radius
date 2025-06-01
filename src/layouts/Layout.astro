@@ -39,10 +39,10 @@ readdir(pathJoin("src", "styles", "themes"), { encoding: "utf-8" }, (err, files)
         const storageManager = new StoreManager("radius||settings");
         const cloakTitle = storageManager.getVal("cloakTitle");
         const cloakFavicon = storageManager.getVal("cloakFavicon");
+	const faviconElement = document.getElementById("favicon") as HTMLLinkElement;
         
         if (cloakTitle && cloakFavicon) {
             document.title = cloakTitle;
-            const faviconElement = document.getElementById("favicon") as HTMLLinkElement;
             faviconElement.href = cloakFavicon;
         }
     };
