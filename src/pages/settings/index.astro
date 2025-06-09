@@ -82,7 +82,7 @@ Object.keys(SearchEngines).forEach((k) =>
         seEl.addEventListener("change", async () => {
             opts.settings.searchEngine(seEl.value);
         });
-    }
+    } 
 
     const wispServer = async (opts: Options) => {
         const wispServerSwitcher = document.getElementById("wispServerSwitcher") as HTMLInputElement;
