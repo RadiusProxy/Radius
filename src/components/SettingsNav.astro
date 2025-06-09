@@ -17,4 +17,7 @@ const { active } = Astro.props;
     <a href="/settings/links/" class=`gap-2 px-4 py-2 rounded-lg h-10 w-full text-sm font-medium transition-colors items-center justify-start inline-flex ${active === "links" ? 'bg-(--secondary) hover:bg-(--secondary)/[0.8]' : 'bg-(--background) hover:bg-(--accent)'}`>
         <Icon name="lucide:link" class="h-5 w-5" /> Social Links
     </a>
+    <a href="/settings/cloaking/" class=`gap-2 px-4 py-2 rounded-lg h-10 w-full text-sm font-medium transition-colors items-center justify-start inline-flex ${active === "cloaking" ? 'bg-(--secondary) hover:bg-(--secondary)/[0.8]' : 'bg-(--background) hover:bg-(--accent)'}`>
+        <Icon name="lucide:eye-off" class="h-5 w-5" /> Cloaking
+    </a>
 </div>

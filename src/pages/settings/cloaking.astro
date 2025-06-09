@@ -1,0 +1,63 @@
+---
+import SettingsLayout from "@layouts/SettingsLayout.astro";
+import Input from "@components/ui/Input.astro";
+import Button from "@components/ui/Button.astro";
+---
+<SettingsLayout active="cloaking" title="Cloaking">
+    <div class="w-full flex-grow">
+        <div class="w-full flex flex-row gap-4">
+            <div class="w-1/2">
+                <div>
+                    <p> About Blank </p>
+                    <Input id="aboutBlankCloaker" placeholder="Redirect url (EX: https://google.com)" />
+                </div>
+                <div class="mt-2">
+                    <Button id="aboutBlankLaunch" text="Cloak!" icon="lucide:square-arrow-out-up-right" />
+                </div>
+            </div>
+            <div class="w-1/2">
+                <div>
+                    <p> Blob </p>
+                    <Input id="blobCloaker" placeholder="Redirect url (EX: https://google.com)" />
+                </div>
+                <div class="mt-2">
+                    <Button id="blobLaunch" text="Cloak!" icon="lucide:square-arrow-out-up-right" />
+                </div>
+            </div>
+        </div>
+    </div>
+</SettingsLayout>
+<script>
+    import { Settings } from "@utils/settings.ts";
+    import { StoreManager } from "@utils/storage";
+    import { SW } from "@utils/proxy.ts";
+
+    const handleAb = async (settings: Settings, sw: SW, storage: StoreManager<"radius||settings">) => {
+        const input = document.getElementById("aboutBlankCloaker") as HTMLInputElement;
+        const button = document.getElementById("aboutBlankLaunch") as HTMLButtonElement;
+        button.addEventListener("click", () => {
+            const url = sw.search(input.value, storage.getVal('searchEngine'));
+            settings.cloak(url).aboutBlank();
+        });
+    };
+
+    const handleBlob = async (settings: Settings, sw: SW, storage: StoreManager<"radius||settings">) => {
+        const input = document.getElementById("blobCloaker") as HTMLInputElement;
+        const button = document.getElementById("blobLaunch") as HTMLButtonElement;
+        button.addEventListener("click", () => {
+            const url = sw.search(input.value, storage.getVal('searchEngine'));
+            settings.cloak(url).blob();
+        });
+    };
+
+    document.addEventListener('astro:page-load', async () => {
+        const settings = await Settings.getInstance();
+        const sw = SW.getInstance().next().value!;
+        const storageManager = new StoreManager<"radius||settings">("radius||settings");
+        try {
+            await handleAb(settings, sw, storageManager);
+            await handleBlob(settings, sw, storageManager);
+        }
+        catch (_) {}
+    });
+</script>
