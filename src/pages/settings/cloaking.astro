@@ -37,7 +37,16 @@ import Button from "@components/ui/Button.astro";
         const button = document.getElementById("aboutBlankLaunch") as HTMLButtonElement;
         button.addEventListener("click", () => {
             const url = sw.search(input.value, storage.getVal('searchEngine'));
-            settings.aboutBlank(url);
+            settings.cloak(url).aboutBlank();
+        });
+    };
+
+    const handleBlob = async (settings: Settings, sw: SW, storage: StoreManager<"radius||settings">) => {
+        const input = document.getElementById("blobCloaker") as HTMLInputElement;
+        const button = document.getElementById("blobLaunch") as HTMLButtonElement;
+        button.addEventListener("click", () => {
+            const url = sw.search(input.value, storage.getVal('searchEngine'));
+            settings.cloak(url).blob();
         });
     };
 
@@ -45,6 +54,10 @@ import Button from "@components/ui/Button.astro";
         const settings = await Settings.getInstance();
         const sw = SW.getInstance().next().value!;
         const storageManager = new StoreManager<"radius||settings">("radius||settings");
-        await handleAb(settings, sw, storageManager);
+        try {
+            await handleAb(settings, sw, storageManager);
+            await handleBlob(settings, sw, storageManager);
+        }
+        catch (_) {}
     });
 </script>

@@ -127,6 +127,9 @@ const link = Astro.url.searchParams.get("redir");
     
     customElements.define('link-element', CustomComponent);
     document.addEventListener("astro:page-load", async () => {
-        await init();
+        try {
+            await init();
+        }
+        catch (_) {}
     });
 </script>
