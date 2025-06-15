@@ -2,12 +2,13 @@
 import type { DropdownOptions } from "@utils/types";
 interface Props {
     id: string;
+    classes?: string;
     options: DropdownOptions[];
 }
 
-const { id, options } = Astro.props;
+const { id, options, classes } = Astro.props;
 ---
-<select id=`dropdownBox-${id}` class="cursor-pointer flex h-10 w-[180px] items-center justify-between text-(--foreground) background-(--background) rounded-lg border border-(--border) px-3 py-2">
+<select id=`dropdownBox-${id}` class=`${classes} cursor-pointer flex h-10 w-[180px] items-center justify-between text-(--foreground) background-(--background) rounded-lg border border-(--border) px-3 py-2`>
     {options.map((el) => 
         <option class="w-full bg-(--accent) rounded-sm p-1" value={el.value}>{el.name}</option>
     )}
