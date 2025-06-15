@@ -37,6 +37,15 @@ Object.keys(SearchEngines).forEach((k) =>
             <div>
                 <p> Wisp Server </p>
                 <Input id="wispServerSwitcher" placeholder="Wisp server URL (EX: wss://radiusproxy.app/wisp/" />
+                <div class="mt-2 hidden" id="adBlocking">
+                    <p> Ad Blocking </p>
+                    <Dropdown id="adBlocking" options={
+                        [
+                            { name: 'Enabled', value: 'enabled', default: true },
+                            { name: 'Disabled', value: 'disabled' }
+                        ]
+                    } />
+                </div>
             </div>
             <div class="mt-2 mb-2 hidden" id="wispServerInfo">
                 <p class="text-blue-500" id="wispServerInfo-inner"> Checking URL... </p>
@@ -82,7 +91,7 @@ Object.keys(SearchEngines).forEach((k) =>
         seEl.addEventListener("change", async () => {
             opts.settings.searchEngine(seEl.value);
         });
-    }
+    } 
 
     const wispServer = async (opts: Options) => {
         const wispServerSwitcher = document.getElementById("wispServerSwitcher") as HTMLInputElement;
@@ -90,15 +99,36 @@ Object.keys(SearchEngines).forEach((k) =>
         const wispServerInfoInner = document.getElementById("wispServerInfo-inner") as HTMLParagraphElement;
         const wispServerSave = document.getElementById("wispServerSave") as HTMLButtonElement;
         const wispServerReset = document.getElementById("wispServerReset") as HTMLButtonElement;
+        const adBlocking = document.getElementById("adBlocking") as HTMLDivElement;
 
         wispServerSwitcher.value = opts.storageManager.getVal("wispServer");
-        
+        const resetVal = `${(location.protocol === "https:" ? "wss://" : "ws://")}${location.host}/wisp/` 
         const reset = (hide: boolean = true) => {
             if (hide) wispServerInfo.classList.add("hidden");
             wispServerInfoInner.innerText = "Checking URL..."
             wispServerInfoInner.classList.remove("text-red-500");
             wispServerInfoInner.classList.remove("text-green-500");
         };
+
+        const adBlockingFunc = () => {
+            const adBlockingDropdown = document.getElementById("dropdownBox-adBlocking") as HTMLSelectElement;
+            adBlockingDropdown.addEventListener("change", () => {
+                opts.settings.adBlock(adBlockingDropdown.value === "enabled" ? true : false);
+            });
+
+            adBlockingDropdown.value = opts.storageManager.getVal("adBlock") === "true" ? "enabled" : "disabled";
+
+            if (wispServerSwitcher.value === resetVal) {
+                adBlocking.classList.remove("hidden");
+                opts.settings.adBlock(true);
+                adBlockingDropdown.value = "enabled";
+            }
+            else {
+                adBlocking.classList.add("hidden");
+                opts.settings.adBlock(false);
+            }
+        }
+        adBlockingFunc();
 
         wispServerSave.addEventListener("click", async () => {
             const server = wispServerSwitcher.value;
@@ -114,7 +144,9 @@ Object.keys(SearchEngines).forEach((k) =>
                 reset(false);
                 wispServerInfoInner.innerText = "Wisp Server Set!";
                 wispServerInfoInner.classList.add("text-green-500");
+                //adBlocking.classList.contains("hidden") ? "" : adBlocking.classList.add("hidden");
                 await opts.sw.wispServer(wispServerSwitcher.value, true);
+                adBlockingFunc();
             }
 
             // We reset this after 4 seconds (any errors OR success)
@@ -125,9 +157,10 @@ Object.keys(SearchEngines).forEach((k) =>
             wispServerInfo.classList.remove("hidden");
             wispServerInfoInner.innerText = "Wisp Server Reset!";
             wispServerInfoInner.classList.add("text-green-500");
-            await opts.sw.wispServer(`${(location.protocol === "https:" ? "wss://" : "ws://")}${location.host}/wisp/`, true);
+            await opts.sw.wispServer(resetVal, true);
             wispServerSwitcher.value = opts.storageManager.getVal("wispServer");
             setTimeout(reset, 4000);
+            adBlockingFunc();
         });
     }
 

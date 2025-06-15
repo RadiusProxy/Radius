@@ -23,7 +23,8 @@ const serverFactory: FastifyServerFactory = (
             handler(req, res);
         })
         .on("upgrade", (req, socket, head) => {
-            if (req.url?.endsWith("/wisp/")) {
+            if (req.url?.endsWith("/wisp/") || req.url?.endsWith("/adblock/")) {
+                console.log(req.url);
                 wisp.routeRequest(req, socket as Socket, head);
             }
         });

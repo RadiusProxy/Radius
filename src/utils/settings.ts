@@ -80,6 +80,57 @@ class Settings {
         this.#storageManager.setVal("searchEngine", engine || SearchEngines.DuckDuckGo);
     }
 
+    cloak(location: string) {
+        return {
+            aboutBlank: () => {
+                const win = window.open();
+                if (!win) return;
+                window.location.replace(location);
+                const iframe = win.document.createElement("iframe") as HTMLIFrameElement;
+                win.document.body.setAttribute('style', 'margin: 0; height: 100vh; width: 100%;');
+                iframe.setAttribute('style', 'border: none; width: 100%; height: 100%; margin: 0;');
+                iframe.src = window.location.href;
+                win.document.body.appendChild(iframe);
+            },
+            blob: () => {
+                const win = window.open();
+                if (!win) return;
+                window.location.replace(location);
+                const content = `
+                    <!DOCTYPE html>
+                    <html>
+                        <head>
+                            <style type="text/css">
+                                body, html {
+                                    margin: 0;
+                                    padding: 0;
+                                    height: 100%;
+                                    width: 100%;
+                                    overflow: hidden;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <iframe style="border: none; width: 100%; height: 100%;" src="${window.location.href}"></iframe>
+                        </body>
+                    </html>
+                `;
+                const blob = new Blob([content], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                win.location.href = url;
+            }
+        }
+    }
+
+    adBlock(enabled?: boolean) {
+        if (enabled === true || enabled === false) {
+            this.#storageManager.setVal("adBlock", enabled.valueOf().toString());
+        }
+        else {
+            this.#storageManager.setVal("adBlock", "true");
+        }
+    }
+
     async *#init() {
         yield this.theme(this.#storageManager.getVal("theme") || "default");
     }

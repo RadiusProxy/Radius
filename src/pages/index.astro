@@ -62,7 +62,6 @@ const link = Astro.url.searchParams.get("redir");
             if (event.key === "Enter") {
                 const sw = SW.getInstance().next().value!;
                 const settings = await Settings.getInstance();
-                await sw.setTransport();
                 iframe.classList.remove("hidden");
                 iframe.src = sw.encodeURL(input.value); 
             }
@@ -123,9 +122,14 @@ const link = Astro.url.searchParams.get("redir");
                     history.pushState({}, "", "/");
                 })();
             }
-            (async () => { await init(); })();
         }
     }
-
+    
     customElements.define('link-element', CustomComponent);
+    document.addEventListener("astro:page-load", async () => {
+        try {
+            await init();
+        }
+        catch (_) {}
+    });
 </script>
