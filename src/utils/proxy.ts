@@ -60,6 +60,13 @@ class SW {
 
     async setTransport(transport?: "epoxy" | "libcurl", get?: boolean) {
         console.log("Setting transport");
+        const wispServer = (): string => {
+            const wispServerVal = this.#storageManager.getVal("wispServer");
+            if (this.#storageManager.getVal("adBlock") === "true") {
+                return wispServerVal.replace("/wisp/", "/adblock/");
+            }
+            return wispServerVal;
+        }
         if (get) return this.#storageManager.getVal("transport");
         this.#storageManager.setVal(
             "transport",
@@ -68,23 +75,24 @@ class SW {
         switch (transport) {
             case "epoxy": {
                 await this.#baremuxConn!.setTransport("/epoxy/index.mjs", [
-                    { wisp: this.#storageManager.getVal("wispServer") }
+                    { wisp: wispServer() }
                 ]);
             }
             case "libcurl": {
                 await this.#baremuxConn!.setTransport("/libcurl/index.mjs", [
-                    { wisp: this.#storageManager.getVal("wispServer") }
+                    { wisp: wispServer() }
                 ]);
             }
             default: {
                 await this.#baremuxConn!.setTransport("/epoxy/index.mjs", [
-                    { wisp: this.#storageManager.getVal("wispServer") }
+                    { wisp: wispServer() }
                 ]);
             }
         }
     }
 
     async wispServer(wispServer?: string, set?: true) {
+        console.log(wispServer?.replace("/wisp/", "/adblock/"));
         this.#storageManager.setVal(
             "wispServer",
             wispServer ||
