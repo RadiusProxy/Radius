@@ -122,6 +122,15 @@ class Settings {
         }
     }
 
+    adBlock(enabled?: boolean) {
+        if (enabled === true || enabled === false) {
+            this.#storageManager.setVal("adBlock", enabled.valueOf().toString());
+        }
+        else {
+            this.#storageManager.setVal("adBlock", "true");
+        }
+    }
+
     async *#init() {
         yield this.theme(this.#storageManager.getVal("theme") || "default");
     }
