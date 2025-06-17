@@ -7,9 +7,10 @@
     const init = async () => {
         settings.searchEngine();
         settings.proxy();
+        settings.adBlock();
         await sw.wispServer();
     }
-
+    
     init();
     document.addEventListener('astro:after-swap', async () => {
         //const settings = await Settings.getInstance();

@@ -18,7 +18,7 @@ const viteWispServer = (): Plugin => {
         name: "vite-wisp-server",
         configureServer(server) {
             server.httpServer?.on("upgrade", (req, socket, head) => {
-                req.url.startsWith("/wisp") ? wisp.routeRequest(req, socket, head) : undefined;
+                req.url.startsWith("/wisp") || req.url.startsWith("/adblock") ? wisp.routeRequest(req, socket, head) : undefined;
             });
         }
     };
