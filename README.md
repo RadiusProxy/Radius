@@ -1,5 +1,7 @@
 <p align="center">
-    <img src="public/favicon.png" alt="Radius logo" width="150">
+    <a href="https://radiusproxy.app">
+        <img src="public/favicon.png" alt="Radius logo" width="150">
+    </a>
 </p>
 
 # [Radius](https://radiusproxy.app)
