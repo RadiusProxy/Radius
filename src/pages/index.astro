@@ -64,6 +64,7 @@ const link = Astro.url.searchParams.get("redir");
                 const settings = await Settings.getInstance();
                 iframe.classList.remove("hidden");
                 iframe.src = sw.encodeURL(input.value); 
+                buttons();
             }
         });
 
@@ -102,7 +103,6 @@ const link = Astro.url.searchParams.get("redir");
             phlImage.src = object;
             bhl.classList.add("hidden");
             phl.classList.remove("hidden");
-            buttons();
         }); 
     }
 
