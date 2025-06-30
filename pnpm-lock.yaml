@@ -65,7 +65,7 @@ importers:
         version: 1.4.0
       '@mercuryworkshop/scramjet':
         specifier: https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-1.0.2-dev.tgz
-        version: https://objects.githubusercontent.com/github-production-release-asset-2e65be/796471870/95a18faf-7bbc-4372-a801-b2253ca57843?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250323%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250323T010655Z&X-Amz-Expires=300&X-Amz-Signature=e62be664430704810aa5cb1ea10d5d13a3b5407653f08669a4598600a6231da9&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dmercuryworkshop-scramjet-1.0.2-dev.tgz&response-content-type=application%2Foctet-stream
+        version: https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-1.0.2-dev.tgz
       '@playform/compress':
         specifier: ^0.1.7
         version: 0.1.7(@types/node@22.13.10)(jiti@2.4.2)(rollup@4.36.0)(tsx@4.19.3)(typescript@5.8.2)(yaml@2.7.0)
@@ -687,8 +687,8 @@ packages:
   '@mercuryworkshop/libcurl-transport@1.4.0':
     resolution: {integrity: sha512-Mm3cnaty3bRneKARCHtoiAEJ5vl2nI0QQzhu+L6wiKQAT9hvORYWS7BIJnB/U3EKNG/JSzPQF8D0fEN83aY/Mg==}
 
-  '@mercuryworkshop/scramjet@https://objects.githubusercontent.com/github-production-release-asset-2e65be/796471870/95a18faf-7bbc-4372-a801-b2253ca57843?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250323%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250323T010655Z&X-Amz-Expires=300&X-Amz-Signature=e62be664430704810aa5cb1ea10d5d13a3b5407653f08669a4598600a6231da9&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dmercuryworkshop-scramjet-1.0.2-dev.tgz&response-content-type=application%2Foctet-stream':
-    resolution: {tarball: https://objects.githubusercontent.com/github-production-release-asset-2e65be/796471870/95a18faf-7bbc-4372-a801-b2253ca57843?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250323%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250323T010655Z&X-Amz-Expires=300&X-Amz-Signature=e62be664430704810aa5cb1ea10d5d13a3b5407653f08669a4598600a6231da9&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dmercuryworkshop-scramjet-1.0.2-dev.tgz&response-content-type=application%2Foctet-stream}
+  '@mercuryworkshop/scramjet@https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-1.0.2-dev.tgz':
+    resolution: {tarball: https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-1.0.2-dev.tgz}
     version: 1.0.2-dev
 
   '@nodelib/fs.scandir@2.1.5':
@@ -3725,7 +3725,7 @@ snapshots:
     dependencies:
       libcurl.js: 0.7.0
 
-  '@mercuryworkshop/scramjet@https://objects.githubusercontent.com/github-production-release-asset-2e65be/796471870/95a18faf-7bbc-4372-a801-b2253ca57843?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250323%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250323T010655Z&X-Amz-Expires=300&X-Amz-Signature=e62be664430704810aa5cb1ea10d5d13a3b5407653f08669a4598600a6231da9&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dmercuryworkshop-scramjet-1.0.2-dev.tgz&response-content-type=application%2Foctet-stream':
+  '@mercuryworkshop/scramjet@https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-1.0.2-dev.tgz':
     dependencies:
       '@mercuryworkshop/bare-mux': 2.1.7
       dom-serializer: 2.0.0
