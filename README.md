@@ -31,10 +31,11 @@ If you can't donate, tell your friends about Radius!
 [CurlTransport](https://github.com/MercuryWorkshop/CurlTransport) Bare-mux transport using libcurl.js <br>
 
 # Setup
+[![Deploy to Koyeb](https://binbashbanana.github.io/deploy-buttons/buttons/remade/koyeb.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/RadiusProxy/Radius&branch=main&name=radius&instance_type=free&regions=was)
+
 ```bash
 git clone https://github.com/RadiusProxy/Radius
 cd Radius
-pnpm i
 pnpm bstart
 ```
 Radius will run on port 8080 by default, or 4321 for a dev environment (`pnpm dev`).
