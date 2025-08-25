@@ -28,15 +28,6 @@
     "vite": "^6.2.2",
     "wisp-server-node": "^1.1.7"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "bufferutil",
-      "esbuild",
-      "sharp",
-      "utf-8-validate"
-    ]
-  },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@iconify-json/lucide": "^1.2.30",
@@ -51,5 +42,12 @@
     "sharp": "^0.34.1",
     "tsx": "^4.19.3",
     "vite-plugin-static-copy": "^2.3.0"
-  }
+  },
+  "trustedDependencies": [
+    "@biomejs/biome",
+    "bufferutil",
+    "esbuild",
+    "sharp",
+    "utf-8-validate"
+  ]
 }

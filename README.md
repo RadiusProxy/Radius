@@ -34,10 +34,10 @@ If you can't donate, tell your friends about Radius!
 ```bash
 git clone https://github.com/RadiusProxy/Radius
 cd Radius
-pnpm i
-pnpm bstart
+bun install # requires bun ^1.2.0 - install with `curl -fsSL https://bun.sh/install`
+bun bstart # build and start production environment
 ```
-Radius will run on port 8080 by default, or 4321 for a dev environment (`pnpm dev`).
+Radius will run on port 8080 by default, or 4321 for a dev environment (`bun dev`).
 
 # Credits
 [Owski](https://github.com/unretain) - Owner <br>
