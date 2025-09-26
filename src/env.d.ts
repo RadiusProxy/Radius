@@ -15,9 +15,7 @@ interface SJOptions {
     };
     files: {
         wasm: string;
-        shared: string;
-        worker: string;
-        client: string;
+        all: string;
         sync: string;
     };
     flags?: {
