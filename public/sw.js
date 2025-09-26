@@ -1,12 +1,13 @@
 importScripts(
     "/vu/uv.bundle.js",
     "/vu/uv.config.js",
-    "/marcs/scramjet.shared.js",
-    "/marcs/scramjet.worker.js"
+    "/marcs/scramjet.all.js"
 );
 importScripts(__uv$config.sw || "/vu/uv.sw.js");
 
 const uv = new UVServiceWorker();
+
+const { ScramjetServiceWorker } = $scramjetLoadWorker();
 const sj = new ScramjetServiceWorker();
 
 self.addEventListener("fetch", function (event) {

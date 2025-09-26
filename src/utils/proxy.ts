@@ -120,7 +120,7 @@ class SW {
         };
         createScript("/vu/uv.bundle.js", true);
         createScript("/vu/uv.config.js", true);
-        createScript("/marcs/scramjet.controller.js", true);
+        createScript("/marcs/scramjet.all.js", true);
 
         checkScripts().then(async () => {
             this.#baremuxConn = new BareMuxConnection("/erab/worker.js");
@@ -129,9 +129,7 @@ class SW {
                 prefix: "/~/scramjet/",
                 files: {
                     wasm: "/marcs/scramjet.wasm.wasm",
-                    worker: "/marcs/scramjet.worker.js",
-                    client: "/marcs/scramjet.client.js",
-                    shared: "/marcs/scramjet.shared.js",
+                    all: "/marcs/scramjet.all.js",
                     sync: "/marcs/scramjet.sync.js"
                 },
                 flags: {

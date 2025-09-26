@@ -7,7 +7,7 @@ import icon from "astro-icon";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import playformCompress from "@playform/compress";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
-import { scramjetPath } from "@mercuryworkshop/scramjet";
+import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 //@ts-expect-error No types
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
