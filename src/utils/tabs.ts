@@ -79,7 +79,12 @@ class TabManager {
 
         // Get SW instance lazily
         if (!this.#sw) {
-            this.#sw = SW.getInstance().next().value!;
+            const swInstance = SW.getInstance().next().value;
+            if (!swInstance) {
+                console.error("SW instance not ready");
+                return;
+            }
+            this.#sw = swInstance;
         }
 
         const encodedUrl = this.#sw.encodeURL(url);

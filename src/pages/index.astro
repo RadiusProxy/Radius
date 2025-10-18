@@ -68,6 +68,15 @@ const link = Astro.url.searchParams.get("redir");
         // Initialize TabManager
         const tabManager = TabManager.getInstance();
         
+        // Lazy BareClient instance
+        let bareClient: BareClient | null = null;
+        const getBareClient = () => {
+            if (!bareClient) {
+                bareClient = new BareClient();
+            }
+            return bareClient;
+        };
+        
         try {
             tabManager.init(iframeContainer, tabsList);
             
@@ -82,7 +91,12 @@ const link = Astro.url.searchParams.get("redir");
         // Handle search input
         input.addEventListener("keypress", async (event: any) => {
             if (event.key === "Enter" && input.value.trim()) {
-                const sw = SW.getInstance().next().value!;
+                const swInstance = SW.getInstance().next().value;
+                if (!swInstance) {
+                    console.error("SW instance not ready");
+                    return;
+                }
+                
                 const settings = await Settings.getInstance();
                 
                 // Show tab system, hide home screen
@@ -124,8 +138,8 @@ const link = Astro.url.searchParams.get("redir");
                         const pageURL = await getURL(iframe);
                         if (pageURL) {
                             try {
-                                // Create BareClient only when needed
-                                const client = new BareClient();
+                                // Use the shared BareClient instance
+                                const client = getBareClient();
                                 const data = await client.fetch(`https://www.google.com/s2/favicons?domain=${pageURL}&sz=64`);
                                 const dataRes = await data.blob();
                                 const object = URL.createObjectURL(dataRes);
