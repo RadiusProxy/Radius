@@ -13,14 +13,13 @@ class TabManager {
     #tabs: Map<string, Tab> = new Map();
     #activeTabId: string | null = null;
     #storageManager: StoreManager<"radius||settings">;
-    #sw: SW;
+    #sw?: SW;
     #container: HTMLElement | null = null;
     #tabsListContainer: HTMLElement | null = null;
     static #instance: TabManager | null = null;
 
     private constructor() {
         this.#storageManager = new StoreManager("radius||settings");
-        this.#sw = SW.getInstance().next().value!;
         
         // Listen for storage changes across all tabs
         window.addEventListener("storage", (e) => {
@@ -77,6 +76,11 @@ class TabManager {
     loadUrl(tabId: string, url: string): void {
         const tab = this.#tabs.get(tabId);
         if (!tab) return;
+
+        // Get SW instance lazily
+        if (!this.#sw) {
+            this.#sw = SW.getInstance().next().value!;
+        }
 
         const encodedUrl = this.#sw.encodeURL(url);
         tab.iframe.src = encodedUrl;
