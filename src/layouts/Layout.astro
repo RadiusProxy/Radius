@@ -24,6 +24,15 @@ readdir(pathJoin("src", "styles", "themes"), { encoding: "utf-8" }, (err, files)
 		<meta name="generator" content={Astro.generator} />
         <title>Radius</title>
         <ClientRouter fallback="animate" />
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQFRWNVPMG"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-FQFRWNVPMG');
+        </script>
 	</head>
     <body class="h-full w-full bg-(--background) font-inter">
         <Header />
