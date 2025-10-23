@@ -110,7 +110,7 @@ class SW {
                 const t = setInterval(() => {
                     if (
                         typeof __uv$config !== "undefined" &&
-                        typeof ScramjetController !== "undefined"
+                        typeof $scramjetLoadController !== "undefined"
                     ) {
                         clearInterval(t);
                         resolve();
