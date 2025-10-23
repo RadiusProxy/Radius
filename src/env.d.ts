@@ -1,6 +1,13 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 /// <reference types="@titaniumnetwork-dev/ultraviolet/client" />
+
+declare global {
+    interface Window {
+        dataLayer: any[];
+        gtag: (...args: any[]) => void;
+    }
+}
 interface SJOptions {
     prefix: string;
     globals?: {
