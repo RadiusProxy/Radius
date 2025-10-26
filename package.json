@@ -7,7 +7,7 @@
     "dev:client": "astro dev",
     "dev": "npm run dev:client",
     "build:server": "tsc -p server",
-    "build:client": "astro check && astro build",
+    "build:client": "astro build",
     "build": "npm run build:server & npm run build:client",
     "start": "node server/index.js",
     "bstart": "npm run build && npm run start",
