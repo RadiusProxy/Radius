@@ -1,0 +1,96 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const gamesUrl = "https://fern.best/x7k9m2p.html";
+---
+
+<Layout>
+    <div class="h-full flex items-center justify-center font-inter">
+        <iframe id="iframe" class="fixed h-[calc(100%-3.5rem)] mt-14 w-full bg-(--background)" />
+        <link-element data-link={btoa(gamesUrl)} />
+    </div>
+</Layout>
+<script>
+    import { SW } from "@utils/proxy.ts";
+    import { Settings } from "@utils/settings.ts";
+    import { BareClient } from "@mercuryworkshop/bare-mux"; 
+
+    const init = async () => {
+        const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+        const iframeWin = iframe.contentWindow;
+        const bhl = document.getElementById("bhl") as HTMLDivElement;
+        const phl = document.getElementById("phl") as HTMLDivElement;
+        const phlImage = document.getElementById("phlImage") as HTMLImageElement;
+        const phlTitle = document.getElementById("phlTitle") as HTMLDivElement;
+        const proxyLeft = document.getElementById("pal") as HTMLButtonElement;
+        const proxyRight = document.getElementById("par") as HTMLButtonElement;
+        const proxyReload = document.getElementById("prl") as HTMLButtonElement;
+        const client = new BareClient();
+
+        const getURL = async (): Promise<string> => {
+            if (iframeWin!.__uv) {
+                return iframeWin!.__uv.location.href
+            }
+            else {
+                return iframeWin!.location.href
+                    .replace(iframeWin!.location.origin, '')
+                    .replace(iframeWin!.$scramjet.config.prefix, '')
+            }
+        }
+
+        const buttons = () => {
+            proxyLeft.addEventListener("click", () => {
+                iframeWin!.history.back();
+            });
+            proxyRight.addEventListener("click", () => {
+                iframeWin!.history.forward();
+            });
+            proxyReload.addEventListener("click", () => {
+                iframeWin!.location.reload();
+            });
+        }
+
+        iframe.addEventListener("load", async () => {
+            phlTitle.innerHTML = iframeWin!.document.title;
+            const pageURL = await getURL();
+            const data = await client.fetch(`https://www.google.com/s2/favicons?domain=${pageURL}&sz=64`);
+            const dataRes = await data.blob();
+            const object = URL.createObjectURL(dataRes);
+            phlImage.src = object;
+            bhl.classList.add("hidden");
+            phl.classList.remove("hidden");
+        }); 
+
+        buttons();
+    }
+
+    class CustomComponent extends HTMLElement {
+        connectedCallback() {
+            const link = this.dataset.link;
+            if (link) {
+                return (async () => {
+                    await init();
+                    const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+                    const sw = SW.getInstance().next().value!;
+                    const settings = await Settings.getInstance();
+                    
+                    try {
+                        const url = atob(link);
+                        iframe.src = sw.encodeURL(url);
+                    } catch (_) {
+                        iframe.src = sw.encodeURL(link);
+                    }
+                })();
+            }
+        }
+    }
+    
+    customElements.define('link-element', CustomComponent);
+    document.addEventListener("astro:page-load", async () => {
+        try {
+            await init();
+        }
+        catch (_) {}
+    });
+</script>
