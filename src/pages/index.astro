@@ -1,6 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import Card from "@components/ui/Card.astro";
+import Input from "@components/ui/Input.astro";
+import Button from "@components/ui/Button.astro";
 
 import splash from "@assets/splash.json";
 
@@ -12,6 +15,38 @@ const genSplash = (): String => {
 const randomSplash = genSplash();
 
 const link = Astro.url.searchParams.get("redir");
+const shortcutApps = [
+    {
+        text: "YouTube",
+        imageSrc: "/src/assets/images/apps/Youtube.jpg",
+        id: "shortcutYoutube",
+        url: "https://youtube.com"
+    },
+    {
+        text: "Discord",
+        imageSrc: "/src/assets/images/apps/Discord.jpeg",
+        id: "shortcutDiscord",
+        url: "https://discord.com/login"
+    },
+    {
+        text: "Spotify",
+        imageSrc: "/src/assets/images/apps/Spotify.png",
+        id: "shortcutSpotify",
+        url: "https://spotify.com"
+    },
+    {
+        text: "TikTok",
+        imageSrc: "/src/assets/images/apps/Tiktok.png",
+        id: "shortcutTiktok",
+        url: "https://tiktok.com"
+    },
+    {
+        text: "GitHub",
+        imageSrc: "/src/assets/images/apps/GitHub.png",
+        id: "shortcutGithub",
+        url: "https://github.com"
+    }
+];
 ---
 
 <Layout>
@@ -26,6 +61,58 @@ const link = Astro.url.searchParams.get("redir");
                 <input id="input" type="text" name="Search" class="text-md md:text-sm focus-visible:outline-none w-full h-full placeholder:text-(--muted-foreground)" id="search" placeholder="Search the web">
             </div>
             <p class="text-sm text-center sm:text-base whitespace-nowrap"> { randomSplash } </p>
+            <div id="shortcutContainer" class="w-full max-w-[38rem] rounded-lg border border-(--border) bg-(--card) text-(--card-foreground) shadow-sm px-4 py-3" data-default-shortcuts={JSON.stringify(shortcutApps)}>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                        <p class="text-sm font-semibold">Quick Shortcuts</p>
+                        <p class="text-xs text-(--muted-foreground)">Personalize labels and links.</p>
+                    </div>
+                    <button id="shortcutEditToggle" class="h-8 px-3 rounded-lg text-xs font-medium bg-(--secondary) hover:bg-(--secondary)/80 transition-colors">
+                        Edit
+                    </button>
+                </div>
+                <div id="shortcutGrid" class="flex flex-wrap justify-center gap-2 px-2 py-3">
+                    {shortcutApps.map((app) => (
+                        <Card
+                            text={app.text}
+                            imageSrc={app.imageSrc}
+                            id={app.id}
+                            link={`/?redir=${btoa(app.url)}`}
+                            size="sm"
+                        />
+                    ))}
+                </div>
+                <template id="shortcutSavedTemplate">
+                    <a class="p-2" data-shortcut="saved">
+                        <div class="rounded-md relative group cursor-pointer h-20 w-20 hover:scale-105 duration-100 transition-all">
+                            <img class="h-20 w-20 aspect-square object-cover rounded-md" alt="" />
+                            <div class="absolute inset-0 h-full w-full opacity-0 group-hover:opacity-100 bg-gradient-to-t from-(--accent) to-transparent rounded-b-md duration-100 flex items-end p-2 font-semibold">
+                                <p class="text-xs"></p>
+                            </div>
+                        </div>
+                    </a>
+                </template>
+                <div id="shortcutEditor" class="hidden border-t border-(--border) pt-4">
+                    <div class="flex flex-col gap-3">
+                        {shortcutApps.map((app) => (
+                            <div class="flex flex-col gap-2 md:flex-row md:items-center">
+                                <div class="md:w-40">
+                                    <p class="text-xs text-(--muted-foreground)">Label</p>
+                                    <Input id={`shortcutLabel-${app.id}`} placeholder={app.text} />
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="text-xs text-(--muted-foreground)">URL</p>
+                                    <Input id={`shortcutUrl-${app.id}`} placeholder={app.url} />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <Button id="shortcutSave" text="Save Shortcuts" icon="lucide:save" />
+                        <Button id="shortcutReset" text="Reset Shortcuts" icon="lucide:rotate-ccw" />
+                    </div>
+                </div>
+            </div>
             {/** <div class="w-full flex flex-row gap-2">
                 <div class="rounded-md border-2">
                     t
@@ -40,6 +127,17 @@ const link = Astro.url.searchParams.get("redir");
     import { SW } from "@utils/proxy.ts";
     import { Settings } from "@utils/settings.ts";
     import { BareClient } from "@mercuryworkshop/bare-mux"; 
+    import { StoreManager } from "@utils/storage";
+    import {
+        buildRedirect,
+        getFaviconUrl,
+        getSavedShortcuts,
+        isSavedShortcut,
+        toggleSavedShortcut
+    } from "@utils/shortcuts";
+
+    let currentProxyUrl = "";
+    let currentProxyTitle = "";
 
     const init = async () => {
         const input = document.getElementById("input") as HTMLInputElement;
@@ -89,9 +187,15 @@ const link = Astro.url.searchParams.get("redir");
             proxyReload.addEventListener("click", () => {
                 iframeWin!.location.reload();
             });
-            /** proxyShortcut.button.addEventListener("click", () => {
-                console.log("yet to be implemented");
-            }); */
+            if (proxyShortcut.button && !proxyShortcut.button.dataset.bound) {
+                proxyShortcut.button.dataset.bound = "true";
+                proxyShortcut.button.addEventListener("click", () => {
+                    if (!currentProxyUrl) return;
+                    const result = toggleSavedShortcut(currentProxyUrl, currentProxyTitle);
+                    updateShortcutButton(proxyShortcut, currentProxyUrl);
+                    renderSavedShortcuts(result.shortcuts);
+                });
+            }
         }
 
         iframe.addEventListener("load", async () => {
@@ -103,8 +207,176 @@ const link = Astro.url.searchParams.get("redir");
             phlImage.src = object;
             bhl.classList.add("hidden");
             phl.classList.remove("hidden");
+            currentProxyUrl = pageURL;
+            currentProxyTitle = iframeWin!.document.title || pageURL;
+            updateShortcutButton(proxyShortcut, currentProxyUrl);
         }); 
     }
+
+    type ShortcutItem = {
+        id: string;
+        text: string;
+        url: string;
+        imageSrc: string;
+        imageUrl?: string;
+    };
+
+    const updateShortcutButton = (
+        proxyShortcut: { button: HTMLButtonElement | null; noShortcut: HTMLElement | null; shortcut: HTMLElement | null },
+        url: string
+    ) => {
+        if (!proxyShortcut.button || !proxyShortcut.noShortcut || !proxyShortcut.shortcut) return;
+        const saved = url ? isSavedShortcut(url) : false;
+        proxyShortcut.noShortcut.classList.toggle("hidden", saved);
+        proxyShortcut.shortcut.classList.toggle("hidden", !saved);
+        proxyShortcut.button.setAttribute("aria-pressed", saved ? "true" : "false");
+        proxyShortcut.button.title = saved ? "Remove shortcut" : "Save shortcut";
+    };
+
+    const renderSavedShortcuts = (shortcuts = getSavedShortcuts()) => {
+        const shortcutGrid = document.getElementById("shortcutGrid") as HTMLDivElement | null;
+        const template = document.getElementById("shortcutSavedTemplate") as HTMLTemplateElement | null;
+
+        if (!shortcutGrid || !template) return;
+        shortcutGrid.querySelectorAll('[data-shortcut="saved"]').forEach((el) => el.remove());
+        if (!shortcuts.length) return;
+
+        shortcuts.forEach((shortcut) => {
+            const node = template.content.firstElementChild?.cloneNode(true) as HTMLAnchorElement | null;
+            if (!node) return;
+            node.href = buildRedirect(shortcut.url);
+            const image = node.querySelector("img") as HTMLImageElement | null;
+            if (image) {
+                image.src = shortcut.imageUrl || getFaviconUrl(shortcut.url);
+                image.alt = shortcut.title;
+            }
+            const label = node.querySelector("p");
+            if (label) label.textContent = shortcut.title;
+            shortcutGrid.appendChild(node);
+        });
+    };
+
+    const setupShortcuts = () => {
+        const shortcutContainer = document.getElementById("shortcutContainer") as HTMLDivElement;
+        const shortcutEditor = document.getElementById("shortcutEditor") as HTMLDivElement;
+        const shortcutEditToggle = document.getElementById("shortcutEditToggle") as HTMLButtonElement;
+        const shortcutSave = document.getElementById("shortcutSave") as HTMLButtonElement;
+        const shortcutReset = document.getElementById("shortcutReset") as HTMLButtonElement;
+
+        if (!shortcutContainer || !shortcutEditor || !shortcutEditToggle || !shortcutSave || !shortcutReset) {
+            return;
+        }
+
+        const storageManager = new StoreManager<"radius||settings">("radius||settings");
+        const defaults: ShortcutItem[] = JSON.parse(shortcutContainer.dataset.defaultShortcuts || "[]");
+        const shortcutsKey = "shortcuts";
+
+        const applyShortcuts = (shortcuts: ShortcutItem[]) => {
+            shortcuts.forEach((shortcut) => {
+                const card = document.getElementById(shortcut.id);
+                if (!card) return;
+                const anchor = card.closest("a");
+                if (anchor) anchor.href = buildRedirect(shortcut.url);
+                const label = card.querySelector("p");
+                if (label) label.textContent = shortcut.text;
+                const image = card.querySelector("img") as HTMLImageElement | null;
+                if (image) {
+                    if (!image.dataset.defaultSrc) {
+                        image.dataset.defaultSrc = image.src;
+                        if (image.srcset) image.dataset.defaultSrcset = image.srcset;
+                    }
+                    if (shortcut.imageUrl) {
+                        image.src = shortcut.imageUrl;
+                        image.srcset = "";
+                    }
+                    else if (image.dataset.defaultSrc) {
+                        image.src = image.dataset.defaultSrc;
+                        image.srcset = image.dataset.defaultSrcset || "";
+                    }
+                }
+            });
+        };
+
+        const fillEditor = (shortcuts: ShortcutItem[]) => {
+            shortcuts.forEach((shortcut) => {
+                const labelInput = document.getElementById(`shortcutLabel-${shortcut.id}`) as HTMLInputElement;
+                const urlInput = document.getElementById(`shortcutUrl-${shortcut.id}`) as HTMLInputElement;
+                if (labelInput) labelInput.value = shortcut.text;
+                if (urlInput) urlInput.value = shortcut.url;
+            });
+        };
+
+        const loadShortcuts = (): ShortcutItem[] => {
+            const stored = storageManager.getVal(shortcutsKey);
+            if (!stored) return defaults;
+            try {
+                const parsed = JSON.parse(stored);
+                if (!Array.isArray(parsed)) return defaults;
+                const byId = new Map(parsed.map((item: ShortcutItem) => [item.id, item]));
+                return defaults.map((item) => {
+                    const storedItem = byId.get(item.id);
+                    return {
+                        ...item,
+                        text: typeof storedItem?.text === "string" ? storedItem.text : item.text,
+                        url: typeof storedItem?.url === "string" ? storedItem.url : item.url,
+                        imageUrl: typeof storedItem?.imageUrl === "string" ? storedItem.imageUrl : item.imageUrl
+                    };
+                });
+            } catch (_) {
+                return defaults;
+            }
+        };
+
+        const persistShortcuts = (shortcuts: ShortcutItem[]) => {
+            const payload = shortcuts.map(({ id, text, url, imageUrl }) => ({
+                id,
+                text,
+                url,
+                imageUrl
+            }));
+            storageManager.setVal(shortcutsKey, JSON.stringify(payload));
+        };
+
+        const collectEditorValues = (): ShortcutItem[] => {
+            return currentShortcuts.map((item) => {
+                const labelInput = document.getElementById(`shortcutLabel-${item.id}`) as HTMLInputElement;
+                const urlInput = document.getElementById(`shortcutUrl-${item.id}`) as HTMLInputElement;
+                const text = labelInput?.value.trim() || item.text;
+                const url = urlInput?.value.trim() || item.url;
+                return { ...item, text, url };
+            });
+        };
+
+        const toggleEditor = () => {
+            const isHidden = shortcutEditor.classList.contains("hidden");
+            shortcutEditor.classList.toggle("hidden");
+            shortcutEditToggle.textContent = isHidden ? "Close" : "Edit";
+        };
+
+        let currentShortcuts = loadShortcuts();
+        applyShortcuts(currentShortcuts);
+        fillEditor(currentShortcuts);
+        renderSavedShortcuts();
+
+        shortcutEditToggle.addEventListener("click", toggleEditor);
+        shortcutSave.addEventListener("click", () => {
+            const updated = collectEditorValues();
+            currentShortcuts = updated;
+            persistShortcuts(updated);
+            applyShortcuts(updated);
+            fillEditor(updated);
+            shortcutEditor.classList.add("hidden");
+            shortcutEditToggle.textContent = "Edit";
+        });
+        shortcutReset.addEventListener("click", () => {
+            storageManager.removeVal(shortcutsKey);
+            currentShortcuts = defaults;
+            applyShortcuts(defaults);
+            fillEditor(defaults);
+            shortcutEditor.classList.add("hidden");
+            shortcutEditToggle.textContent = "Edit";
+        });
+    };
 
     class CustomComponent extends HTMLElement {
         connectedCallback() {
@@ -129,6 +401,7 @@ const link = Astro.url.searchParams.get("redir");
     document.addEventListener("astro:page-load", async () => {
         try {
             await init();
+            setupShortcuts();
         }
         catch (_) {}
     });

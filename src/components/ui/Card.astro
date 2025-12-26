@@ -10,25 +10,29 @@ interface Props {
     imageSrc: string;
     text: string;
     id: string;
+    size?: "sm" | "lg";
 }
 
-const { imageSrc, text, id, link } = Astro.props;
+const { imageSrc, text, id, link, size = "lg" } = Astro.props;
+const sizeClass = size === "sm" ? "h-20 w-20" : "h-36 w-36";
+const overlayPaddingClass = size === "sm" ? "p-2" : "p-2 px-4";
+const textClass = size === "sm" ? "text-xs" : "";
 ---
 {link ?
     <a class="p-2" href={link}>
-        <div id={id} class="rounded-md relative group cursor-pointer h-36 hover:scale-105 duration-100 transition-all">
-            <Image loading="lazy" src={images[imageSrc]()} class="h-36 w-36 aspect-square object-cover rounded-md" alt={text} />
-            <div class="absolute inset-0 h-full w-full opacity-0 group-hover:opacity-100 bg-gradient-to-t from-(--accent) to-transparent rounded-b-md duration-100 flex items-end p-2 px-4 font-semibold">
-                <p> { text } </p>
+        <div id={id} class={`rounded-md relative group cursor-pointer ${sizeClass} hover:scale-105 duration-100 transition-all`}>
+            <Image loading="lazy" src={images[imageSrc]()} class={`aspect-square object-cover rounded-md ${sizeClass}`} alt={text} />
+            <div class={`absolute inset-0 h-full w-full opacity-0 group-hover:opacity-100 bg-gradient-to-t from-(--accent) to-transparent rounded-b-md duration-100 flex items-end ${overlayPaddingClass} font-semibold`}>
+                <p class={textClass}> { text } </p>
             </div>
         </div>
     </a>
     :
     <div class="p-2">
-        <div id={id} class="rounded-md relative group cursor-pointer h-36 hover:scale-105 duration-100 transition-all">
-            <Image loading="lazy" src={images[imageSrc]()} class="h-36 w-36 aspect-square object-cover rounded-md" alt={text} />
-            <div class="absolute inset-0 h-full w-full opacity-0 group-hover:opacity-100 bg-gradient-to-t from-(--accent) to-transparent rounded-b-md duration-100 flex items-end p-2 px-4 font-semibold">
-                <p> { text } </p>
+        <div id={id} class={`rounded-md relative group cursor-pointer ${sizeClass} hover:scale-105 duration-100 transition-all`}>
+            <Image loading="lazy" src={images[imageSrc]()} class={`aspect-square object-cover rounded-md ${sizeClass}`} alt={text} />
+            <div class={`absolute inset-0 h-full w-full opacity-0 group-hover:opacity-100 bg-gradient-to-t from-(--accent) to-transparent rounded-b-md duration-100 flex items-end ${overlayPaddingClass} font-semibold`}>
+                <p class={textClass}> { text } </p>
             </div>
         </div>
     </div>

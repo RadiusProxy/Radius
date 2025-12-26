@@ -16,6 +16,22 @@ const gamesUrl = "https://fern.best/x7k9m2p.html";
     import { SW } from "@utils/proxy.ts";
     import { Settings } from "@utils/settings.ts";
     import { BareClient } from "@mercuryworkshop/bare-mux"; 
+    import { isSavedShortcut, toggleSavedShortcut } from "@utils/shortcuts";
+
+    let currentProxyUrl = "";
+    let currentProxyTitle = "";
+
+    const updateShortcutButton = (
+        proxyShortcut: { button: HTMLButtonElement | null; noShortcut: HTMLElement | null; shortcut: HTMLElement | null },
+        url: string
+    ) => {
+        if (!proxyShortcut.button || !proxyShortcut.noShortcut || !proxyShortcut.shortcut) return;
+        const saved = url ? isSavedShortcut(url) : false;
+        proxyShortcut.noShortcut.classList.toggle("hidden", saved);
+        proxyShortcut.shortcut.classList.toggle("hidden", !saved);
+        proxyShortcut.button.setAttribute("aria-pressed", saved ? "true" : "false");
+        proxyShortcut.button.title = saved ? "Remove shortcut" : "Save shortcut";
+    };
 
     const init = async () => {
         const iframe = document.getElementById("iframe") as HTMLIFrameElement;
@@ -27,6 +43,11 @@ const gamesUrl = "https://fern.best/x7k9m2p.html";
         const proxyLeft = document.getElementById("pal") as HTMLButtonElement;
         const proxyRight = document.getElementById("par") as HTMLButtonElement;
         const proxyReload = document.getElementById("prl") as HTMLButtonElement;
+        const proxyShortcut = {
+            button: document.getElementById("psc") as HTMLButtonElement,
+            noShortcut: document.getElementById("noShortcut") as HTMLElement,
+            shortcut: document.getElementById("shortcut") as HTMLElement
+        }
         const client = new BareClient();
 
         const getURL = async (): Promise<string> => {
@@ -50,6 +71,14 @@ const gamesUrl = "https://fern.best/x7k9m2p.html";
             proxyReload.addEventListener("click", () => {
                 iframeWin!.location.reload();
             });
+            if (proxyShortcut.button && !proxyShortcut.button.dataset.bound) {
+                proxyShortcut.button.dataset.bound = "true";
+                proxyShortcut.button.addEventListener("click", () => {
+                    if (!currentProxyUrl) return;
+                    toggleSavedShortcut(currentProxyUrl, currentProxyTitle);
+                    updateShortcutButton(proxyShortcut, currentProxyUrl);
+                });
+            }
         }
 
         iframe.addEventListener("load", async () => {
@@ -61,6 +90,9 @@ const gamesUrl = "https://fern.best/x7k9m2p.html";
             phlImage.src = object;
             bhl.classList.add("hidden");
             phl.classList.remove("hidden");
+            currentProxyUrl = pageURL;
+            currentProxyTitle = iframeWin!.document.title || pageURL;
+            updateShortcutButton(proxyShortcut, currentProxyUrl);
         }); 
 
         buttons();
